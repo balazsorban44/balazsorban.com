@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <meta charset="utf-8">
+  <meta property="og:title" content="Golden hour"/>
+  <meta property="og:description" content="This post is for testing purposes only."/>
+  <meta property="og:url" content="..//photo/landscape/2016/07/19/hello-world.html"/>
+  <meta property="og:image" content="..///images/1.jpg"/>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Golden hour</title>
+  <meta name="description" content="">
+  <base href="..//photo">
+  <link rel="shortcut icon" href="..///images/favicon.ico" type="image/x-icon"/>
+  <link rel="icon" href="..///images/favicon.ico" type="image/x-icon"/>
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="stylesheet" href="..///css/main.css">
+  <link rel="canonical" href="..//photo/landscape/2016/07/19/hello-world.html">
+  <link rel="alternate" type="application/rss+xml" title="Photography by Balázs Orbán" href="..//photo/feed.xml">
+</head>
+
+  <body class=post-body>
+    <header class="post-header">
+    <a class="site-title" href="/"> ✕ </a>
+</header>
+
+    <div class="page-content">
+      <article class="post" itemscope itemtype="https://schema.org/Photograph">
+  <header class="article-header">
+    <div class="post-author" itemprop="author publisher" itemscope itemtype="http://schema.org/Person">
+      <div>by </div>
+      <div itemprop="name">
+        Balázs Orbán
+      </div>
+    </div>
+    <p class="post-meta">
+      <time datetime="2016-07-19T02:46:00+02:00" itemprop="dateModified datePublished">July 19, 2016</time>
+    </p>
+  </header>
+  <section class="post-content">
+    <img class="post-bg" src="..//photo/images/1.jpg">
+    <div class="post-perse">
+      <img alt="page.title" src="..//photo/images/1.jpg" class="myphoto"/>
+      <div class="text">
+        <h1 itemprop="name headline" class="post-title">Golden hour</h1>
+        <ul>
+          <li itemprop="description">This post is for testing purposes only.</li>
+          <li itemprop="contentLocation">Trondheim, Sør-Trøndelag, Norway</li>
+          <li itemprop="genre">landscape</li>
+        </ul>
+        <div id="map"></div>
+      </div>
+    </div>
+  </section>
+</article>
+
+    </div>
+    <script async defer>function initMap() {
+  var myLatLng = {lat: 63.426926, lng: 10.410253};
+
+  // Create a map object and specify the DOM element for display.
+  var map = new google.maps.Map(document.getElementById('map'), {
+    center: myLatLng,
+    mapTypeId: google.maps.MapTypeId.HYBRID,
+    //styles: styleArray,
+    zoom: 16,
+
+  });
+
+  // Create a marker and set its position.
+  var marker = new google.maps.Marker({
+    map: map,
+    position: myLatLng,
+    title: 'Golden hour'
+  });
+}
+</script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDCXcMp5fztufAkamGRQIkc7G54TwNcscg&callback=initMap"
+    async defer></script>
+
+  </body>
+</html>
