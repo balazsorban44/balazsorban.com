@@ -7,6 +7,10 @@
   outline: 0px;
 }
 
+::selection {
+  background-color: orangered;
+}
+
 a::selection {
   opacity: 0;
 }
@@ -456,6 +460,8 @@ footer ul li a img {
 
 .index section#landing #card #about-me {
   transform: rotateY(180deg);
+  display: flex;
+  align-items: center;
   opacity: 0;
   transform-origin: bottom;
   transition: .5s ease-in-out;
@@ -478,105 +484,19 @@ footer ul li a img {
   }
 }
 
-.index section#landing #card #about-me #me-text {
-  display: flex;
-}
-
-@media (max-width: 720px) {
-  .index section#landing #card #about-me #me-text {
-    flex-direction: column;
-  }
-}
-
-.index section#landing #card #about-me #me-text .photography {
-  max-width: 100%;
-}
-
-@media (max-width: 720px) {
-  .index section#landing #card #about-me #me-text .photography {
-    max-width: none;
-  }
-}
-
-.index section#landing #card #about-me #me-text .photography p {
+.index section#landing #card #about-me #me-text p {
   text-align: justify;
-  padding: 10%;
+  padding: 0 10%;
   color: white;
-  line-height: 1.2;
+  line-height: 1.5;
+  font-size: 1.3em;
 }
 
 @media (max-width: 720px) {
-  .index section#landing #card #about-me #me-text .photography p {
+  .index section#landing #card #about-me #me-text p {
     color: #CC3300;
     line-height: 1.2;
     padding: 20% 5% 5%;
-  }
-}
-
-.index section#landing #card #about-me #me-text hr {
-  display: none;
-}
-
-@media (max-width: 720px) {
-  .index section#landing #card #about-me #me-text hr {
-    display: block;
-    border: 0;
-    height: 1px;
-    width: 90%;
-    background: #ea4300;
-    background-image: linear-gradient(to right, #ea4300, #CC3300, #ea4300);
-  }
-}
-
-.index section#landing #card #about-me #me-text .programming {
-  max-width: 50%;
-  background: white;
-}
-
-@media (max-width: 720px) {
-  .index section#landing #card #about-me #me-text .programming {
-    background: none;
-    max-width: none;
-  }
-}
-
-.index section#landing #card #about-me #me-text .programming p {
-  color: #CC3300;
-  padding: 10% 10% 0;
-  text-align: justify;
-  line-height: 1.2;
-}
-
-@media (max-width: 720px) {
-  .index section#landing #card #about-me #me-text .programming p {
-    padding: 5%;
-  }
-}
-
-.index section#landing #card #about-me #me-text .programming p i {
-  font-weight: bolder;
-}
-
-.index section#landing #card #about-me #me-text .programming .prepros {
-  display: flex;
-  max-width: 100%;
-  padding: 0;
-  flex-wrap: wrap;
-}
-
-.index section#landing #card #about-me #me-text .programming .prepros img {
-  height: 40px;
-  transition: .1s;
-  padding: 0 5px;
-}
-
-.index section#landing #card #about-me #me-text .programming .prepros img:hover {
-  transform: scale(1.2);
-}
-
-@media (max-width: 720px) {
-  .index section#landing #card #about-me #me-text .programming .prepros img {
-    height: 25px;
   }
 }
 
