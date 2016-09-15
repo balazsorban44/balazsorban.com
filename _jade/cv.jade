@@ -1,0 +1,33 @@
+doctype html
+html
+  head
+    include MODULES/head
+    //style
+      include ../css/main.css
+  body
+    include MODULES/menu   
+    section#cv
+      span#line
+      #events
+        mixin event(year, text, sub)
+          .event
+            .left
+              p.year= year
+            .center
+              span.dot
+            .right
+              p.text= text
+              p.sub= sub
+        +event('1994','Born','')
+        +event('2007','Started using image editors','(first GIMP and Photoshop later on)')
+        +event('','Made my first website','(from a template)')
+        +event('2009','Started high school','(bilingual english class)')
+        +event('2013','Exchange student in Norway','AFS')
+        +event('','Started photography','')
+        +event('2014','upgraded to mirrorless camera','Canon EOS-M')
+        +event('2015','finished high school','')
+        +event('','Started programming','(also made my first website from scratch)')
+        +event('','Preparatory course at HiST',' (Mathematics & Physics)')
+        +event('2016','accepted to NTNU','(Norwegian University of Science and Technology, Informatics B.A.)')
+    include MODULES/back-button
+    include MODULES/defer

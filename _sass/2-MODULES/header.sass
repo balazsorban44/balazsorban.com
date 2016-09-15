@@ -1,0 +1,44 @@
+header
+  width:640px
+  border-bottom: 1px solid $dark-orange
+  margin-bottom: 20px
+  transform:  translate(0px,-500px)
+  animation: 1s ease-in-out forwards slideinTop
+  z-index: 1000
+  @include device-width($on-palm)
+    left: 0
+    width: 100vw
+    border-top: none
+    margin: 0 auto
+    border-bottom: 1px solid $dark-orange
+    z-index: 1000
+    position: fixed
+    top: 0
+  nav
+    ul
+      display: flex
+      justify-content:center
+      @include device-width($on-palm)
+        justify-content: space-around
+        background-color: white
+      :nth-child(2)
+        font-weight: bold
+        color: $dark-orange
+        @include device-width($on-palm)
+          display:none
+      li
+        font-size: 2em
+        margin: 10px
+        padding: 10px 5px
+        transform:  translate(0px,-500px)
+        animation: 1s ease-in-out forwards .1s slideinTop
+        @include device-width($on-palm)
+          padding: 8px
+          color: $dark-orange
+          font-size: 1.3em
+        @include device-width($on-palm)
+          font-size: 1.2em
+        a
+          transition: .4s
+          &:hover
+            color: $dark-orange

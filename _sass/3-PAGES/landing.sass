@@ -1,0 +1,165 @@
+.index
+  @include device-width($hd)
+    justify-content: space-around
+  section#landing
+    margin: 5% 0
+    display: flex
+    justify-content: space-around
+    align-items:center
+    @include device-width($hd)
+      flex-direction: column
+      margin: 0
+    #card
+      height: 40vh
+      perspective: 100vh
+      max-width: 50%
+      display: flex
+      align-items: center
+      justify-content: center
+      animation: 1s ease-in-out forwards .5s slideinRight
+      transform:  translate(1500px, 0)
+      @include device-width($hd)
+        max-width: 100%
+        height: auto
+        transform: translate(0px,0px)
+        animation: none
+      #intro
+        border-top: 8px solid $dark-orange
+        position: relative
+        display: flex
+        align-items: center
+        height: 100%
+        background:
+          image: linear-gradient(rgba(0,0,0,.8), rgba(0,0,0,.8)), url('/images/me-bw.jpg')
+          repeat: repeat, no-repeat
+          size: cover, 145%
+          //position: center, center top
+          color: black
+        transition: .5s ease-in-out
+        transform-style: preserve-3d
+        @include device-width($hd)
+          height: auto
+          background: transparent
+          max-width: 100%
+          border: none
+          flex-direction: column
+        &:hover
+          background: rgba(255,255,255,.44)
+          @include device-width($hd)
+            background: transparent
+            box-shadow: none
+            border-left: none
+            border-right: none
+            border-bottom: none
+          p.me
+            color: black
+        p.me
+          padding: 5%
+          font-size: 1.6vw
+          color: white
+          text-align: center
+          //border-top: 1px solid $orange
+          line-height: 1.35
+          animation: .5s ease-in-out forwards 1s scaleUp
+          transform:  translate(0,-1000px)
+          @include device-width($hd)
+            color: black
+            padding: 0 5%
+            border: none
+            text-align: center
+            max-width: 100%
+            font-size: 1.2em
+          span
+            font-size: 1vw
+            width: 50%
+            display: block
+            margin: 5% auto
+            border-radius: 1em
+            padding: 5px
+            text-align: center
+            background-color: $orange
+            font-weight: bolder
+            color: white
+            transition: .2s
+            cursor: pointer
+            border-bottom: 4px solid $dark-orange
+            &:active
+              border-bottom: 3px solid $dark-orange
+            @include device-width($hd)
+              font-size: 1em
+              margin: 10vh auto 0 auto
+
+            //&:active
+              border-bottom: 1px solid $dark-orange
+      #about-me
+        transform: rotateY( 180deg )
+        display: flex
+        align-items: center
+        opacity: 0
+        transform-origin: bottom
+        //backface-visibility: hidden
+        transition: .5s ease-in-out
+        position: absolute
+        width: 100%
+        height: 100%
+        top: 0
+        overflow-y: scroll
+        background-color: $orange
+        z-index: -1
+        border: 6px solid $dark-orange
+        @include device-width($hd)
+          height: 80vh
+          border: none
+          background: white
+          top: -30vh
+        #me-text
+          p
+            text-align: justify
+            padding: 0 10%
+            color: white
+            line-height: 1.5
+            font-size: 1.3em
+            @include device-width($hd)
+              color: $dark-orange
+              line-height: 1.2
+              padding: 20% 5% 5%
+        a
+          text-align: center
+          margin: 1% auto
+          border:none
+          color: $dark-orange
+          font-weight: bold
+          font-size: 1.5em
+          padding: 4px 8px
+          background-color: white
+          border-radius: 1em
+          cursor: pointer
+          transition: .2s
+          &:hover
+            color: lighten($dark-orange, 10)
+            box-shadow: 0 0 0 .20em rgba(255,255,255,.5)
+          @media(max-width: $mobile)
+            margin: 0 auto 24px auto
+            box-shadow: 0 0 0 .20em rgba(255,255,255,.5)
+    #name
+      h1
+        font-size: 5vw
+        text-transform: lowercase
+        font-style: italic
+        font-weight: 600
+        text-indent: -7vw
+        text-align: center
+        transform:  scale(0)
+        animation: .5s ease-in-out forwards .4s scaleUp
+        transition: .3s ease-in-out
+        @include device-width($hd)
+          margin: 0 auto 10vh auto
+          font-size: 2.5em
+          text-indent: 0
+          position: relative
+          z-index: -1
+          br
+            display: none
+        &:first-line
+          color: $dark-orange
+          font-weight: normal

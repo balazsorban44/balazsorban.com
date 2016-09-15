@@ -1,0 +1,56 @@
+section#web-wrapper
+  max-width: $hd - 100px
+  background: rgba(255,255,255,.4)
+  border: 1px solid $dark-orange
+  display: flex
+  align-items: center
+  flex-direction: column
+  animation: .8s ease-in-out forwards .1s slideinBottom
+  transform:  translate(0,1500px)
+  @include device-width($hd)
+    margin: auto 5%
+    max-width: 90%
+  h1
+    display: block
+    width: 100%
+    font-size: 2em
+    padding: 10px 0 0 20px
+    @include device-width($hd)
+      padding-bottom: 10px
+      width: 80%
+  p
+    font-size: 1.2em
+    text-align: justify
+    line-height: 1.2
+    padding: 20px
+    @include device-width($hd)
+      padding: 10px
+      font-size: 1.15em
+      width: 80%
+    span
+      @include device-width($hd)
+        opacity: 0
+  a
+    display: block
+    width: 128px
+    height: 56px
+    margin-bottom: 20px
+    animation: .9s ease-in-out forwards slideinTop
+    transform:  translate(0, 800px)
+
+    span
+      display: block
+      width: 100%
+      height: 100%
+      background:
+        image: url('/images/icons/GitHub.svg')
+        repeat: no-repeat
+        position: center
+        size:50%
+        color: $dark-orange
+      transition: .2s ease-out
+      border-radius: 56px
+      box-shadow: 1px 4px 3px rgba(0,0,0,.18)
+      &:hover
+        background-color: black
+        transform: scale(1.1)

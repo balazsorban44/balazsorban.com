@@ -1,0 +1,21 @@
+doctype html
+html(lang='en')
+  head
+    include MODULES/vars
+    include MODULES/head
+  body.index
+    a.skip-main(href='#card' tabindex="0") Skip to main content
+    include MODULES/menu
+    section#landing
+      #name
+        h1 Balázs<br>  Orbán.
+      #card
+        #intro
+          p.me 21 years old tech geek from hungary, living and studying in norway.
+            span.open more about me
+        #about-me
+          #me-text
+            p This website is was created to showcase my photographs and programming skills. Feel free to feedback me!
+          span.close
+    include MODULES/footer
+    include MODULES/defer

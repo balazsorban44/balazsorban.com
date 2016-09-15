@@ -1,0 +1,25 @@
+$dark-orange : #CC3300
+$orange: #ea4300
+
+$slim-border: 1px solid $dark-orange
+
+/*----------------------------MEDIA QUERIES-----------------------------*/
+
+@mixin device-width($width)
+  @media (max-width: $width)
+    @content
+
+@mixin orient($orient)
+  @media (orientation: $orient)
+    @content
+
+$mobile: 420px
+$hd: 720px
+$small-laptop: 1366px
+$full-hd: 1080px
+$on-palm: 600px
+$tiny: 320px
+$small: 768px
+$medium: 1024px
+$big: 1440px
+$large: 1920px

@@ -1,0 +1,40 @@
+footer
+  width: 640px
+  border-top: $slim-border
+  transform:  translate(0px,500px)
+  animation: 1s ease-in-out forwards .3s slideinBottom
+  margin-top: 20px
+  padding-top: 10px
+  @include device-width($on-palm)
+    width: 100%
+    background-color: white
+    animation: none
+    transform: none
+    margin: 0
+    padding: 0
+  ul
+    display: flex
+    padding: 8px
+    @include device-width($mobile)
+      justify-content: space-around
+    li
+      transition: .4s ease-in
+      margin: 0 16px
+      &:hover
+        transform: rotate(360deg) scale(1.1)
+      a
+        display: block
+        +size(48px)
+        background-color: $dark-orange
+        border-radius: 50%
+        transform-origin: center
+        @include device-width($mobile)
+          margin: 0
+          display: block
+          transform:  translate(0px,500px)
+          animation: 1s ease-in-out forwards .1s slideinBottom
+        img
+          width: 50%
+          padding: 0
+          display: block
+          transform: translate(50%, 50%)
