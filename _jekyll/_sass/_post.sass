@@ -1,0 +1,142 @@
+/* Posts */
+body.post-body
+  background: black
+  min-width: 100vw
+  min-height: 100vh
+  position: fixed
+  header
+    border: none
+  .post-header
+    position: fixed
+    top: 0
+    left: 0
+    font-size: $base-font-size * 2
+    margin: 3%
+    a
+      color: white !important
+
+
+  article.post
+    display: flex
+    flex-direction: column
+    justify-content: space-around
+    align-items: center
+    header.article-header
+      margin: 5%
+      display: flex
+      align-items: flex-end
+      flex-direction: column
+      @include device-width($full-hd)
+        margin: 5% 3% 0 0
+      .post-title
+        font-size: $base-font-size *2
+        letter-spacing: -1px
+        line-height: 1
+        animation: .3s slideinRight
+        color: white
+        @include device-width($full-hd)
+          font-size: $base-font-size *1.1
+      .post-author
+        div
+          float: left
+          padding-right: 4px
+          color: white
+          font-size: $base-font-size *.9
+          @include device-width($full-hd)
+            font-size: $base-font-size *.6
+      .post-meta
+        color: white
+        font-size: $base-font-size *.8
+        @include device-width($full-hd)
+          font-size: $base-font-size *.5
+
+
+
+    section.post-content
+      position: relative
+      width: 100vw
+      margin: 0 5%
+      height: 65vh
+      @include device-width($full-hd)
+        height: 88vh
+        top: 12vh
+        overflow: scroll
+      img.post-bg
+        position: fixed
+        bottom: 0
+        left: 0
+        width: 100vw
+        height: auto
+        z-index: -100
+        opacity: .5
+        @include device-width($full-hd)
+          opacity: .2
+          filter: blur(3px)
+
+      .post-perse
+        display: flex
+        min-width: 100%
+        position: absolute
+        height: 100%
+        justify-content: center
+        @include device-width($full-hd)
+          position: static
+          height: auto
+          flex-direction: column
+        img.myphoto
+          box-shadow: 0 10px 20px black
+          transition: .2s ease-in-out
+          cursor: pointer
+          height: 100%
+          width: auto
+          @include device-width($full-hd)
+            box-shadow: none
+            width: 100%
+            height: auto
+            animation: .6s forwards slideinBottom .2s
+            transform: translate(0px, 500px)
+        .text
+          display: flex
+          flex-direction: column
+          justify-content: space-between
+          margin-left: 7%
+          max-width: 25vw
+          min-width: 25vw
+          background-color: rgba(0,0,0,.3)
+          border: 1px solid white
+          @include device-width($full-hd)
+            max-width: 100vw
+            margin: 0
+            border: none
+            background: transparent
+          h1
+            text-align: right
+            font-size: $base-font-size * 1.1
+            margin: 5% 5% 0 0
+            color: white
+            @include device-width($full-hd)
+              text-align: left
+              margin: 3% 0 0 3%
+          ul
+            display: block
+            max-height: 40%
+            overflow-y: scroll
+            margin: 5%
+            border-top: 1px solid white
+            padding: 5px
+            li
+              text-align: justify
+              color: white
+
+            @include device-width($full-hd)
+              max-height: none
+              overflow: visible
+              margin: 3%
+          #map
+            height: 40%
+            width: 100%
+            margin-top: 2%
+            @include device-width($full-hd)
+              background: pink
+              height: auto
+              min-height: 40vh

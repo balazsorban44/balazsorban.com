@@ -1,0 +1,89 @@
+/**
+ * Page content
+ */
+html
+  max-height: none
+  body
+    justify-content: flex-start
+    min-height: none
+    .page-content
+      width: 90%
+      @include device-width($hd)
+        width: 100%
+      #photos-wrapper
+        display: flex
+        flex-wrap: wrap
+        justify-content: center
+        @include device-width($on-palm)
+          margin-top: 56px
+        .photo
+          overflow: hidden
+          animation: .8s ease-in-out forwards slideinRight
+          transform:  translate(100vw,0)
+          position: relative
+          height: 240px
+          @for $i from 1 through 5
+            &:nth-child(#{$i})
+              animation-delay: 100ms * $i
+          @include device-width($mobile)
+            display: flex
+            justify-content: center
+            height: auto
+            flex-direction: column
+          &:hover
+            .text
+              top: 0
+              position: absolute
+              z-index: 1
+            img
+              transform: scale(1.1)
+              @include device-width($mobile)
+                transform: none
+          img
+            display: block
+            width: auto
+            height: 100%
+            transition: $transition
+            @include device-width($mobile)
+              height: auto
+              min-width: 100vw
+
+          .text
+            position: absolute
+            width: 100%
+            height: 100%
+            background-color: rgba(0,0,0,0.5)
+            display: flex
+            align-items: center
+            justify-content: space-between
+            top: 100%
+            transition: $transition
+            @include device-width($mobile)
+              top: 0
+              height: auto
+              background-color: black
+            .post-title, .post-date
+              font-size: 1em
+              color: white
+              padding: 20px
+              text-align: center
+              @include device-width($mobile)
+                min-width: none
+                font-size: 80%
+                padding: 5px
+            .post-title
+              font-size: $base-font-size
+    span.back
+      margin: 56px
+      @include device-width(810px)
+        margin: 6px 12px
+    footer
+      ul
+        align-items: center
+        @include device-width($mobile)
+          max-width: 80%
+      p
+        flex-grow: 1
+        text-align: right
+        @include device-width(810px)
+          display: none

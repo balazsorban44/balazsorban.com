@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+  {% include post-head.html %}
+  <body class=post-body>
+    {% include header-post.html %}
+    <div class="page-content">
+      {{ content }}
+    </div>
+    <script async defer>{% include map.js %}</script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDCXcMp5fztufAkamGRQIkc7G54TwNcscg&callback=initMap"
+    async defer></script>
+
+  </body>
+</html>
