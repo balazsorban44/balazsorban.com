@@ -4,9 +4,8 @@ $images: '/assets/images/'
 
 /*----------------------------DESIGN-----------------------------*/
 
-
-$dark-orange : #CC3300
-$orange: #ea4300
+$dark-orange : darken(orangered, 4)
+$orange: darken(orangered, 2)
 $slim-border: 1px solid $dark-orange
 
 /*----------------------------MEDIA QUERIES-----------------------------*/
@@ -29,3 +28,22 @@ $small: 768px
 $medium: 1024px
 $big: 1440px
 $large: 1920px
+
+/*----------------------------LOCAL----------------------------*/
+#wip
+  padding: 3em 0
+  background-color: $dark-orange
+  position: fixed
+  z-index: 10000
+  width: 120vw
+  left:-10vw
+  transform: rotate(-10deg)
+  @include device-width($on-palm)
+    padding: 2em 0
+  h1
+    color:white
+    font-size: 3em
+    font-weight: bold
+    text-align: center
+    @include device-width($on-palm)
+      font-size: 2em

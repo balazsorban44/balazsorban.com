@@ -27,13 +27,15 @@
         border-top: 8px solid $dark-orange
         position: relative
         display: flex
+        flex-direction: column
+        justify-content: center
         align-items: center
         height: 100%
         background:
           image: linear-gradient(rgba(0,0,0,.8), rgba(0,0,0,.8)), url('/assets/images/me-bw.jpg')
           repeat: repeat, no-repeat
-          size: cover, 145%
-          //position: center, center top
+          size: cover, 100%
+          position: center, center center
           color: black
         transition: .5s ease-in-out
         transform-style: preserve-3d
@@ -51,14 +53,13 @@
             border-left: none
             border-right: none
             border-bottom: none
-          p.me
+          h2
             color: black
-        p.me
+        h2
           padding: 5%
-          font-size: 1.6vw
+          font-size: 1.4vw
           color: white
           text-align: center
-          //border-top: 1px solid $orange
           line-height: 1.35
           animation: .5s ease-in-out forwards 1s scaleUp
           transform:  translate(0,-1000px)
@@ -69,28 +70,26 @@
             text-align: center
             max-width: 100%
             font-size: 1.2em
-          span
-            font-size: 1vw
-            width: 50%
-            display: block
-            margin: 5% auto
-            border-radius: 1em
-            padding: 5px
-            text-align: center
-            background-color: $orange
-            font-weight: bolder
-            color: white
-            transition: .2s
-            cursor: pointer
-            border-bottom: 4px solid $dark-orange
-            &:active
-              border-bottom: 3px solid $dark-orange
-            @include device-width($hd)
-              font-size: 1em
-              margin: 10vh auto 0 auto
-
-            //&:active
-              border-bottom: 1px solid $dark-orange
+        span.open
+          font-size: 1vw
+          display: block
+          min-width: 30%
+          margin: 0 auto
+          border-radius: 1em
+          padding: 5px 5%
+          text-align: center
+          background-color: $orange
+          font-weight: bolder
+          color: white
+          white-space: nowrap
+          transition: .2s
+          cursor: pointer
+          border-bottom: 4px solid $dark-orange
+          &:active
+            border-bottom: 3px solid $dark-orange
+          @include device-width($hd)
+            font-size: 1em
+            margin: 10vh auto 0 auto
       #about-me
         transform: rotateY( 180deg )
         display: flex
@@ -108,21 +107,43 @@
         z-index: -1
         border: 6px solid $dark-orange
         @include device-width($hd)
+          position: fixed
           height: 80vh
           border: none
           background: white
-          top: -30vh
+          top: -36vh
         #me-text
+          h3
+            color: white
+            padding: 1% 8%
+            font-size: 1.5em
+            font-weight: bold
+            @include device-width($hd)
+              color: $dark-orange
           p
             text-align: justify
-            padding: 0 10%
+            margin: 1% 5%
+            padding: 1%
             color: white
             line-height: 1.5
-            font-size: 1.3em
+            font-size: .9em
+            a
+              font-size: .9em
+              line-height: 3
+              white-space: nowrap
+              @include device-width($hd)
+                background-color: $dark-orange
+                color: white
+                margin: 5px
+                position: relative
+                left: -15px
+          hr
+            width: 80%
+            border: 1px solid $dark-orange
             @include device-width($hd)
               color: $dark-orange
               line-height: 1.2
-              padding: 20% 5% 5%
+              padding: 0 5%
         a
           text-align: center
           margin: 1% auto
@@ -138,9 +159,7 @@
           &:hover
             color: lighten($dark-orange, 10)
             box-shadow: 0 0 0 .20em rgba(255,255,255,.5)
-          @media(max-width: $mobile)
-            margin: 0 auto 24px auto
-            box-shadow: 0 0 0 .20em rgba(255,255,255,.5)
+
     #name
       h1
         font-size: 5vw

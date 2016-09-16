@@ -1,3 +1,6 @@
+
+#----------------------- include Google Analytics -----------------------#
+
 ((i, s, o, g, r, a, m) ->
   i['GoogleAnalyticsObject'] = r
   i[r] = i[r] or ->
@@ -15,16 +18,21 @@
 ga 'create', 'UA-77916573-1', 'auto'
 ga 'send', 'pageview'
 
+
+#----------------------- include jQuery -----------------------#
+
 script = document.createElement('script')
 script.src = 'https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js'
 script.type = 'text/javascript'
 document.getElementsByTagName('head')[0].appendChild script
 
+#----------------------- ANIMATIONS -----------------------#
+
 window.setTimeout (->
-  $('#intro').click ->
+  $('.open').click ->
     $('#about-me').css 'transform':'rotateY(0deg)', 'opacity':'1', 'z-index':'1'
     $('#intro').css 'transform':'rotateY(-180deg)', 'opacity':'0', 'z-index':'-1'
-  $('#about-me').click ->
+  $('.close').click ->
     $('#about-me').css 'transform':'rotateY(180deg)', 'opacity':'0', 'z-index':'-1'
     $('#intro').css 'transform':'rotateY(0deg)', 'opacity':'1', 'z-index':'1'
   if window.matchMedia('(min-width: 1024px)').matches

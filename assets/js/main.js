@@ -27,7 +27,7 @@
   document.getElementsByTagName('head')[0].appendChild(script);
 
   window.setTimeout((function() {
-    $('#intro').click(function() {
+    $('.open').click(function() {
       $('#about-me').css({
         'transform': 'rotateY(0deg)',
         'opacity': '1',
@@ -39,7 +39,7 @@
         'z-index': '-1'
       });
     });
-    $('#about-me').click(function() {
+    $('.close').click(function() {
       $('#about-me').css({
         'transform': 'rotateY(180deg)',
         'opacity': '0',

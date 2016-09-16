@@ -1,20 +1,3 @@
-#wip
-  padding: 3em 0
-  background-color: $dark-orange
-  position: fixed
-  z-index: 10000
-  width: 120vw
-  left:-10vw
-  transform: rotate(-10deg)
-  @include device-width($on-palm)
-    padding: 2em 0
-  h1
-    color:white
-    font-size: 3em
-    font-weight: bold
-    text-align: center
-    @include device-width($on-palm)
-      font-size: 2em
 footer
   width: 640px
   border-top: $slim-border
@@ -23,12 +6,13 @@ footer
   margin-top: 20px
   padding-top: 10px
   @include device-width($on-palm)
-    width: 100%
-    background-color: white
+    position: fixed
+    bottom: 0
+    background: white
+    padding: 0
+    max-width: 100%
     animation: none
     transform: none
-    margin: 0
-    padding: 0
   ul
     display: flex
     padding: 8px
