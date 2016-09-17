@@ -108,7 +108,7 @@
         border: 6px solid $dark-orange
         @include device-width($hd)
           position: fixed
-          height: 80vh
+          height: 75vh
           border: none
           background: white
           top: -36vh
@@ -127,6 +127,7 @@
             color: white
             line-height: 1.5
             font-size: .9em
+            text-transform: lowercase
             @include device-width($hd)
               color: $dark-orange
             a
@@ -139,11 +140,14 @@
                 margin: 5px
           hr
             width: 80%
+            border: none
             border: 1px solid $dark-orange
             @include device-width($hd)
               color: $dark-orange
               line-height: 1.2
               padding: 0 5%
+              border: none
+              border-top: 1px solid $dark-orange
         a
           text-align: center
           margin: 1% auto
