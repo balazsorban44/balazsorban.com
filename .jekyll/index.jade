@@ -9,8 +9,7 @@ section#photos-wrapper
         span.post-date {{ post.date | date: "%b %-d, %Y" }}
       img(alt='{{post.title}}' src='{{site.photourl}}/photo{{post.image}}')
   {% endfor %}
-a(href='{{site.homepage}}')
-  span.back
+a.back(href='{{site.url}}')
 script(type='text/javascript').
   function downloadJSAtOnload() {
   var element = document.createElement("script");

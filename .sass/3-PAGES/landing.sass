@@ -76,20 +76,27 @@
           min-width: 30%
           margin: 0 auto
           border-radius: 1em
-          padding: 5px 5%
+          padding: 1%
           text-align: center
           background-color: $orange
           font-weight: bolder
           color: white
           white-space: nowrap
-          transition: .2s
           cursor: pointer
           border-bottom: 4px solid $dark-orange
+          @extend.snap
+          transition: .2s !important
+          &:hover
+            border-radius: 0
+            transform: scale(1.1)
+            border: 2px solid $dark-orange
           &:active
             border-bottom: 3px solid $dark-orange
           @include device-width($hd)
             font-size: 1em
             margin: 10vh auto 0 auto
+            padding: 3%
+            border-radius: 2em
       #about-me
         transform: rotateY( 180deg )
         display: flex
@@ -159,11 +166,13 @@
           background-color: white
           border-radius: 1em
           cursor: pointer
-          transition: .2s
+          @extend.snap
+          transition: .2s !important
           &:hover
             color: lighten($dark-orange, 10)
             box-shadow: 0 0 0 .20em rgba(255,255,255,.5)
-
+            border-radius: 0
+            transform: scale(1.5)
     #name
       h1
         font-size: 5vw
