@@ -52,11 +52,9 @@ html {
     @media (max-width: 720px) {
       html body nav {
         background: black; } }
-    html body nav ul {
-      justify-content: center; }
-      @media (max-width: 720px) {
-        html body nav ul li a {
-          color: white; } }
+    @media (max-width: 720px) {
+      html body nav ul li a {
+        color: white; } }
     html body .page-content {
       width: 90%;
       margin-left: 5%; }

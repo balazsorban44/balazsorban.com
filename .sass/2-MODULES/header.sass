@@ -17,19 +17,19 @@ header
   nav
     ul
       display: flex
-      justify-content:center
+      justify-content: center
       @include device-width($on-palm)
         justify-content: space-around
       :nth-child(2)
         font-weight: bold
         color: $accent-color
         @include device-width($on-palm)
-          display:none
+          display: none
       li
         font-size: $big-font
         margin: 10px
         padding: 10px 5px
-        transform:  translate(0px,-500px)
+        transform: translate(0px,-500px)
         animation: 1s ease-in-out forwards .1s slideinTop
         @include device-width($on-palm)
           padding: 2px
