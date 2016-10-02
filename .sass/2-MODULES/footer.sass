@@ -5,13 +5,12 @@ footer
   animation: 1s ease-in-out forwards .3s slideinBottom
   margin-top: 20px
   padding-top: 10px
-  @include device-width($on-palm)
-    position: fixed
+  @include device-width($hd)
+    position: absolute
     bottom: 0
     padding: 0
     border: none
     max-width: 100%
-    animation: none
     transform: none
   ul
     display: flex
@@ -19,29 +18,37 @@ footer
     align-items: center
     @include device-width($mobile)
       justify-content: space-around
-      padding: 24px
+      padding: 32px
+    @include device-width($on-palm)
+      @include orient(landscape)
+        justify-content: flex-end
+
     li
       margin: 0 16px
       &:nth-child(4)
         flex-grow: 1
         text-align: right
-        font-size: .8em
+        font-size: $tiny-font
         @include device-width($hd)
           position: fixed
           text-align: center
-          background: orangered
+          background: $accent-color-light
           width: 100vw
           bottom: 0
           left: -16px
+          padding: 2px 0 0
+        @include device-width($on-palm)
+          @include orient(landscape)
+            display: none
         b
           transition: .2s
           &:hover
-            color: white
+            color: $accent-color
       >a
         @extend.circle-btn
         transition: .4s ease-in
         &:hover
-          transform: rotate(360deg) scale(1.1)
+          @extend.rotate
         @include device-width($mobile)
           margin: 0
           display: block

@@ -1,7 +1,7 @@
-#web-wrapper
+#code
   max-width: $hd - 100px
   background: rgba(0,0,0,.9)
-  border-top: 4px solid $dark-orange
+  border-top: $curvy-border
   display: flex
   align-items: center
   flex-direction: column
@@ -14,18 +14,15 @@
     max-width: 90%
   &:hover
     background: rgba(255,255,255,.8)
-    h1
-      color: black
-      span
-        color: black
-    p
+    h1, h1 span, p
       color: black
   h1
     display: block
     width: 100%
-    font-size: 2em
-    padding: 10px 0 0 20px
+    font-size: $medium-font
+    padding: 20px 0 0 20px
     color: white
+    text-transform: uppercase
     @include device-width($hd)
       padding-bottom: 10px
       width: 80%
@@ -34,11 +31,12 @@
       @include device-width($hd)
         opacity: 0
   p
-    font-size: 1.2em
+    font-size: $medium-font
     text-align: justify
     line-height: 1.2
-    padding: 20px
+    padding: 0 20px
     color: white
+    font-style: italic
     @include device-width($hd)
       padding: 10px
       font-size: 1.15em
@@ -46,9 +44,9 @@
 
   a
     display: block
-    width: 128px
-    height: 56px
-    margin-bottom: 20px
+    width: 100px
+    height: 40px
+    margin-bottom: 10px
     animation: .9s ease-in-out forwards slideinTop
     transform:  translate(0, 800px)
     @include device-width($hd)
@@ -63,7 +61,7 @@
         repeat: no-repeat
         position: center
         size:50%
-        color: $dark-orange
+        color: $accent-color
       @extend.snap
       border-radius: 56px
       &:hover

@@ -30,17 +30,22 @@
 .circle-btn
   display: block
   border-radius: 50%
-  +size(48px)
-  background-color: $dark-orange
+  +size(40px)
+  background-color: $accent-color
   cursor: pointer
   color: white
+  @include device-width($hd)
+    @include orient(portrait)
+      +size(48px)
+  &:hover
+    @extend.rotate
 .back
   @extend.circle-btn
   background:
     image: url('/assets/images/icons/back.svg')
     repeat: no-repeat
     position: center
-    size: 50%
+    size: 24px
   position: fixed
   right: 0
   bottom: 0
@@ -50,8 +55,6 @@
     margin: 16px
   &:hover
     @extend.back
-    transform: scale(1.1) rotate(-360deg)
-    border-radius: 0
     @include device-width($hd)
       transform: none
 

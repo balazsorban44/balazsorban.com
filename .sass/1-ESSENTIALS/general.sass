@@ -1,7 +1,7 @@
 *
   text-transform: lowercase
 &::selection
-  background-color: orangered
+  background-color: $accent-color-light
   color: white
 html
   max-height: 100vh
@@ -15,6 +15,9 @@ html
     background:
       size: auto 110vh
       position: 50% 0
+  @include device-width($hd)
+    @include orient(landscape)
+      background-size: 100% 110vh
 body
   display: flex
   flex-direction: column
@@ -24,7 +27,7 @@ body
   span.back
     margin: 64px
     box-shadow: 2px 3px 3px 0px rgba(41, 41, 41, .3)
-    background-color: darken($orange, 5)
+    background-color: $accent-color
     border-radius: 50%
     background:
       image: url('/assets/images/icons/back.svg')
@@ -46,7 +49,7 @@ body
     top:0
     right: 0
     margin: 16px
-    color: darken($dark-orange,4)
+    color: $accent-color
     display: flex
     justify-content: center
     align-items: center
@@ -57,7 +60,7 @@ body
     @include device-width($hd)
       font-size: 10vw
       font-weight: bold
-      margin: 16px
+      margin: -4px 4px
     &::after
       content: '×'
     &:hover

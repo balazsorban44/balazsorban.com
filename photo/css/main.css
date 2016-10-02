@@ -1,4 +1,12 @@
+/*----------------------------SOURCES---------------------------- */
+/*----------------------------//SOURCES---------------------------- */
+/*----------------------------DESIGN----------------------------- */
+/*--------COLORS-------- */
+/*--------FONT SIZES-------- */
+/*--------Borders-------- */
+/*----------------------------//DESIGN----------------------------- */
 /*----------------------------MEDIA QUERIES----------------------------- */
+/*----------------------------//MEDIA QUERIES----------------------------- */
 /**
  * Reset some basic elements
  */
@@ -47,7 +55,7 @@ html {
         display: flex;
         flex-wrap: wrap;
         justify-content: center; }
-        @media (max-width: 600px) {
+        @media (max-width: 640px) {
           html body .page-content #photos-wrapper {
             margin-top: 56px; } }
         html body .page-content #photos-wrapper .photo {
@@ -117,22 +125,22 @@ html {
                   padding: 5px; } }
             html body .page-content #photos-wrapper .photo .text .post-title {
               font-size: 24px; }
-    html body span.back {
-      margin: 56px; }
-      @media (max-width: 810px) {
-        html body span.back {
-          margin: 6px 12px; } }
-    html body footer ul {
-      align-items: center; }
+    @media (max-width: 420px) {
+      html body .back {
+        margin-right: 32px; } }
+    html body footer {
+      position: relative; }
       @media (max-width: 420px) {
-        html body footer ul {
-          max-width: 80%; } }
-    html body footer p {
-      flex-grow: 1;
-      text-align: right; }
-      @media (max-width: 810px) {
-        html body footer p {
-          display: none; } }
+        html body footer {
+          max-width: 75%;
+          margin: 0;
+          padding: 0;
+          left: -40px; }
+          html body footer ul {
+            padding: 16px;
+            justify-content: flex-start; }
+            html body footer ul p {
+              display: none; } }
 
 /* Posts */
 body.post-body {
@@ -200,8 +208,8 @@ body.post-body {
         position: fixed;
         bottom: 0;
         left: 0;
-        width: 100vw;
-        height: auto;
+        min-height: 100vh;
+        min-width: 100vw;
         z-index: -100;
         opacity: 0.5; }
         @media (max-width: 1080px) {
@@ -212,7 +220,6 @@ body.post-body {
         display: flex;
         min-width: 100%;
         position: absolute;
-        height: 100%;
         justify-content: center; }
         @media (max-width: 1080px) {
           body.post-body article.post section.post-content .post-perse {

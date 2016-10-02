@@ -24,7 +24,7 @@
         transform: translate(0px,0px)
         animation: none
       #intro
-        border-top: 8px solid $dark-orange
+        border-top: $fat-border
         position: relative
         display: flex
         flex-direction: column
@@ -44,7 +44,10 @@
           background: transparent
           max-width: 100%
           border: none
-          flex-direction: column
+        @include device-width($on-palm)
+          @include orient(landscape)
+            display: inline
+            margin-left: 5%
         &:hover
           background: rgba(255,255,255,.44)
           @include device-width($hd)
@@ -70,32 +73,30 @@
             text-align: center
             max-width: 100%
             font-size: 1.2em
-        span.open
-          font-size: 1vw
-          display: block
-          min-width: 30%
-          margin: 0 auto
+          @include device-width($on-palm)
+            @include orient(landscape)
+              text-align: left
+              display: inline
+              padding: 1%
+        .open
+          padding: 5px 20px
+          height: 20px
           border-radius: 1em
-          padding: 1%
-          text-align: center
-          background-color: $orange
+          background-color: $accent-color-light
           font-weight: bolder
           color: white
           white-space: nowrap
           cursor: pointer
-          border-bottom: 4px solid $dark-orange
+          //border-bottom: $curvy-border
           @extend.snap
-          transition: .2s !important
           &:hover
             border-radius: 0
             transform: scale(1.1)
-            border: 2px solid $dark-orange
           &:active
-            border-bottom: 3px solid $dark-orange
+            border-bottom: 3px solid $accent-color
           @include device-width($hd)
             font-size: 1em
-            margin: 10vh auto 0 auto
-            padding: 3%
+            margin-top: 8px
             border-radius: 2em
       #about-me
         transform: rotateY( 180deg )
@@ -110,56 +111,56 @@
         height: 100%
         top: 0
         overflow-y: scroll
-        background-color: $orange
+        background-color: $accent-color-light
         z-index: -1
-        border: 6px solid $dark-orange
+        border: $fat-border
         @include device-width($hd)
           position: fixed
-          height: 75vh
           border: none
           background: white
-          top: -36vh
+          height: auto
+          top:-40vh
         #me-text
           h3
             color: white
-            padding: 1% 8%
-            font-size: 1.5em
+            padding: 1% 8% 0
+            font-size: 1.2em
             font-weight: bold
             @include device-width($hd)
-              color: $dark-orange
+              color: $accent-color
           p
             text-align: justify
-            margin: 1% 5%
+            margin: 0 5%
             padding: 1%
             color: white
             line-height: 1.5
-            font-size: .9em
+            font-size: $small-font
             text-transform: lowercase
             @include device-width($hd)
-              color: $dark-orange
+              color: $accent-color
+              font-size: $medium-font
             a
               font-size: .9em
               line-height: 3
               white-space: nowrap
               @include device-width($hd)
-                background-color: $dark-orange
+                background-color: $accent-color
                 color: white
-                margin: 5px
           hr
             width: 80%
             border: none
-            border: 1px solid $dark-orange
+            border: $slim-border
             @include device-width($hd)
-              color: $dark-orange
+              color: $accent-color
               line-height: 1.2
               padding: 0 5%
               border: none
-              border-top: 1px solid $dark-orange
+              border-top: $slim-border
         a
           text-align: center
-          margin: 1% auto
+          margin-right: 4px
           border:none
-          color: $dark-orange
+          color: $accent-color
           font-weight: bold
           font-size: 1.5em
           padding: 4px 8px
@@ -169,7 +170,7 @@
           @extend.snap
           transition: .2s !important
           &:hover
-            color: lighten($dark-orange, 10)
+            color: $accent-color-light
             box-shadow: 0 0 0 .20em rgba(255,255,255,.5)
             border-radius: 0
             transform: scale(1.5)
@@ -185,13 +186,29 @@
         animation: .5s ease-in-out forwards .4s scaleUp
         transition: .3s ease-in-out
         @include device-width($hd)
-          margin: 0 auto 10vh auto
-          font-size: 2.5em
           text-indent: 0
+          font-size: 2.5em
           position: relative
           z-index: -1
+          margin: -10vh auto 2vh auto
           br
             display: none
+        @include device-width($on-palm)
+          @include orient(landscape)
+            font-size: $big-font
+            margin-top: 15px
         &:first-line
-          color: $dark-orange
+          color: $accent-color
           font-weight: normal
+    #me
+      display: none
+      @include device-width($hd)
+        border: $slim-border
+        display: block
+        border-radius: 50%
+        +size(30vh)
+        background:
+          image: linear-gradient(rgba(0,0,0,.1), rgba(0,0,0,.1)), url('/assets/images/me-bw.jpg')
+          repeat: repeat, no-repeat
+          size: cover, 100%
+        filter:contrast(1.5) brightness(1.5)

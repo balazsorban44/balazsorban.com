@@ -73,17 +73,18 @@ html
                 padding: 5px
             .post-title
               font-size: $base-font-size
-    span.back
-      margin: 56px
-      @include device-width(810px)
-        margin: 6px 12px
+    .back
+      @include device-width($mobile)
+        margin-right: 32px
     footer
-      ul
-        align-items: center
-        @include device-width($mobile)
-          max-width: 80%
-      p
-        flex-grow: 1
-        text-align: right
-        @include device-width(810px)
-          display: none
+      position: relative
+      @include device-width($mobile)
+        max-width: 75%
+        margin: 0
+        padding: 0
+        left: -40px
+        ul
+          padding: 16px
+          justify-content: flex-start
+          p
+            display: none

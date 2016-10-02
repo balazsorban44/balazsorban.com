@@ -52,7 +52,7 @@
       });
     });
     if (window.matchMedia('(min-width: 1024px)').matches) {
-      return $('.index').mousemove(function(event) {
+      return $('body').mousemove(function(event) {
         return $('#card').css({
           'margin-left': event.pageX / 20 + "px",
           'margin-top': event.pageY / 20 + "px",

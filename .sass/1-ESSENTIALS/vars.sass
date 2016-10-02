@@ -1,49 +1,53 @@
-/*----------------------------SOURCEFILES----------------------------*/
+/*----------------------------SOURCES----------------------------*/
 
 $images: '/assets/images/'
 
+/*----------------------------//SOURCES----------------------------*/
+
+
+
 /*----------------------------DESIGN-----------------------------*/
 
-$dark-orange : darken(orangered, 4)
-$orange: darken(orangered, 2)
-$slim-border: 1px solid $dark-orange
+/*--------COLORS--------*/
+$accent-color : darken(orangered, 6)
+$accent-color-light: darken(orangered, 2)
+
+/*--------FONT SIZES--------*/
+$big-font: 1.8em
+$medium-font: 1em
+$small-font: 0.75em
+$tiny-font:0.8em
+
+/*--------Borders--------*/
+$slim-border: 1px solid $accent-color
+$curvy-border: 4px solid $accent-color
+$fat-border: 6px solid $accent-color
+
+
+/*----------------------------//DESIGN-----------------------------*/
+
+
 
 /*----------------------------MEDIA QUERIES-----------------------------*/
 
 @mixin device-width($width)
   @media (max-width: $width)
     @content
-
-@mixin orient($orient)
-  @media (orientation: $orient)
-    @content
-
+      
 $mobile: 420px
 $hd: 720px
 $small-laptop: 1366px
 $full-hd: 1080px
-$on-palm: 600px
+$on-palm: 640px
 $tiny: 320px
 $small: 768px
 $medium: 1024px
 $big: 1440px
 $large: 1920px
 
-/*----------------------------LOCAL----------------------------*/
-#wip
-  padding: 3em 0
-  background-color: $dark-orange
-  position: fixed
-  z-index: 10000
-  width: 120vw
-  left:-10vw
-  transform: rotate(-10deg)
-  @include device-width($on-palm)
-    padding: 2em 0
-  h1
-    color:white
-    font-size: 3em
-    font-weight: bold
-    text-align: center
-    @include device-width($on-palm)
-      font-size: 2em
+@mixin orient($orient)
+  @media (orientation: $orient)
+    @content
+
+
+/*----------------------------//MEDIA QUERIES-----------------------------*/

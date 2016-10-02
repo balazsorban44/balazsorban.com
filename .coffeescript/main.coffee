@@ -36,6 +36,6 @@ window.setTimeout (->
     $('#about-me').css 'transform':'rotateY(180deg)', 'opacity':'0', 'z-index':'-1'
     $('#intro').css 'transform':'rotateY(0deg)', 'opacity':'1', 'z-index':'1'
   if window.matchMedia('(min-width: 1024px)').matches
-    $('.index').mousemove (event) ->
+    $('body').mousemove (event) ->
       $('#card').css('margin-left': event.pageX/20 + "px",'margin-top': event.pageY/20 + "px", 'margin-bottom': event.pageY/20 + "px")
       ), 1000
