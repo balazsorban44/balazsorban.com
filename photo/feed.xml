@@ -3,18 +3,18 @@
   <channel>
     <title>Photography by Balázs Orbán</title>
     <description>Here you will find my best pictures taken so far.</description>
-    <link>http://192.168.1.3:8000/photo/</link>
-    <atom:link href="http://192.168.1.3:8000/photo/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sat, 24 Sep 2016 12:41:52 +0200</pubDate>
-    <lastBuildDate>Sat, 24 Sep 2016 12:41:52 +0200</lastBuildDate>
+    <link>http://balazsorban.com/photo/</link>
+    <atom:link href="http://balazsorban.com/photo/feed.xml" rel="self" type="application/rss+xml"/>
+    <pubDate>Mon, 03 Oct 2016 00:42:40 +0200</pubDate>
+    <lastBuildDate>Mon, 03 Oct 2016 00:42:40 +0200</lastBuildDate>
     <generator>Jekyll v3.2.1</generator>
     
       <item>
-        <title>Golden hour</title>
+        <title>Namsskogan</title>
         <description></description>
         <pubDate>Fri, 29 Jul 2016 02:46:00 +0200</pubDate>
-        <link>http://192.168.1.3:8000/photo/landscape/2016/07/29/hello-world_2.html</link>
-        <guid isPermaLink="true">http://192.168.1.3:8000/photo/landscape/2016/07/29/hello-world_2.html</guid>
+        <link>http://balazsorban.com/photo/landscape/2016/07/29/hello-world_2.html</link>
+        <guid isPermaLink="true">http://balazsorban.com/photo/landscape/2016/07/29/hello-world_2.html</guid>
         
         
         <category>landscape</category>
@@ -22,11 +22,11 @@
       </item>
     
       <item>
-        <title>Golden hour</title>
+        <title>Bakkegata</title>
         <description></description>
         <pubDate>Fri, 29 Jul 2016 02:46:00 +0200</pubDate>
-        <link>http://192.168.1.3:8000/photo/landscape/2016/07/29/hello-world-Copy.html</link>
-        <guid isPermaLink="true">http://192.168.1.3:8000/photo/landscape/2016/07/29/hello-world-Copy.html</guid>
+        <link>http://balazsorban.com/photo/landscape/2016/07/29/hello-world-Copy.html</link>
+        <guid isPermaLink="true">http://balazsorban.com/photo/landscape/2016/07/29/hello-world-Copy.html</guid>
         
         
         <category>landscape</category>
@@ -36,9 +36,9 @@
       <item>
         <title>Golden hour</title>
         <description></description>
-        <pubDate>Tue, 19 Jul 2016 02:46:00 +0200</pubDate>
-        <link>http://192.168.1.3:8000/photo/landscape/2016/07/19/hello-world.html</link>
-        <guid isPermaLink="true">http://192.168.1.3:8000/photo/landscape/2016/07/19/hello-world.html</guid>
+        <pubDate>Wed, 20 Jul 2016 02:46:00 +0200</pubDate>
+        <link>http://balazsorban.com/photo/landscape/2016/07/20/hello-world.html</link>
+        <guid isPermaLink="true">http://balazsorban.com/photo/landscape/2016/07/20/hello-world.html</guid>
         
         
         <category>landscape</category>
@@ -46,11 +46,11 @@
       </item>
     
       <item>
-        <title>Golden hour</title>
+        <title>Lonely tree</title>
         <description></description>
         <pubDate>Tue, 19 Jul 2016 02:46:00 +0200</pubDate>
-        <link>http://192.168.1.3:8000/photo/landscape/2016/07/19/hello-world-2.html</link>
-        <guid isPermaLink="true">http://192.168.1.3:8000/photo/landscape/2016/07/19/hello-world-2.html</guid>
+        <link>http://balazsorban.com/photo/landscape/2016/07/19/hello-world-2.html</link>
+        <guid isPermaLink="true">http://balazsorban.com/photo/landscape/2016/07/19/hello-world-2.html</guid>
         
         
         <category>landscape</category>

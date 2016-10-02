@@ -12,6 +12,7 @@ body.post-body
     left: 0
     font-size: $base-font-size * 2
     margin: 3%
+    z-index: 1
     a
       color: white !important
 
@@ -23,6 +24,9 @@ body.post-body
     align-items: center
     header.article-header
       margin: 5%
+      position: fixed
+      top: 0
+      right: 0
       display: flex
       align-items: flex-end
       flex-direction: column
@@ -58,9 +62,7 @@ body.post-body
       margin: 0 5%
       height: 65vh
       @include device-width($full-hd)
-        height: 88vh
-        top: 12vh
-        overflow: scroll
+        height: auto
       img.post-bg
         position: fixed
         bottom: 0
@@ -77,11 +79,12 @@ body.post-body
         display: flex
         min-width: 100%
         position: absolute
+        top: 50%
         justify-content: center
         @include device-width($full-hd)
-          position: static
-          height: auto
           flex-direction: column
+          height: 100vh
+          overflow: scroll
         img.myphoto
           box-shadow: 0 10px 20px black
           transition: .2s ease-in-out
@@ -89,11 +92,12 @@ body.post-body
           height: 100%
           width: auto
           @include device-width($full-hd)
+            padding-top: 18vh
             box-shadow: none
             width: 100%
             height: auto
-            animation: .6s forwards slideinBottom .2s
-            transform: translate(0px, 500px)
+            //animation: .6s forwards slideinBottom .2s
+            //transform: translate(0px, 500px)
         .text
           display: flex
           flex-direction: column
@@ -102,11 +106,9 @@ body.post-body
           max-width: 25vw
           min-width: 25vw
           background-color: rgba(0,0,0,.3)
-          border: 1px solid white
           @include device-width($full-hd)
             max-width: 100vw
             margin: 0
-            border: none
             background: transparent
           h1
             text-align: right
@@ -124,8 +126,8 @@ body.post-body
             border-top: 1px solid white
             padding: 5px
             li
-              text-align: justify
               color: white
+              list-style-type: none
 
             @include device-width($full-hd)
               max-height: none
@@ -136,6 +138,5 @@ body.post-body
             width: 100%
             margin-top: 2%
             @include device-width($full-hd)
-              background: pink
               height: auto
               min-height: 40vh

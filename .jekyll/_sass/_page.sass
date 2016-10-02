@@ -6,22 +6,33 @@ html
   body
     justify-content: flex-start
     min-height: none
+    nav
+      @include device-width($hd)
+        background: black
+      ul
+        justify-content: center
+        li
+          a
+            @include device-width($hd)
+              color: white
     .page-content
       width: 90%
+      margin-left: 5%
       @include device-width($hd)
         width: 100%
+        margin: 0
       #photos-wrapper
         display: flex
         flex-wrap: wrap
-        justify-content: center
         @include device-width($on-palm)
-          margin-top: 56px
+          margin-top: 44px
         .photo
           overflow: hidden
           animation: .8s ease-in-out forwards slideinRight
           transform:  translate(100vw,0)
           position: relative
           height: 240px
+          margin: 10px
           @for $i from 1 through 5
             &:nth-child(#{$i})
               animation-delay: 100ms * $i
@@ -30,6 +41,7 @@ html
             justify-content: center
             height: auto
             flex-direction: column
+            margin: 0
           &:hover
             .text
               top: 0
@@ -52,29 +64,35 @@ html
             position: absolute
             width: 100%
             height: 100%
-            background-color: rgba(0,0,0,0.5)
+            background-color: transparentize(orangered, .25)
             display: flex
             align-items: center
-            justify-content: space-between
+            justify-content: center
+            flex-direction: column
             top: 100%
             transition: $transition
             @include device-width($mobile)
               top: 0
               height: auto
-              background-color: black
+              background-color: orangered
+              flex-direction: row
+              justify-content: space-between
             .post-title, .post-date
               font-size: 1em
+              line-height: 1.2
               color: white
-              padding: 20px
               text-align: center
               @include device-width($mobile)
+                line-height: normal
+                padding: 0 5px
                 min-width: none
                 font-size: 80%
-                padding: 5px
             .post-title
               font-size: $base-font-size
     .back
       @include device-width($mobile)
+        position: relative
+        float: right
         margin-right: 32px
     footer
       position: relative
@@ -82,6 +100,7 @@ html
         max-width: 75%
         margin: 0
         padding: 0
+        top: -79px
         left: -40px
         ul
           padding: 16px
