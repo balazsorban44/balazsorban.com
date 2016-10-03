@@ -21,8 +21,9 @@ layout: default-post
         <h1 itemprop="name headline" class="post-title">{{ page.title }}</h1>
         <ul>
           <li itemprop="description">{{page.text}}</li>
-          <li itemprop="contentLocation">{{page.location}}</li>
-          <li itemprop="genre">{{page.categories}}</li>
+          <li itemprop="genre">category: {{page.categories}}</li>
+          <li itemprop="contentLocation">location: {{page.location}}</li>
+          <li itemprop="dateCreated">date taken: {{page.taken}}</li>
         </ul>
         <div id="map"></div>
       </div>

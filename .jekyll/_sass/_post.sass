@@ -6,13 +6,21 @@ body.post-body
   position: fixed
   header
     border: none
+
   .post-header
     position: fixed
     top: 0
     left: 0
     font-size: $base-font-size * 2
-    margin: 3%
+    padding: 2%
     z-index: 1
+    @include device-width($full-hd)
+      padding: 2% 0 0 5%
+      line-height: 1
+      background: linear-gradient($accent-color-light,$accent-color)
+      border-bottom: $slim-border
+      height: 10%
+      width: 100%
     a
       color: white !important
 
@@ -31,7 +39,8 @@ body.post-body
       align-items: flex-end
       flex-direction: column
       @include device-width($full-hd)
-        margin: 5% 3% 0 0
+        margin: 4% 3% 0 0
+        z-index: 1
       .post-title
         font-size: $base-font-size *2
         letter-spacing: -1px
@@ -79,7 +88,7 @@ body.post-body
         display: flex
         min-width: 100%
         position: absolute
-        top: 50%
+        top: 33%
         justify-content: center
         @include device-width($full-hd)
           flex-direction: column
@@ -89,10 +98,9 @@ body.post-body
           box-shadow: 0 10px 20px black
           transition: .2s ease-in-out
           cursor: pointer
-          height: 100%
+          height: 60vh
           width: auto
           @include device-width($full-hd)
-            padding-top: 18vh
             box-shadow: none
             width: 100%
             height: auto
@@ -101,42 +109,43 @@ body.post-body
         .text
           display: flex
           flex-direction: column
-          justify-content: space-between
           margin-left: 7%
           max-width: 25vw
           min-width: 25vw
-          background-color: rgba(0,0,0,.3)
+          //background-color: rgba(0,0,0,.3)
           @include device-width($full-hd)
             max-width: 100vw
             margin: 0
             background: transparent
           h1
-            text-align: right
             font-size: $base-font-size * 1.1
-            margin: 5% 5% 0 0
+            padding: 2%
             color: white
             @include device-width($full-hd)
-              text-align: left
-              margin: 3% 0 0 3%
+              padding: 5% 0 0 5%
           ul
-            display: block
+            display: flex
             max-height: 40%
             overflow-y: scroll
-            margin: 5%
-            border-top: 1px solid white
-            padding: 5px
-            li
-              color: white
-              list-style-type: none
-
+            flex-grow: 5
+            flex-direction: column
+            justify-content: space-between
             @include device-width($full-hd)
               max-height: none
               overflow: visible
-              margin: 3%
+              padding: 0 5%
+            li
+              color: white
+              text-align: justify
+              font-size: $small-font
+              list-style-type: none
+              padding: 5px 0
+              &:nth-child(2),&:nth-child(3),&:last-child
+                font-size: $small-font * 0.6
+                padding: 0
+
           #map
-            height: 40%
             width: 100%
-            margin-top: 2%
+            flex-grow: 2
             @include device-width($full-hd)
-              height: auto
-              min-height: 40vh
+              display: none
