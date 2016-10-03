@@ -25,6 +25,11 @@ footer
 
     li
       margin: 0 16px
+      transform:  translate(0px,200px)
+      animation: 1s ease-in-out forwards .3s slideinBottom
+      @for $i from 1 through 5
+        &:nth-child(#{$i})
+          animation-delay: 100ms * $i
       &:nth-child(4)
         flex-grow: 1
         text-align: right

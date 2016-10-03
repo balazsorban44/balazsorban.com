@@ -16,8 +16,8 @@
       display: flex
       align-items: center
       justify-content: center
-      animation: 1s ease-in-out forwards .5s slideinRight
-      transform: translate(1500px, 0)
+      transform: scale(0)
+      animation: .5s ease-in-out forwards .3s scaleUp
       @include device-width($hd)
         max-width: 100%
         height: auto
@@ -64,7 +64,7 @@
           color: white
           text-align: center
           line-height: 1.35
-          animation: .5s ease-in-out forwards 1s scaleUp
+          animation: .5s ease-in-out forwards .5s scaleUp
           transform: translate(0,-1000px)
           @include device-width($hd)
             color: black
@@ -88,6 +88,8 @@
           white-space: nowrap
           cursor: pointer
           //border-bottom: $curvy-border
+          transform: scale(0)
+          animation: .5s ease-in-out forwards .4s scaleUp
           @extend.snap
           &:hover
             border-radius: 0
