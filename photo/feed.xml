@@ -3,18 +3,18 @@
   <channel>
     <title>Photography by Balázs Orbán</title>
     <description>Here you will find my best pictures taken so far.</description>
-    <link>http://10.22.44.88:8000/photo/</link>
-    <atom:link href="http://10.22.44.88:8000/photo/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Mon, 03 Oct 2016 16:09:48 +0200</pubDate>
-    <lastBuildDate>Mon, 03 Oct 2016 16:09:48 +0200</lastBuildDate>
+    <link>http://balazsorban.com/photo/</link>
+    <atom:link href="http://balazsorban.com/photo/feed.xml" rel="self" type="application/rss+xml"/>
+    <pubDate>Mon, 03 Oct 2016 20:24:37 +0200</pubDate>
+    <lastBuildDate>Mon, 03 Oct 2016 20:24:37 +0200</lastBuildDate>
     <generator>Jekyll v3.2.1</generator>
     
       <item>
         <title>Hello world</title>
         <description></description>
         <pubDate>Thu, 31 Mar 2016 21:00:00 +0200</pubDate>
-        <link>http://10.22.44.88:8000/photo/landscape/2016/03/31/hello-world.html</link>
-        <guid isPermaLink="true">http://10.22.44.88:8000/photo/landscape/2016/03/31/hello-world.html</guid>
+        <link>http://balazsorban.com/photo/landscape/2016/03/31/hello-world.html</link>
+        <guid isPermaLink="true">http://balazsorban.com/photo/landscape/2016/03/31/hello-world.html</guid>
         
         
         <category>landscape</category>
