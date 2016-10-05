@@ -2,14 +2,11 @@
  * Page content
  */
 html
-  max-height: none
   body
-    justify-content: flex-start
-    min-height: none
     max-width: 100vw
     nav
       @include device-width($hd)
-        background: black
+        background: transparentize($accent-color-light, .15)
       ul
         li
           a
@@ -26,7 +23,7 @@ html
         display: flex
         flex-wrap: wrap
         @include device-width($on-palm)
-          margin-top: 44px
+          margin-top: 45px
         .photo
           overflow: hidden
           animation: .8s ease-in-out forwards slideinRight
@@ -74,10 +71,7 @@ html
             transition: $transition
             @include device-width($mobile)
               top: 0
-              height: auto
-              background-color: orangered
-              flex-direction: row
-              justify-content: space-between
+              background-color: rgba(0,0,0,.4)
             .post-title, .post-date
               font-size: $medium-font
               line-height: 1.2
@@ -92,10 +86,12 @@ html
               font-size: $base-font-size
     .back
       @include device-width($mobile)
-        float: right
-        margin-right: 38px
+        position: fixed
+        background-color: $accent-color-light
     footer
       @include device-width($mobile)
+        display: block
+        left: 0
         max-width: 75%
         margin: 0
         padding: 0

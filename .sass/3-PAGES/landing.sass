@@ -7,10 +7,11 @@
     justify-content: space-around
     align-items: center
     @include device-width($hd)
+      flex-grow: 1
       flex-direction: column
-      margin: 0
+      margin-top: 25%
     #card
-      height: 40vh
+      height: 34vh
       perspective: 100vh
       max-width: 50%
       display: flex
@@ -190,9 +191,7 @@
         @include device-width($hd)
           text-indent: 0
           font-size: 2.5em
-          position: relative
           z-index: -1
-          margin: -10vh auto 2vh auto
           br
             display: none
         @include device-width($on-palm)

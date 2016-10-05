@@ -80,6 +80,7 @@ body.post-body
         min-width: 100vw
         z-index: -100
         opacity: .5
+        filter: blur(10px)
         @include device-width($full-hd)
           opacity: .2
           filter: blur(3px)
@@ -88,7 +89,7 @@ body.post-body
         display: flex
         min-width: 100%
         position: absolute
-        top: 33%
+        top: 40%
         justify-content: center
         @include device-width($full-hd)
           flex-direction: column
@@ -98,11 +99,12 @@ body.post-body
           box-shadow: 0 10px 20px black
           transition: .2s ease-in-out
           cursor: pointer
-          height: 60vh
-          width: auto
+          height: 45vh
+          max-width: 65vw
+          pointer-events: none
           @include device-width($full-hd)
             box-shadow: none
-            width: 100%
+            max-width: 100%
             height: auto
             //animation: .6s forwards slideinBottom .2s
             //transform: translate(0px, 500px)
@@ -129,7 +131,7 @@ body.post-body
             overflow-y: scroll
             flex-grow: 5
             flex-direction: column
-            justify-content: space-between
+            justify-content: center
             @include device-width($full-hd)
               max-height: none
               overflow: visible
