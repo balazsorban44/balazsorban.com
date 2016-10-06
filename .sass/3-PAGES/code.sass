@@ -1,35 +1,32 @@
 #code
-  max-width: $hd - 100px
-  background: rgba(0,0,0,.9)
+  max-width: 660px
+  background: transparentize($dark, .2)
   border-top: $curvy-border
   display: flex
   align-items: center
   flex-direction: column
   animation: .8s ease-in-out forwards .1s slideinBottom
   transform: translate(0,1500px)
-  @extend.span
   transition: .4s
   @include device-width($hd)
     margin: auto 5%
     max-width: 90%
   &:hover
-    background: rgba(255,255,255,.8)
-    h1, h1 span, p
+    background: transparentize($light, .8)
+    h2, h2 span, p
       color: black
-  h1
-    display: block
-    width: 100%
+  h2
+    align-self: flex-start
     font-size: $medium-font
     padding: 20px 0 0 20px
     color: white
     text-transform: uppercase
     @include device-width($hd)
       padding-bottom: 10px
-      width: 80%
     span
       color: white
       @include device-width($hd)
-        opacity: 0
+        visibility: hidden
   p
     font-size: $medium-font
     text-align: justify
@@ -39,8 +36,7 @@
     font-style: italic
     @include device-width($hd)
       padding: 10px
-      font-size: 1.15em
-      width: 80%
+      max-width: 80%
 
   a
     display: block
@@ -57,7 +53,7 @@
       width: 100%
       height: 100%
       background:
-        image: url('/assets/images/icons/GitHub.svg')
+        image: url($icons + 'GitHub.svg')
         repeat: no-repeat
         position: center
         size: 50%

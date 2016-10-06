@@ -1,6 +1,7 @@
 /*----------------------------SOURCES----------------------------*/
 
 $images: '/assets/images/'
+$icons: $images+ 'icons/'
 
 /*----------------------------//SOURCES----------------------------*/
 
@@ -11,12 +12,17 @@ $images: '/assets/images/'
 /*--------COLORS--------*/
 $accent-color : darken(orangered, 6)
 $accent-color-light: darken(orangered, 2)
+$dark: black
+$light: white
 
 /*--------FONT SIZES--------*/
 $big-font: 1.8em
-$medium-font: 1em
-$small-font: 0.75em
-$tiny-font: 0.8em
+$medium-font: 1.3em
+$normal-font: 1em
+$small-font: .75em
+$tiny-font: .8em
+/*--------FONT FAMILY--------*/
+$font-family: Product Sans, sans-serif
 
 /*--------Borders--------*/
 $slim-border: 1px solid $accent-color
@@ -26,7 +32,13 @@ $fat-border: 6px solid $accent-color
 
 /*----------------------------//DESIGN-----------------------------*/
 
-
+@charset "utf-8"
+$base-font-family: "Helvetica Neue", Helvetica, Arial, sans-serif
+$base-font-size: 24px
+$base-font-weight: 400
+$small-font-size: $base-font-size * 0.875
+$transition: .3s ease-in-out
+$text-color: #111
 
 /*----------------------------MEDIA QUERIES-----------------------------*/
 

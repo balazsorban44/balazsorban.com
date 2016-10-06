@@ -57,5 +57,25 @@
     @extend.back
     @include device-width($hd)
       transform: none
-
+.close
+  position: fixed
+  top: 0
+  right: 0
+  margin: 16px
+  color: $accent-color
+  display: flex
+  justify-content: center
+  align-items: center
+  font-size: 1.5vw
+  font-weight: lighter
+  cursor: pointer
+  @extend.snap
+  @include device-width($hd)
+    font-size: 10vw
+    font-weight: bold
+    margin: -4px 4px
+  &::after
+    content: '×'
+  &:hover
+    color: white
 //----------------//BUTTONS----------------//

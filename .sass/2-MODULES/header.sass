@@ -1,43 +1,44 @@
 header
-  width: 640px
-  border-bottom: $slim-border
-  margin-bottom: 20px
   transform:  translate(0px,-500px)
   animation: 1s ease-in-out forwards slideinTop
-  z-index: 1000
+  z-index: 1
   @include device-width($on-palm)
-    left: 0
-    width: 100vw
-    border-top: none
-    margin: 0 auto
-    border-bottom: $slim-border
-    z-index: 1000
-    position: fixed
     top: 0
+    position: fixed
   nav
     ul
+      width: 640px
+      border-bottom: $slim-border
+      margin-bottom: 20px
+      padding-bottom: 10px
       display: flex
       justify-content: center
+      align-items: center
       @include device-width($on-palm)
+        background-color: $accent-color-light
+        width: 100vw
+        border-bottom: $slim-border
+        padding: 0
+        min-height: 44px
         justify-content: space-around
       :nth-child(2)
         font-weight: bold
         color: $accent-color
         @include device-width($on-palm)
           display: none
-      li
+      & li
         font-size: $big-font
-        margin: 10px
+        margin:  0 10px
         padding: 10px 5px
         transform: translate(0px,-500px)
         animation: 1s ease-in-out forwards .1s slideinTop
         @include device-width($on-palm)
           padding: 2px
           color: $accent-color
-          font-size: 1.3em
-        @include device-width($on-palm)
-          font-size: 1.2em
-        a
+          font-size: $medium-font
+        & a
           transition: .4s
+          @include device-width($on-palm)
+            color: $light
           &:hover
             color: $accent-color

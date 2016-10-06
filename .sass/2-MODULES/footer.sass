@@ -14,13 +14,12 @@ footer
   ul
     display: flex
     padding: 8px
-    align-items: center
     @include device-width($mobile)
       justify-content: space-around
-      padding: 32px
+      padding: 32px 32px 16px 32px
     @include device-width($on-palm)
       @include orient(landscape)
-        justify-content: flex-end
+        justify-content: flex-start
 
     li
       margin: 0 16px
@@ -29,37 +28,15 @@ footer
       @for $i from 1 through 5
         &:nth-child(#{$i})
           animation-delay: 100ms * $i
-      &:nth-child(4)
-        flex-grow: 1
-        text-align: right
-        font-size: $tiny-font
-        @include device-width($hd)
-          position: fixed
-          text-align: center
-          //background: $accent-color-light
-          width: 100vw
-          bottom: 0
-          left: -16px
-          padding: 2px 0 0
-        @include device-width($on-palm)
-          @include orient(landscape)
-            display: none
-        b
-          transition: .2s
-          &:hover
-            color: $accent-color
-      >a
+      a
         @extend.circle-btn
         transition: .4s ease-in
         &:hover
           @extend.rotate
         @include device-width($mobile)
           margin: 0
-          display: block
-          transform:  translate(0px,500px)
+          transform:  translate(0px,200px)
           animation: 1s ease-in-out forwards .1s slideinBottom
         img
           width: 50%
-          padding: 0
-          display: block
           transform: translate(50%, 50%)

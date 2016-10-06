@@ -1,216 +1,212 @@
-.index
+#landing
+  margin: 2% 0
+  display: flex
+  justify-content: space-around
+  align-items: center
   @include device-width($hd)
-    justify-content: space-around
-  section#landing
-    margin: 5% 0
-    display: flex
-    justify-content: space-around
-    align-items: center
-    @include device-width($hd)
-      flex-grow: 1
-      flex-direction: column
-      margin-top: 25%
-    #card
-      height: 34vh
-      perspective: 100vh
-      max-width: 50%
-      display: flex
+    flex-grow: 1
+    flex-direction: column
+  @include device-width($on-palm)
+    @include orient(landscape)
+      flex-direction: row
       align-items: center
+      margin: 44px 2.5% 0 2.5%
+  #card
+    height: 33.333vh
+    perspective: 800px
+    max-width: 50%
+    transform: scale(0)
+    animation: .5s ease-in-out forwards .3s scaleUp
+    @include device-width($hd)
+      max-width: 100%
+      height: auto
+      transform: none
+      animation: none
+    #intro
+      border-top: $fat-border
+      display: flex
+      flex-direction: column
       justify-content: center
-      transform: scale(0)
-      animation: .5s ease-in-out forwards .3s scaleUp
+      align-items: center
+      height: 100%
+      background:
+        image: linear-gradient(transparentize($dark, .2), transparentize($dark, .2)), url($images + 'me-bw.jpg')
+        repeat: repeat, no-repeat
+        size: cover, 100%
+        position: center, center center
+        color: $dark
+      transform-style: preserve-3d
+      transition: .5s ease-in-out
       @include device-width($hd)
-        max-width: 100%
-        height: auto
-        transform: translate(0px,0px)
-        animation: none
-      #intro
-        border-top: $fat-border
-        position: relative
-        display: flex
-        flex-direction: column
-        justify-content: center
-        align-items: center
-        height: 100%
-        background:
-          image: linear-gradient(rgba(0,0,0,.8), rgba(0,0,0,.8)), url('/assets/images/me-bw.jpg')
-          repeat: repeat, no-repeat
-          size: cover, 100%
-          position: center, center center
-          color: black
-        transition: .5s ease-in-out
-        transform-style: preserve-3d
+        background: transparent
+        border: none
+        @include device-width($on-palm)
+          @include orient(landscape)
+            display: block
+      &:hover
+        background: transparentize($light, .66)
         @include device-width($hd)
-          height: auto
           background: transparent
-          max-width: 100%
-          border: none
+        h2
+          color: black
+      h2
+        padding: 0 5%
+        font-size: $medium-font * 1.2
+        color: white
+        text-align: center
+        line-height: 1.35
+        animation: .5s ease-in-out forwards .5s scaleUp
+        transform: translate(0,-1000px)
+        @include device-width($hd)
+          color: black
+          font-size: $normal-font * 1.2
         @include device-width($on-palm)
           @include orient(landscape)
             display: inline
-            margin-left: 5%
-        &:hover
-          background: rgba(255,255,255,.44)
-          @include device-width($hd)
-            background: transparent
-            box-shadow: none
-            border-left: none
-            border-right: none
-            border-bottom: none
-          h2
-            color: black
-        h2
-          padding: 5%
-          font-size: 1.4vw
-          color: white
-          text-align: center
-          line-height: 1.35
-          animation: .5s ease-in-out forwards .5s scaleUp
-          transform: translate(0,-1000px)
-          @include device-width($hd)
-            color: black
-            padding: 0 5%
-            border: none
-            text-align: center
-            max-width: 100%
-            font-size: 1.2em
-          @include device-width($on-palm)
-            @include orient(landscape)
-              text-align: left
-              display: inline
-              padding: 1%
-        .open
-          padding: 5px 20px
-          height: 20px
-          border-radius: 1em
-          background-color: $accent-color-light
-          font-weight: bolder
-          color: white
-          white-space: nowrap
-          cursor: pointer
-          //border-bottom: $curvy-border
-          transform: scale(0)
-          animation: .5s ease-in-out forwards .4s scaleUp
-          @extend.snap
-          &:hover
-            border-radius: 0
-            transform: scale(1.1)
-          &:active
-            border-bottom: 3px solid $accent-color
-          @include device-width($hd)
-            font-size: 1em
-            margin-top: 8px
-            border-radius: 2em
-      #about-me
-        transform: rotateY( 180deg )
-        display: flex
-        align-items: center
-        opacity: 0
-        transform-origin: bottom
-        //backface-visibility: hidden
-        transition: .5s ease-in-out
-        position: absolute
-        width: 100%
-        height: 100%
-        top: 0
-        overflow-y: scroll
+            padding: 0
+            line-height: 2
+      .open
+        padding: 5px 20px
+        margin-top: 8px
+        height: 20px
+        border-radius: 1em
         background-color: $accent-color-light
-        z-index: -1
-        border: $fat-border
-        @include device-width($hd)
-          position: fixed
-          border: none
-          background: white
-          height: auto
-          top: -40vh
-        #me-text
-          h3
-            color: white
-            padding: 1% 8% 0
-            font-size: 1.2em
-            font-weight: bold
-            @include device-width($hd)
-              color: $accent-color
-          p
-            text-align: justify
-            margin: 0 5%
-            padding: 1%
-            color: white
-            line-height: 1.5
-            font-size: $small-font
-            text-transform: lowercase
-            @include device-width($hd)
-              color: $accent-color
-              font-size: $medium-font
-            a
-              font-size: .9em
-              line-height: 3
-              white-space: nowrap
-              @include device-width($hd)
-                background-color: $accent-color
-                color: white
-          hr
-            width: 80%
-            border: none
-            border: $slim-border
-            @include device-width($hd)
-              color: $accent-color
-              line-height: 1.2
-              padding: 0 5%
-              border: none
-              border-top: $slim-border
-        a
-          text-align: center
-          margin-right: 4px
-          border: none
-          color: $accent-color
-          font-weight: bold
-          font-size: 1.5em
-          padding: 4px 8px
-          background-color: white
-          border-radius: 1em
-          cursor: pointer
-          @extend.snap
-          transition: .2s !important
-          &:hover
-            color: $accent-color-light
-            box-shadow: 0 0 0 .20em rgba(255,255,255,.5)
-            border-radius: 0
-            transform: scale(1.5)
-    #name
-      h1
-        font-size: 5vw
-        text-transform: lowercase
-        font-style: italic
-        font-weight: 600
-        text-indent: -7vw
-        text-align: center
+        font-weight: bolder
+        color: white
+        white-space: nowrap
+        cursor: pointer
         transform: scale(0)
         animation: .5s ease-in-out forwards .4s scaleUp
-        transition: .3s ease-in-out
-        @include device-width($hd)
-          text-indent: 0
-          font-size: 2.5em
-          z-index: -1
-          br
-            display: none
+        @extend.snap
+        &:hover
+          border-radius: 0
+          transform: scale(1.1)
         @include device-width($on-palm)
           @include orient(landscape)
-            font-size: $big-font
-            margin-top: 15px
-        &:first-line
-          color: $accent-color
-          font-weight: normal
-    #me
-      display: none
+            text-align: left
+            display: inline
+            margin: 0 16px
+    #about-me
+      transform: rotateY( 180deg )
+      display: flex
+      align-items: center
+      opacity: 0
+      //backface-visibility: hidden
+      transition: .5s ease-in-out
+      position: absolute
+      +size(100%)
+      top: 0
+      background-color: $accent-color-light
+      z-index: -1
+      border: $fat-border
       @include device-width($hd)
-        border: $slim-border
-        display: block
-        border-radius: 50%
-        margin: 0 auto
-        +size(30vh)
-        background:
-          image: linear-gradient(rgba(0,0,0,.1), rgba(0,0,0,.1)), url('/assets/images/me-bw.jpg')
-          repeat: repeat, no-repeat
-          size: cover, 100%
-        filter: contrast(1.5) brightness(1.5)
+        border: none
+        background: $light
+        width: 100%
+        height: 70vh
+        top: -50vh
+      #me-text
+        display: flex
+        height: 100%
+        flex-direction: column
+        @include device-width($hd)
+          justify-content: space-around
+        h3
+          color: white
+          padding: 1% 7% 0
+          font-size: $medium-font
+          font-weight: bold
+          @include device-width($hd)
+            color: $accent-color
+        p
+          text-align: justify
+          margin: 0 5%
+          padding: 1%
+          color: white
+          line-height: 1.5
+          font-size: $normal-font
+          text-transform: lowercase
+          @include device-width($hd)
+            color: $accent-color
+            font-size: $tiny-font
+          a
+            font-size: .9em
+            line-height: 3
+            white-space: nowrap
+            @include device-width($hd)
+              background-color: $accent-color
+              color: white
+        hr
+          width: 80%
+          border: none
+          border: $slim-border
+          @include device-width($hd)
+            color: $accent-color
+            line-height: 1.2
+            padding: 0 5%
+            border: none
+            border-top: $slim-border
+      a
+        text-align: center
+        margin-right: 4px
+        border: none
+        color: $accent-color
+        font-weight: bold
+        font-size: 1.5em
+        padding: 4px 8px
+        background-color: white
+        border-radius: 1em
+        cursor: pointer
+        @extend.snap
+        transition: .2s !important
+        &:hover
+          color: $accent-color-light
+          box-shadow: 0 0 0 .20em rgba(255,255,255,.5)
+          border-radius: 0
+          transform: scale(1.5)
+  #name
+    @include device-width($on-palm)
+      @include orient(landscape)
+        width: 100%
+    h1
+      font-size: $big-font * 4
+      text-transform: lowercase
+      font-style: italic
+      font-weight: 600
+      text-indent: -$big-font
+      text-align: center
+      transform: scale(0)
+      animation: .5s ease-in-out forwards .4s scaleUp
+      transition: .3s ease-in-out
+      @include device-width($hd)
+        text-indent: 0
+        margin-top: 44px
+        font-size: $big-font * 1.5
+        z-index: -1
+        br
+          display: none
+      @include device-width($on-palm)
+        @include orient(landscape)
+          font-size: $big-font
+          margin-top: 0
+      &:first-line
+        color: $accent-color
+        font-weight: normal
+  #me
+    display: none
+    @include device-width($hd)
+      border: $slim-border
+      display: block
+      border-radius: 50%
+      margin: 0 auto
+      +size(30vh)
+      background:
+        image: linear-gradient(rgba(0,0,0,.1), rgba(0,0,0,.1)), url($images + 'me-bw.jpg')
+        repeat: repeat, no-repeat
+        size: cover, 100%
+      filter: contrast(1.5) brightness(1.5)
+    @include device-width($on-palm)
+      @include orient(landscape)
+        min-height: 40vh
+        min-width: 40vh
+        margin-right: 10px

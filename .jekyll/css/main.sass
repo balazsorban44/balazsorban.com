@@ -1,19 +1,6 @@
 ---
-# Only the main Sass file needs front matter (the dashes are enough)
 ---
-
-@charset "utf-8"
-// Our variables
-$base-font-family: "Helvetica Neue", Helvetica, Arial, sans-serif
-$base-font-size: 24px
-$base-font-weight: 400
-$small-font-size: $base-font-size * 0.875
-$transition: .3s ease-in-out
-$text-color: #111
-
-
 // Import partials from `sass_dir` (defaults to `_sass`)
-@import "/home/balazs/Documents/github/balazsorban44.github.io/.sass/1-ESSENTIALS/vars.sass"
-@import "base"
-@import "page"
-@import "post"
+@import {{site.localpath}}/.sass/1-ESSENTIALS/vars.sass
+@import page
+@import post
