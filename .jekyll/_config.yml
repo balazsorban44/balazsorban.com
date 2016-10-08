@@ -1,6 +1,6 @@
 # Site settings
-#url: http://balazsorban.com # the base hostname & protocol for your site
-url: http://192.168.1.4:8000 # the base hostname & protocol for your site
+url: http://balazsorban.com # the base hostname & protocol for your site
+#url: http://192.168.1.4:8000 # the base hostname & protocol for your site
 title: Photography by Balázs Orbán
 email: info@balazsorban.com
 description: Here you will find my best pictures taken so far.
