@@ -16,13 +16,16 @@
     perspective: 800px
     max-width: 50%
     transform: scale(0)
-    animation: .5s ease-in-out forwards .3s scaleUp
+    animation: $medium-smooth forwards .3s scaleUp
+    @include device-width($small-laptop)
+      margin-right: 10%
     @include device-width($hd)
+      margin: 0
       max-width: 100%
       height: auto
       transform: none
       animation: none
-    #intro
+    #intro-text
       border-top: $fat-border
       display: flex
       flex-direction: column
@@ -33,10 +36,10 @@
         image: linear-gradient(transparentize($dark, .2), transparentize($dark, .2)), url($images + 'me-bw.jpg')
         repeat: repeat, no-repeat
         size: cover, 100%
-        position: center, center center
+        position: center, center
         color: $dark
       transform-style: preserve-3d
-      transition: .5s ease-in-out
+      transition: $medium-smooth
       @include device-width($hd)
         background: transparent
         border: none
@@ -48,141 +51,110 @@
         @include device-width($hd)
           background: transparent
         h2
-          color: black
+          color: $dark
       h2
         padding: 0 5%
         font-size: $medium-font * 1.2
-        color: white
+        color: $light
         text-align: center
         line-height: 1.35
-        animation: .5s ease-in-out forwards .5s scaleUp
+        animation: $medium-smooth forwards .5s scaleUp
         transform: translate(0,-1000px)
         @include device-width($hd)
-          color: black
+          color: $dark
           font-size: $normal-font * 1.2
         @include device-width($on-palm)
           @include orient(landscape)
             display: inline
             padding: 0
             line-height: 2
-      .open
-        padding: 5px 20px
-        margin-top: 8px
-        height: 20px
-        border-radius: 1em
+      span
         background-color: $accent-color-light
-        font-weight: bolder
-        color: white
-        white-space: nowrap
-        cursor: pointer
-        transform: scale(0)
-        animation: .5s ease-in-out forwards .4s scaleUp
-        @extend.snap
-        &:hover
-          border-radius: 0
-          transform: scale(1.1)
-        @include device-width($on-palm)
-          @include orient(landscape)
-            text-align: left
-            display: inline
-            margin: 0 16px
-    #about-me
+        color: $light
+
+    #me-text
       transform: rotateY( 180deg )
       display: flex
       align-items: center
+      flex-direction: column
       opacity: 0
-      //backface-visibility: hidden
-      transition: .5s ease-in-out
+      transition: $medium-smooth
+      background: $accent-color-light
       position: absolute
       +size(100%)
       top: 0
-      background-color: $accent-color-light
       z-index: -1
-      border: $fat-border
+      border-top: $fat-border
+      overflow-y: scroll
       @include device-width($hd)
         border: none
-        background: $light
-        width: 100%
-        height: 70vh
+        background-color: transparent
+        +size(100% 70vh)
         top: -50vh
-      #me-text
-        display: flex
-        height: 100%
-        flex-direction: column
-        @include device-width($hd)
-          justify-content: space-around
-        h3
-          color: white
-          padding: 1% 7% 0
-          font-size: $medium-font
-          font-weight: bold
-          @include device-width($hd)
-            color: $accent-color
-        p
-          text-align: justify
-          margin: 0 5%
-          padding: 1%
-          color: white
-          line-height: 1.5
-          font-size: $normal-font
-          text-transform: lowercase
-          @include device-width($hd)
-            color: $accent-color
-            font-size: $tiny-font
-          a
-            font-size: .9em
-            line-height: 3
-            white-space: nowrap
-            @include device-width($hd)
-              background-color: $accent-color
-              color: white
-        hr
-          width: 80%
-          border: none
-          border: $slim-border
-          @include device-width($hd)
-            color: $accent-color
-            line-height: 1.2
-            padding: 0 5%
-            border: none
-            border-top: $slim-border
-      a
-        text-align: center
-        margin-right: 4px
-        border: none
-        color: $accent-color
+        @include orient(landscape)
+          width: 95vw
+          left: -55vw
+          top: -10vh
+          height: 60vh
+      h3
+        color: $light
+        align-self: flex-start
+        padding: 3% 0 1% 3%
+        font-size: $medium-font
         font-weight: bold
-        font-size: 1.5em
-        padding: 4px 8px
-        background-color: white
-        border-radius: 1em
-        cursor: pointer
-        @extend.snap
-        transition: .2s !important
-        &:hover
-          color: $accent-color-light
-          box-shadow: 0 0 0 .20em rgba(255,255,255,.5)
-          border-radius: 0
-          transform: scale(1.5)
+        @include device-width($hd)
+          color: $accent-color
+      p
+        text-align: justify
+        margin: 1% 3%
+        color: $light
+        line-height: 1.5
+        font-size: $normal-font
+        @include device-width($hd)
+          color: $accent-color
+        a
+          font-size: $small-font
+          background-color: $light
+          color: $accent-color
+          @extend.open
+          @extend.snap
+          transition: .2s !important
+          &:hover
+            color: $accent-color-light
+            box-shadow: 0 0 0 .20em rgba(255,255,255,.5)
+            border-radius: 0
+            transform: scale(1.5)
+          @include device-width($hd)
+            background-color: $accent-color-light
+            color: $light
+      hr
+        width: 80%
+        border: none
+        border-top: $slim-border
+
   #name
+    transition: $medium-smooth
     @include device-width($on-palm)
       @include orient(landscape)
         width: 100%
     h1
-      font-size: $big-font * 4
+      font-size: 6vw
       text-transform: lowercase
       font-style: italic
       font-weight: 600
       text-indent: -$big-font
       text-align: center
       transform: scale(0)
-      animation: .5s ease-in-out forwards .4s scaleUp
-      transition: .3s ease-in-out
+      animation: $medium-smooth forwards .4s scaleUp
+      transition: $fast-smooth
+      @include device-width($small-laptop)
+        text-indent: -$big-font / 2
+        margin-left: 30%
       @include device-width($hd)
         text-indent: 0
         margin-top: 44px
+        margin-left: 0
         font-size: $big-font * 1.5
-        z-index: -1
         br
           display: none
       @include device-width($on-palm)
@@ -195,6 +167,7 @@
   #me
     display: none
     @include device-width($hd)
+      transition: $medium-smooth
       border: $slim-border
       display: block
       border-radius: 50%

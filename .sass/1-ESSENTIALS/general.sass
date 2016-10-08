@@ -1,5 +1,18 @@
-*
+//*
   text-transform: lowercase
+
+::-webkit-scrollbar
+  width: 4px
+::-webkit-scrollbar-thumb
+  background: darken($accent-color,4)
+  border-radius: 5px
+  &:hover, &:active
+    background: darken($accent-color,8)
+
+::-webkit-scrollbar-track
+  background: transparentize($accent-color-light,.75)
+
+
 &::selection
   background-color: $accent-color-light
   color: $light

@@ -25,10 +25,6 @@ a::selection {
   opacity: 0;
 }
 
-::-webkit-scrollbar {
-  display: none;
-}
-
 html, body, div, span, h1, h2, h3, h4, h5, h6, p, a, a:hover, img, ol, ul, li, article footer, header, nav, section {
   -webkit-tap-highlight-color: transparent;
   margin: 0;
@@ -65,8 +61,21 @@ a {
   text-decoration: none;
 }
 
-* {
-  text-transform: lowercase;
+::-webkit-scrollbar {
+  width: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #cc3700;
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover, ::-webkit-scrollbar-thumb:active {
+  background: #b83200;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(245, 66, 0, 0.25);
 }
 
 ::-moz-selection {
@@ -346,12 +355,19 @@ footer ul li a img {
   -webkit-transform: scale(0);
       -ms-transform: scale(0);
           transform: scale(0);
-  -webkit-animation: .5s ease-in-out forwards .3s scaleUp;
-          animation: .5s ease-in-out forwards .3s scaleUp;
+  -webkit-animation: 0.4s ease-in-out forwards 0.3s scaleUp;
+          animation: 0.4s ease-in-out forwards 0.3s scaleUp;
+}
+
+@media (max-width: 1366px) {
+  #landing #card {
+    margin-right: 10%;
+  }
 }
 
 @media (max-width: 720px) {
   #landing #card {
+    margin: 0;
     max-width: 100%;
     height: auto;
     -webkit-transform: none;
@@ -362,7 +378,7 @@ footer ul li a img {
   }
 }
 
-#landing #card #intro {
+#landing #card #intro-text {
   border-top: 6px solid #e03d00;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -380,101 +396,74 @@ footer ul li a img {
   background-image: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url("/assets/images/me-bw.jpg");
   background-repeat: repeat, no-repeat;
   background-size: cover, 100%;
-  background-position: center, center center;
+  background-position: center, center;
   background-color: black;
   -webkit-transform-style: preserve-3d;
           transform-style: preserve-3d;
-  transition: .5s ease-in-out;
+  transition: 0.4s ease-in-out;
 }
 
 @media (max-width: 720px) {
-  #landing #card #intro {
+  #landing #card #intro-text {
     background: transparent;
     border: none;
   }
 }
 
 @media (max-width: 720px) and (max-width: 640px) and (orientation: landscape) {
-  #landing #card #intro {
+  #landing #card #intro-text {
     display: block;
   }
 }
 
-#landing #card #intro:hover {
+#landing #card #intro-text:hover {
   background: rgba(255, 255, 255, 0.34);
 }
 
 @media (max-width: 720px) {
-  #landing #card #intro:hover {
+  #landing #card #intro-text:hover {
     background: transparent;
   }
 }
 
-#landing #card #intro:hover h2 {
+#landing #card #intro-text:hover h2 {
   color: black;
 }
 
-#landing #card #intro h2 {
+#landing #card #intro-text h2 {
   padding: 0 5%;
   font-size: 1.56em;
   color: white;
   text-align: center;
   line-height: 1.35;
-  -webkit-animation: .5s ease-in-out forwards .5s scaleUp;
-          animation: .5s ease-in-out forwards .5s scaleUp;
+  -webkit-animation: 0.4s ease-in-out forwards 0.5s scaleUp;
+          animation: 0.4s ease-in-out forwards 0.5s scaleUp;
   -webkit-transform: translate(0, -1000px);
       -ms-transform: translate(0, -1000px);
           transform: translate(0, -1000px);
 }
 
 @media (max-width: 720px) {
-  #landing #card #intro h2 {
+  #landing #card #intro-text h2 {
     color: black;
     font-size: 1.2em;
   }
 }
 
 @media (max-width: 640px) and (orientation: landscape) {
-  #landing #card #intro h2 {
+  #landing #card #intro-text h2 {
     display: inline;
     padding: 0;
     line-height: 2;
   }
 }
 
-#landing #card #intro .open {
-  padding: 5px 20px;
-  margin-top: 8px;
-  height: 20px;
-  border-radius: 1em;
+#landing #card #intro-text span {
   background-color: #f54200;
-  font-weight: bolder;
   color: white;
-  white-space: nowrap;
-  cursor: pointer;
-  -webkit-transform: scale(0);
-      -ms-transform: scale(0);
-          transform: scale(0);
-  -webkit-animation: .5s ease-in-out forwards .4s scaleUp;
-          animation: .5s ease-in-out forwards .4s scaleUp;
 }
 
-#landing #card #intro .open:hover {
-  border-radius: 0;
-  -webkit-transform: scale(1.1);
-      -ms-transform: scale(1.1);
-          transform: scale(1.1);
-}
-
-@media (max-width: 640px) and (orientation: landscape) {
-  #landing #card #intro .open {
-    text-align: left;
-    display: inline;
-    margin: 0 16px;
-  }
-}
-
-#landing #card #about-me {
+#landing #card #me-text {
   -webkit-transform: rotateY(180deg);
           transform: rotateY(180deg);
   display: -webkit-flex;
@@ -483,125 +472,101 @@ footer ul li a img {
   -webkit-align-items: center;
       -ms-flex-align: center;
           align-items: center;
+  -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column;
   opacity: 0;
-  transition: .5s ease-in-out;
+  transition: 0.4s ease-in-out;
+  background: #f54200;
   position: absolute;
   height: 100%;
   width: 100%;
   top: 0;
-  background-color: #f54200;
   z-index: -1;
-  border: 6px solid #e03d00;
+  border-top: 6px solid #e03d00;
+  overflow-y: scroll;
 }
 
 @media (max-width: 720px) {
-  #landing #card #about-me {
+  #landing #card #me-text {
     border: none;
-    background: white;
-    width: 100%;
+    background-color: transparent;
     height: 70vh;
+    width: 100%;
     top: -50vh;
   }
 }
 
-#landing #card #about-me #me-text {
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  height: 100%;
-  -webkit-flex-direction: column;
-      -ms-flex-direction: column;
-          flex-direction: column;
-}
-
-@media (max-width: 720px) {
-  #landing #card #about-me #me-text {
-    -webkit-justify-content: space-around;
-        -ms-flex-pack: distribute;
-            justify-content: space-around;
+@media (max-width: 720px) and (orientation: landscape) {
+  #landing #card #me-text {
+    width: 95vw;
+    left: -55vw;
+    top: -10vh;
+    height: 60vh;
   }
 }
 
-#landing #card #about-me #me-text h3 {
+#landing #card #me-text h3 {
   color: white;
-  padding: 1% 7% 0;
+  -webkit-align-self: flex-start;
+      -ms-flex-item-align: start;
+          align-self: flex-start;
+  padding: 3% 0 1% 3%;
   font-size: 1.3em;
   font-weight: bold;
 }
 
 @media (max-width: 720px) {
-  #landing #card #about-me #me-text h3 {
+  #landing #card #me-text h3 {
     color: #e03d00;
   }
 }
 
-#landing #card #about-me #me-text p {
+#landing #card #me-text p {
   text-align: justify;
-  margin: 0 5%;
-  padding: 1%;
+  margin: 1% 3%;
   color: white;
   line-height: 1.5;
   font-size: 1em;
-  text-transform: lowercase;
 }
 
 @media (max-width: 720px) {
-  #landing #card #about-me #me-text p {
+  #landing #card #me-text p {
     color: #e03d00;
-    font-size: 0.8em;
   }
 }
 
-#landing #card #about-me #me-text p a {
-  font-size: .9em;
-  line-height: 3;
-  white-space: nowrap;
-}
-
-@media (max-width: 720px) {
-  #landing #card #about-me #me-text p a {
-    background-color: #e03d00;
-    color: white;
-  }
-}
-
-#landing #card #about-me #me-text hr {
-  width: 80%;
-  border: none;
-  border: 1px solid #e03d00;
-}
-
-@media (max-width: 720px) {
-  #landing #card #about-me #me-text hr {
-    color: #e03d00;
-    line-height: 1.2;
-    padding: 0 5%;
-    border: none;
-    border-top: 1px solid #e03d00;
-  }
-}
-
-#landing #card #about-me a {
-  text-align: center;
-  margin-right: 4px;
-  border: none;
-  color: #e03d00;
-  font-weight: bold;
-  font-size: 1.5em;
-  padding: 4px 8px;
+#landing #card #me-text p a {
+  font-size: 0.75em;
   background-color: white;
-  border-radius: 1em;
-  cursor: pointer;
+  color: #e03d00;
   transition: .2s !important;
 }
 
-#landing #card #about-me a:hover {
+#landing #card #me-text p a:hover {
   color: #f54200;
   box-shadow: 0 0 0 0.2em rgba(255, 255, 255, 0.5);
   border-radius: 0;
   -webkit-transform: scale(1.5);
       -ms-transform: scale(1.5);
           transform: scale(1.5);
+}
+
+@media (max-width: 720px) {
+  #landing #card #me-text p a {
+    background-color: #f54200;
+    color: white;
+  }
+}
+
+#landing #card #me-text hr {
+  width: 80%;
+  border: none;
+  border-top: 1px solid #e03d00;
+}
+
+#landing #name {
+  transition: 0.4s ease-in-out;
 }
 
 @media (max-width: 640px) and (orientation: landscape) {
@@ -611,7 +576,7 @@ footer ul li a img {
 }
 
 #landing #name h1 {
-  font-size: 7.2em;
+  font-size: 6vw;
   text-transform: lowercase;
   font-style: italic;
   font-weight: 600;
@@ -620,17 +585,24 @@ footer ul li a img {
   -webkit-transform: scale(0);
       -ms-transform: scale(0);
           transform: scale(0);
-  -webkit-animation: .5s ease-in-out forwards .4s scaleUp;
-          animation: .5s ease-in-out forwards .4s scaleUp;
-  transition: .3s ease-in-out;
+  -webkit-animation: 0.4s ease-in-out forwards 0.4s scaleUp;
+          animation: 0.4s ease-in-out forwards 0.4s scaleUp;
+  transition: 0.3s ease-in-out;
+}
+
+@media (max-width: 1366px) {
+  #landing #name h1 {
+    text-indent: -0.9em;
+    margin-left: 30%;
+  }
 }
 
 @media (max-width: 720px) {
   #landing #name h1 {
     text-indent: 0;
     margin-top: 44px;
+    margin-left: 0;
     font-size: 2.7em;
-    z-index: -1;
   }
   #landing #name h1 br {
     display: none;
@@ -655,6 +627,7 @@ footer ul li a img {
 
 @media (max-width: 720px) {
   #landing #me {
+    transition: 0.4s ease-in-out;
     border: 1px solid #e03d00;
     display: block;
     border-radius: 50%;
@@ -986,7 +959,7 @@ footer ul li a img {
   }
 }
 
-.snap, #landing #card #intro .open, #landing #card #about-me a, #code a span, .close {
+.snap, #landing #card #me-text p a, #code a span, .open, .close {
   transition: 0.3s cubic-bezier(0.6, 0.03, 0.81, 1.5);
 }
 
@@ -1066,6 +1039,36 @@ footer ul li a img {
   }
 }
 
+.open, #landing #card #me-text p a {
+  padding: 5px 10px;
+  margin-top: 8px;
+  height: 20px;
+  border-radius: 1em;
+  font-weight: bolder;
+  white-space: nowrap;
+  cursor: pointer;
+  -webkit-transform: scale(0);
+      -ms-transform: scale(0);
+          transform: scale(0);
+  -webkit-animation: .5s ease-in-out forwards .4s scaleUp;
+          animation: .5s ease-in-out forwards .4s scaleUp;
+}
+
+.open:hover, #landing #card #me-text p a:hover {
+  border-radius: 0;
+  -webkit-transform: scale(1.1);
+      -ms-transform: scale(1.1);
+          transform: scale(1.1);
+}
+
+@media (max-width: 640px) and (orientation: landscape) {
+  .open, #landing #card #me-text p a {
+    text-align: left;
+    display: inline;
+    margin: 0 16px;
+  }
+}
+
 .close {
   position: fixed;
   top: 0;
@@ -1081,16 +1084,22 @@ footer ul li a img {
   -webkit-align-items: center;
       -ms-flex-align: center;
           align-items: center;
-  font-size: 1.5vw;
+  font-size: 1.8em;
   font-weight: lighter;
   cursor: pointer;
 }
 
 @media (max-width: 720px) {
   .close {
-    font-size: 10vw;
     font-weight: bold;
     margin: -4px 4px;
+  }
+}
+
+@media (max-width: 720px) and (orientation: landscape) {
+  .close {
+    font-size: 2.16em;
+    margin: 5px;
   }
 }
 

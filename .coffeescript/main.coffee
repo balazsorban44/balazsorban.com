@@ -30,12 +30,19 @@ document.getElementsByTagName('head')[0].appendChild script
 
 window.setTimeout (->
   $('.open').click ->
-    $('#about-me').css 'transform':'rotateY(0deg)', 'opacity':'1', 'z-index':'1'
-    $('#intro').css 'transform':'rotateY(-180deg)', 'opacity':'0', 'z-index':'-1'
+    $('#me-text').css 'transform':'rotateY(0deg)', 'opacity':'1', 'z-index':'1'
+    $('#intro-text').css 'transform':'rotateY(-180deg)', 'opacity':'0', 'z-index':'-1'
   $('.close').click ->
-    $('#about-me').css 'transform':'rotateY(180deg)', 'opacity':'0', 'z-index':'-1'
-    $('#intro').css 'transform':'rotateY(0deg)', 'opacity':'1', 'z-index':'1'
+    $('#me-text').css 'transform':'rotateY(180deg)', 'opacity':'0', 'z-index':'-1'
+    $('#intro-text').css 'transform':'rotateY(0deg)', 'opacity':'1', 'z-index':'1'
   if window.matchMedia('(min-width: 1024px)').matches
     $('body').mousemove (event) ->
       $('#card').css('margin-left': event.pageX/20 + "px",'margin-top': event.pageY/20 + "px", 'margin-bottom': event.pageY/20 + "px")
+  if window.matchMedia('(max-width: 640px)').matches
+    $('.open').click ->
+      $('#me').css 'opacity':'0'
+      $('#name').css 'opacity':'0'
+    $('.close').click ->
+      $('#me').css 'opacity':'1'
+      $('#name').css 'opacity':'1'
       ), 1000
