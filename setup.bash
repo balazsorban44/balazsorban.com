@@ -3,7 +3,7 @@ local(){
 	sleep 4;
 	cd ./.pug/1-ESSENTIALS/;
 	sed -i '3 s=^//==; 2 s=^=//=' vars.jade;
-	cd ../../.jekyll;
+	cd ../../jekyll;
 	sed -i '3 s/^#//; 2 s/^/#/' _config.yml;
 	jekyll serve --host 0.0.0.0;
 	cd ..
@@ -14,7 +14,7 @@ online(){
 	sleep 4;
 	cd ./.pug/1-ESSENTIALS/;
 	sed -i '2 s=^//==; 3 s=^=//=' vars.jade;
-	cd ../../.jekyll;
+	cd ../../jekyll;
 	sed -i '2 s/^#//; 3 s/^/#/' _config.yml;
 	jekyll serve --host 0.0.0.0;
 	cd ..
