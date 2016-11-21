@@ -38,9 +38,9 @@
     @include orient(portrait)
       +size(48px)
   &:hover
-    @extend.rotate
+    @extend .rotate
 .back
-  @extend.circle-btn
+  @extend .circle-btn
   background:
     image: url('/assets/images/icons/back.svg')
     repeat: no-repeat
@@ -54,7 +54,7 @@
   @include device-width($hd)
     margin: 16px
   &:hover
-    @extend.back
+    @extend .back
     @include device-width($hd)
       transform: none
 .open
@@ -67,7 +67,7 @@
   cursor: pointer
   transform: scale(0)
   animation: .5s ease-in-out forwards .4s scaleUp
-  @extend.snap
+  @extend .snap
   &:hover
     border-radius: 0
     transform: scale(1.1)
@@ -88,7 +88,7 @@
   font-size: $big-font
   font-weight: lighter
   cursor: pointer
-  @extend.snap
+  @extend .snap
   @include device-width($hd)
     font-weight: bold
     margin: -4px 4px

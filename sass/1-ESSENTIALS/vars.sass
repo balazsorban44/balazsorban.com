@@ -40,9 +40,11 @@ $fast-smooth: .3s ease-in-out
 @mixin device-width($width)
   @media (max-width: $width)
     @content
+
 @mixin orient($orient)
   @media (orientation: $orient)
     @content
+      
 $mobile: 420px
 $hd: 720px
 $small-laptop: 1366px

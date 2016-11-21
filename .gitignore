@@ -1,3 +1,4 @@
 prepros.cfg
 desktop.ini
-.sass/1-ESSENTIALS/bourbon
+bourbon
+.sass-cache

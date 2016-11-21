@@ -11,175 +11,178 @@
       flex-direction: row
       align-items: center
       margin: 44px 2.5% 0 2.5%
-  #card
-    height: 33.333vh
-    perspective: 800px
-    max-width: 50%
-    transform: scale(0)
-    animation: $medium-smooth forwards .3s scaleUp
-    @include device-width($small-laptop)
-      margin-right: 10%
+
+#card
+  height: 33.333vh
+  perspective: 800px
+  max-width: 50%
+  transform: scale(0)
+  animation: $medium-smooth forwards .3s scaleUp
+  @include device-width($small-laptop)
+    margin-right: 10%
+  @include device-width($hd)
+    margin: 0
+    max-width: 100%
+    height: auto
+    transform: none
+    animation: none
+
+#intro-text
+  border-top: $fat-border
+  display: flex
+  flex-direction: column
+  justify-content: center
+  align-items: center
+  height: 100%
+  background:
+    image: linear-gradient(transparentize($dark, .2), transparentize($dark, .2)), url($images + 'me-bw.jpg')
+    repeat: repeat, no-repeat
+    size: cover, 100%
+    position: center, center
+    color: $dark
+  transform-style: preserve-3d
+  transition: $medium-smooth
+  @include device-width($hd)
+    background: transparent
+    border: none
+    @include device-width($on-palm)
+      @include orient(landscape)
+        display: block
+  &:hover
+    background: transparentize($light, .66)
     @include device-width($hd)
-      margin: 0
-      max-width: 100%
-      height: auto
-      transform: none
-      animation: none
-    #intro-text
-      border-top: $fat-border
-      display: flex
-      flex-direction: column
-      justify-content: center
-      align-items: center
-      height: 100%
-      background:
-        image: linear-gradient(transparentize($dark, .2), transparentize($dark, .2)), url($images + 'me-bw.jpg')
-        repeat: repeat, no-repeat
-        size: cover, 100%
-        position: center, center
-        color: $dark
-      transform-style: preserve-3d
-      transition: $medium-smooth
-      @include device-width($hd)
-        background: transparent
-        border: none
-        @include device-width($on-palm)
-          @include orient(landscape)
-            display: block
+      background: transparent
+    h2
+      color: $dark
+  h2
+    padding: 0 5%
+    font-size: $medium-font * 1.2
+    color: $light
+    text-align: center
+    line-height: 1.35
+    animation: $medium-smooth forwards .5s scaleUp
+    transform: translate(0,-1000px)
+    @include device-width($hd)
+      color: $dark
+      font-size: $normal-font * 1.2
+    @include device-width($on-palm)
+      @include orient(landscape)
+        display: inline
+        padding: 0
+        line-height: 2
+  span
+    background-color: $accent-color-light
+    color: $light
+
+#me-text
+  transform: rotateY( 180deg )
+  display: flex
+  align-items: center
+  flex-direction: column
+  opacity: 0
+  transition: $medium-smooth
+  background: $accent-color-light
+  position: absolute
+  +size(100%)
+  top: 0
+  z-index: -1
+  border-top: $fat-border
+  overflow-y: scroll
+  @include device-width($hd)
+    border: none
+    background-color: transparent
+    +size(100% 70vh)
+    top: -50vh
+    @include orient(landscape)
+      width: 95vw
+      left: -55vw
+      top: -10vh
+      height: 60vh
+  h3
+    color: $light
+    align-self: flex-start
+    padding: 3% 0 1% 3%
+    font-size: $medium-font
+    font-weight: bold
+    @include device-width($hd)
+      color: $accent-color
+  p
+    text-align: justify
+    margin: 1% 3%
+    color: $light
+    line-height: 1.5
+    font-size: $normal-font
+    @include device-width($hd)
+      color: $accent-color
+    a
+      font-size: $small-font
+      background-color: $light
+      color: $accent-color
+      @extend .open
+      @extend .snap
+      transition: .2s !important
       &:hover
-        background: transparentize($light, .66)
-        @include device-width($hd)
-          background: transparent
-        h2
-          color: $dark
-      h2
-        padding: 0 5%
-        font-size: $medium-font * 1.2
-        color: $light
-        text-align: center
-        line-height: 1.35
-        animation: $medium-smooth forwards .5s scaleUp
-        transform: translate(0,-1000px)
-        @include device-width($hd)
-          color: $dark
-          font-size: $normal-font * 1.2
-        @include device-width($on-palm)
-          @include orient(landscape)
-            display: inline
-            padding: 0
-            line-height: 2
-      span
+        color: $accent-color-light
+        box-shadow: 0 0 0 .20em rgba(255,255,255,.5)
+        border-radius: 0
+        transform: scale(1.5)
+      @include device-width($hd)
         background-color: $accent-color-light
         color: $light
+  hr
+    width: 80%
+    border: none
+    border-top: $slim-border
 
-    #me-text
-      transform: rotateY( 180deg )
-      display: flex
-      align-items: center
-      flex-direction: column
-      opacity: 0
-      transition: $medium-smooth
-      background: $accent-color-light
-      position: absolute
-      +size(100%)
-      top: 0
-      z-index: -1
-      border-top: $fat-border
-      overflow-y: scroll
-      @include device-width($hd)
-        border: none
-        background-color: transparent
-        +size(100% 70vh)
-        top: -50vh
-        @include orient(landscape)
-          width: 95vw
-          left: -55vw
-          top: -10vh
-          height: 60vh
-      h3
-        color: $light
-        align-self: flex-start
-        padding: 3% 0 1% 3%
-        font-size: $medium-font
-        font-weight: bold
-        @include device-width($hd)
-          color: $accent-color
-      p
-        text-align: justify
-        margin: 1% 3%
-        color: $light
-        line-height: 1.5
-        font-size: $normal-font
-        @include device-width($hd)
-          color: $accent-color
-        a
-          font-size: $small-font
-          background-color: $light
-          color: $accent-color
-          @extend.open
-          @extend.snap
-          transition: .2s !important
-          &:hover
-            color: $accent-color-light
-            box-shadow: 0 0 0 .20em rgba(255,255,255,.5)
-            border-radius: 0
-            transform: scale(1.5)
-          @include device-width($hd)
-            background-color: $accent-color-light
-            color: $light
-      hr
-        width: 80%
-        border: none
-        border-top: $slim-border
-
-  #name
-    transition: $medium-smooth
-    @include device-width($on-palm)
-      @include orient(landscape)
-        width: 100%
-    h1
-      font-size: 6vw
-      text-transform: lowercase
-      font-style: italic
-      font-weight: 600
-      text-indent: -$big-font
-      text-align: center
-      transform: scale(0)
-      animation: $medium-smooth forwards .4s scaleUp
-      transition: $fast-smooth
-      @include device-width($small-laptop)
-        text-indent: -$big-font / 2
-        margin-left: 30%
-      @include device-width($hd)
-        text-indent: 0
-        margin-top: 44px
-        margin-left: 0
-        font-size: $big-font * 1.5
-        br
-          display: none
-      @include device-width($on-palm)
-        @include orient(landscape)
-          font-size: $big-font
-          margin-top: 0
-      &:first-line
-        color: $accent-color
-        font-weight: normal
-  #me
-    display: none
+#name
+  transition: $medium-smooth
+  @include device-width($on-palm)
+    @include orient(landscape)
+      width: 100%
+  h1
+    font-size: 6vw
+    text-transform: lowercase
+    font-style: italic
+    font-weight: 600
+    text-indent: -$big-font
+    text-align: center
+    transform: scale(0)
+    animation: $medium-smooth forwards .4s scaleUp
+    transition: $fast-smooth
+    @include device-width($small-laptop)
+      text-indent: -$big-font / 2
+      margin-left: 30%
     @include device-width($hd)
-      transition: $medium-smooth
-      border: $slim-border
-      display: block
-      border-radius: 50%
-      margin: 0 auto
-      +size(30vh)
-      background:
-        image: linear-gradient(rgba(0,0,0,.1), rgba(0,0,0,.1)), url($images + 'me-bw.jpg')
-        repeat: repeat, no-repeat
-        size: cover, 100%
-      filter: contrast(1.5) brightness(1.5)
+      text-indent: 0
+      margin-top: 44px
+      margin-left: 0
+      font-size: $big-font * 1.5
+      br
+        display: none
     @include device-width($on-palm)
       @include orient(landscape)
-        min-height: 40vh
-        min-width: 40vh
-        margin-right: 10px
+        font-size: $big-font
+        margin-top: 0
+    &:first-line
+      color: $accent-color
+      font-weight: normal
+
+#me
+  display: none
+  @include device-width($hd)
+    transition: $medium-smooth
+    border: $slim-border
+    display: block
+    border-radius: 50%
+    margin: 0 auto
+    +size(30vh)
+    background:
+      image: linear-gradient(rgba(0,0,0,.1), rgba(0,0,0,.1)), url($images + 'me-bw.jpg')
+      repeat: repeat, no-repeat
+      size: cover, 100%
+    filter: contrast(1.5) brightness(1.5)
+  @include device-width($on-palm)
+    @include orient(landscape)
+      min-height: 40vh
+      min-width: 40vh
+      margin-right: 10px

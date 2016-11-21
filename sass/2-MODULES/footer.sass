@@ -11,6 +11,7 @@ footer
     transform: none
     margin: 0
     padding: 0
+
   ul
     display: flex
     padding: 8px
@@ -28,15 +29,19 @@ footer
       @for $i from 1 through 5
         &:nth-child(#{$i})
           animation-delay: 100ms * $i
+
       a
-        @extend.circle-btn
+        @extend .circle-btn
         transition: .4s ease-in
+
         &:hover
-          @extend.rotate
+          @extend .rotate
+
         @include device-width($mobile)
           margin: 0
           transform:  translate(0px,200px)
           animation: 1s ease-in-out forwards .1s slideinBottom
+
         img
           width: 50%
           transform: translate(50%, 50%)
