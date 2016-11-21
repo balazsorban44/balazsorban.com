@@ -1,0 +1,27 @@
+{
+  "name": "balazsorban44.github.io",
+  "version": "1.0.0",
+  "description": "This repository is to maintain my website available at **[balazsorban.com](http://balazsorban.com)**.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/balazsorban44/balazsorban44.github.io.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/balazsorban44/balazsorban44.github.io/issues"
+  },
+  "homepage": "https://github.com/balazsorban44/balazsorban44.github.io#readme",
+  "dependencies": {
+    "gulp-install": "^0.6.0"
+  },
+  "devDependencies": {
+    "gulp-livereload": "^3.8.1",
+    "gulp-pug": "^3.1.0",
+    "gulp-ruby-sass": "^2.1.1"
+  }
+}
