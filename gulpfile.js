@@ -11,7 +11,7 @@ gulp.task('sass', () =>
 );
 
 gulp.task('pug', () =>
-  gulp.src('pug/*.pug')
+  gulp.src('pug/3-PAGES/**/*.pug')
     .pipe(pug({ pretty: false }))
     .pipe(gulp.dest('.'))
     .pipe(livereload())
@@ -22,5 +22,5 @@ gulp.task('watch', function (){
   livereload.listen();
   livereload.reload();
   gulp.watch('sass/**/*.sass', ['sass']);
-  gulp.watch('pug/**/*.pug', ['pug']);
+  gulp.watch('pug/**/*', ['pug']);
 });
