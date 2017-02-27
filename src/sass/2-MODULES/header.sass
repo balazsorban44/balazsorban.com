@@ -1,0 +1,86 @@
+header
+  position: fixed
+  width: 100vw
+  top: 0
+  z-index: 1000
+  ul
+    background: lighten($accent-color, 6)
+    display: flex
+    justify-content: center
+    border-bottom: $curvy-border
+    padding: $base-font-size*.5
+    border-radius: $base-font-size*2
+    margin: $base-font-size
+  li
+    a
+      color: $light
+      font-size: $base-font-size
+      font-weight: bold
+      padding: $base-font-size
+      padding-right: 0
+      margin-right: $base-font-size
+      &:hover
+        color: darken($accent-color, 10)
+    &:last-child
+      a
+        padding: $base-font-size
+        padding-left: 0
+        margin-right: 0
+        margin-left: $base-font-size
+    &:nth-child(2)
+      &::after
+        color: darken($accent-color, 4)
+        content: '|'
+
+@media (min-width: 360px)
+  header
+    li, li:last-child
+      a
+        padding: 0 $base-font-size
+@media (min-width: 640px)
+  header
+    ul
+      margin: 0
+      border-top-left-radius: 0
+      border-top-right-radius: 0
+      border-bottom-left-radius: $base-font-size
+      border-bottom-right-radius: $base-font-size
+      justify-content: space-around
+    li:nth-child(2)
+      font-size: $base-font-size*1.1
+    li, li:last-child
+      a
+        font-size: $base-font-size*1.1
+        margin: 0
+        padding: $base-font-size $base-font-size*2
+
+@media (min-width: 768px)
+  header
+    position: static
+    max-width: 640px
+    ul
+      padding: $base-font-size/2 $base-font-size*8
+      background: none
+      border: none
+      border-radius: 0
+      border-bottom: $slim-border
+    li, li:last-child
+      min-width: 33.333%
+      display: flex
+      justify-content: center
+      align-items: center
+      a
+        color: $dark
+        font-weight: 400
+        font-size: $base-font-size*2
+        transition: color .3s ease
+        &:hover
+          color: $accent-color
+    li:nth-child(2)
+      max-width: none
+      font-size: $base-font-size*2.5
+      &::after
+        font-style: italic
+        font-weight: bold
+        color: darken($accent-color,4)
+        content: '//'

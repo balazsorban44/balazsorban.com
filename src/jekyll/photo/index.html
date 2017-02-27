@@ -1,0 +1,21 @@
+---
+layout: pages
+title: Photography by Balázs Orbán
+type: photo
+---
+{% for post in site.posts %}
+  {% if post.type contains 'photo' %}
+    <article class="item-photo" itemscope itemtype="https://schema.org/Photograph">
+      <div class="item-content">
+        <h1 itemprop="name headline" class="post-title"><a href={{post.url}}>{{ post.title }}</a></h1>
+        <img class="item-img" alt="{{post.title}}" src="img/thumb/{{post.image}}.jpg"/>
+      </div>
+      <div class="item-footer">
+        <div class="item-author" itemprop="author publisher" itemscope itemtype="http://schema.org/Person">
+          <span>by </span><span itemprop="name">{{site.author}}</span>
+          <time datetime="{{ post.date | date_to_xmlschema }}" itemprop="dateModified datePublished">{{ post.date | date: "%B %d, %Y" }}</time>
+        </div>
+      </div>
+    </article>
+  {% endif %}
+{% endfor %}

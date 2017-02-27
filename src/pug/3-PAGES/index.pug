@@ -1,0 +1,30 @@
+doctype html
+html(lang='en')
+  include ../1-ESSENTIALS/vars
+  include ../2-MODULES/head
+  body.index
+    header
+      include ../2-MODULES/menu
+    main#landing
+      #name
+        h1#firstname #{firstname}
+        h1#surname #{surname}
+      #card
+        #intro
+          #intro-img
+            img(src='assets/img/me_big.jpg' alt='An image about me.')
+          #intro-text
+            p.me <b id='age'>#{defaultAge}</b> year old tech geek from <b>hungary</b>, living and studying in <b>norway</b>.
+            button.open more about me
+        #me-text.rotated-left
+          h2 programming
+          p I started coding in <b><i>2015</b></i>, and I am focusing on front-end development (ReactJS) for now. I teach myself from the internet, but since <b><i>2016</b></i> I have attended the
+            a(href="http://www.ntnu.edu/studies/bit") Norwegian University of Science and Technology
+            | for studying <b><i>Computer Science</i></b>. One of my goal is to learn about Artificial Intelligence, but right now I am most interested in web development.
+          hr
+          h2 photography
+          p I started photography in <b><i>2013</i></b> while I was an exchange student in <b><i>Lofoten Islands, Norway</i></b>, but I am taking photos since then. Right now it is just a hobby, but if my time allows me, I will consider taking it more seriously.
+          span.close
+    footer
+      include ../2-MODULES/footer
+    include ../1-ESSENTIALS/defer

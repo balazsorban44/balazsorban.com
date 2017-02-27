@@ -1,0 +1,33 @@
+::-webkit-scrollbar
+  width: 4px
+::-webkit-scrollbar-thumb
+  background: darken($accent-color,4)
+  border-radius: 5px
+  &:hover, &:active
+    background: darken($accent-color,8)
+
+::-webkit-scrollbar-track
+  background: transparentize($accent-color-light,.75)
+
+::selection
+  background-color: $accent-color-light
+  color: $light
+
+html
+  background:
+    image: url($images + 'bg.jpg')
+    size: cover
+    repeat: no-repeat
+body
+  display: flex
+  flex-direction: column
+  justify-content: center
+  align-items: center
+  min-height: 100vh
+
+hr
+  margin: 0
+  margin-top: 4px
+  border: $slim-border
+#pages
+  min-height: 100vh

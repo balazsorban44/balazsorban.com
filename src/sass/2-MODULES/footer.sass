@@ -1,0 +1,38 @@
+footer
+  position: absolute
+  bottom: $base-font-size
+  ul
+    min-width: 100vw
+    justify-content: space-around
+    display: flex
+  li
+    @include bg-icon(1,'#{$icons}/linkedin.png')
+    @include bg-icon(2,'#{$icons}/call.svg')
+    @include bg-icon(3,'#{$icons}/mail.svg')
+    @include bg-icon(4,'#{$icons}/back.svg')
+#back-button
+  @include bg-icon(1,'#{$icons}/back.svg')
+#pages
+  footer
+    position: static
+    margin-bottom: $base-font-size
+@media (min-width: 640px)
+  footer
+    bottom: $base-font-size/2
+    left: 50%
+    transform: translateX(-50%)
+    ul
+      min-width: 512px
+
+@media (min-width: 768px)
+  footer
+    position: static
+    transform: none
+    @media (orientation: landscape)
+      min-width: 640px
+      ul
+        border-top: $slim-border
+        justify-content: flex-start
+        li
+          margin: $base-font-size
+          border: none

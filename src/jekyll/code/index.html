@@ -1,0 +1,17 @@
+---
+layout: pages
+title: Programming by Balázs Orbán
+type: code
+---
+{% for post in site.posts %}
+  {% if post.type contains 'code' %}
+  	<article class='item-code'>
+  	  <h1>{{post.title}}</h1>
+  	  <p>{{post.text}}</p>
+      <h2>You can check out the source code at GitHub:</h2>
+      <a href="https://github.com/balazsorban44/{{post.source}}">{{post.source}}</a>
+      <h3>Or look  at the live demo here:</h3>
+      <a href="{{site.homepage}}/{{post.source}}">{{post.title}}</a>
+  	</article>
+  {% endif %}
+{% endfor %}

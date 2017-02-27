@@ -1,0 +1,44 @@
+/*----------------------------SOURCES----------------------------*/
+$images: '/assets/img/'
+$icons: $images+ 'icons/'
+/*----------------------------//SOURCES----------------------------*/
+
+/*----------------------------DESIGN-----------------------------*/
+
+/*--------COLORS--------*/
+$accent-color : darken(orangered, 6)
+$accent-color-light: darken(orangered, 2)
+$dark: black
+$light: white
+
+/*--------Borders--------*/
+$slim-border: 1px solid $accent-color
+$curvy-border: 4px solid $accent-color
+$fat-border: 6px solid $accent-color
+/*----------------------------//FONTs-----------------------------*/
+
+@charset "utf-8"
+$base-font-family: Product Sans, sans-serif
+$base-font-size: 16px
+
+
+/*----------------------------MEDIA QUERIES-----------------------------*/
+@mixin device-width($width)
+  @media (min-width: $width)
+    @content
+
+@mixin orient($orient)
+  @media (orientation: $orient)
+    @content
+
+$mobile: 420px
+$hd: 720px
+$small-laptop: 1366px
+$full-hd: 1080px
+$on-palm: 640px
+$tiny: 320px
+$small: 768px
+$medium: 1024px
+$big: 1440px
+$large: 1920px
+/*----------------------------//MEDIA QUERIES-----------------------------*/

@@ -1,0 +1,16 @@
+@mixin snap($length)
+  transition: #{$length}s cubic-bezier(0.6, 0.03, 0.81, 1.5)
+  &:hover
+    border-radius: 0
+
+.rotated-left
+  perspective-origin: center
+  perspective: 500px
+  backface-visibility: hidden
+  opacity: 0
+  z-index: -1
+  transform: rotateY(-180deg)
+
+.rotated-right
+  @extend .rotated-left
+  transform: rotateY(180deg) !important

@@ -1,0 +1,24 @@
+---
+layout: default
+---
+
+<main class="post">
+	<h3 class="title">{{ page.title }}</h3>
+	<p class="meta">Date: {{ page.date }}</p>
+	<div id="content-img">
+		<img src=img/original/{{page.image}}.jpg alt={{page.title}}>
+	</div>
+	<div id="bg-img">
+		<img src=img/thumb/{{page.image}}.jpg alt={{page.title}}>
+	</div>
+	<ul>
+		<li itemprop="description">{{page.text}}</li>
+		<li itemprop="genre">tags: {{ page.tags }}</li>
+		<li itemprop="contentLocation">location: {{page.location}}</li>
+		<li itemprop="dateCreated">date taken: {{page.taken}}</li>
+	</ul>
+	<div id="map"></div>
+</main>
+<footer>
+	<li id="back-button"><a href=".">back</a></li>
+</footer>
