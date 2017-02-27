@@ -1,7 +1,7 @@
 gem 'jekyll-admin', group: :jekyll_plugins
 source: src/jekyll/
 destination: docs/
-keep_files: [assets/img, assets/css, index.html, assets/js, photo/img]
+keep_files: [CNAME,assets/img, assets/css, index.html, assets/js, photo/img]
 exclude: [Gemfile, Gemfile.lock]
 homepage: http://balazsorban.com
 url: http://balazsorban.com
