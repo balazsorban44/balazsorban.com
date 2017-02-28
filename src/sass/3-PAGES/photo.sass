@@ -99,3 +99,25 @@
     left: 0
     background: rgba(0,0,0,.6)
     z-index: 1
+
+@media (min-width: 640px)
+  .items-photo
+    display: flex
+    flex-wrap: wrap
+    justify-content: center
+  .item-content
+    min-width: 270px
+    min-height: 135px
+    margin: 10px
+    margin-bottom: 0
+  .item-footer
+    float: none
+    margin: 0 10px
+    border-radius: 0
+@media (min-width: 1024px)
+  .items-photo
+    margin: 20px 0 30px
+    max-width: 100vw
+  .item-content
+    min-width: 540px
+    min-height: 304px
