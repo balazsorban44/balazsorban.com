@@ -1,5 +1,4 @@
 ---
-permalink: /code/posts/:title/index.html
 layout: post
 type: code
 tags: javascript es6

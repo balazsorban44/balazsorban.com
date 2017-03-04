@@ -1,5 +1,4 @@
 ---
-permalink: /photo/posts/:title/index.html
 layout: post
 type: photo
 title:  "Amazing Lofoten"
