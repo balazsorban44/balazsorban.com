@@ -71,18 +71,18 @@ gulp.task('es6', () => {
   .pipe(livereload({quiet:true}))
 })
 
-gulp.task('run', ['sass','pug','es6'])
+gulp.task('run', ['sass','pug','es6', 'img', 'img-blog'])
 
 gulp.task('watch', () => {
   livereload.listen({quiet:true})
   gulp.watch('../src/img/**/*' , ['img','img-blog'])
-  gulp.watch('../docs/photo/img/original/**/*', ['thumb'])
+  // gulp.watch('../docs/photo/img/original/**/*', ['thumb'])
   gulp.watch('../src/sass/**/*.sass', ['sass'])
   gulp.watch('../src/pug/**/*', ['pug'])
   gulp.watch('../src/js/*', ['es6'])
   livereload.reload({quiet:true})
 })
 
-gulp.task('default', ['run','watch', 'jekyll'])
+gulp.task('default', ['jekyll','run','watch'])
 
 module.exports = gulp

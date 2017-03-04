@@ -7,7 +7,7 @@
     "gulp": "gulp --gulpfile config/gulpfile.babel.js",
     "start": "npm run gulp",
     "build": "gulp --gulpfile config/gulpfile-build.babel.js",
-    "deploy": "gulp copy --gulpfile config/gulpfile-build.babel.js; add -A; commit 'Deploying changes.';push"
+    "deploy": "gulp copy --gulpfile config/gulpfile-build.babel.js;git add -A;git commit -m 'Deploying changes.'; git push"
   },
   "repository": {
     "type": "git",

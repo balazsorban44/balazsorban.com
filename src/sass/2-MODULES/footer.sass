@@ -10,25 +10,16 @@ footer
     @include bg-icon(2,'#{$icons}/call.svg')
     @include bg-icon(3,'#{$icons}/mail.svg')
 
-#pages, #post
+#pages
   overflow-x: hidden
   footer
     position: static
     margin: $base-font-size
     li
-      border: none
       @include bg-icon(1,'#{$icons}/back.svg')
+      @include bg-icon(2,'#{$icons}/call.svg')
+      @include bg-icon(3,'#{$icons}/mail.svg')
       @include bg-icon(4,'#{$icons}/linkedin.png')
-
-#post
-  footer
-    min-width: 0
-    width: 48px
-    position: fixed
-    bottom: 0
-    li
-      margin: 0
-      +size($base-font-size*3)
 
 @media (min-width: 640px)
   footer

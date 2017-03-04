@@ -11,11 +11,12 @@
 		<title>{{page.title}}</title>
 		<meta property="og:title" content="{% if page.title %}{{ page.title | escape }}{% else %}{{ site.title | escape }}{% endif %}"/>
 	  <meta property="og:description" content="{{page.text}}"/>
-	  <meta property="og:url" content="{{site.homepage}}/{{page.type}}"/>
+	  <meta property="og:url" content="{{site.homepage}}/{{page.url}}"/>
 	  <meta property="og:image" content="{{site.homepage}}/{{page.type}}/img/original/{{page.image}}.jpg"/>
+		<link rel="icon" href="{{site.homepage}}/assets/img/icons/favicon.ico">
 	</head>
-	<body>
-		<main class="post-{{page.type}}">
+	<body id="post-{{page.type}}">
+		<main>
 			<h3 class="title">{{ page.title }}</h3>
 			<p class="meta">Date: {{ page.date }}</p>
 			<div id="content-img">
@@ -33,7 +34,9 @@
 			<div id="map"></div>
 		</main>
 		<footer>
-			<li id="back-button"><a href="../../..">back</a></li>
+			<ul>
+				<li id="back-button"><a href="../../..">back</a></li>
+			</ul>
 		</footer>
 	</body>
 </html>
