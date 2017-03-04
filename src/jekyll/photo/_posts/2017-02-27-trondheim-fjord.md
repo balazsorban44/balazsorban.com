@@ -2,6 +2,7 @@
 layout: post
 type: photo
 title:  "Trondheim fjord"
+author: Balázs Orbán
 date:   2017-02-21 18:00:00 +0100
 taken:  2016-08-18 21:26
 tags: landscape

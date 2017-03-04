@@ -2,6 +2,7 @@
 layout: post
 type: photo
 title:  "foggy day"
+author: Balázs Orbán
 date:   2016-10-05 00:57:00 +0100
 taken:  2015-07-30 20:08
 tags: landscape norway
