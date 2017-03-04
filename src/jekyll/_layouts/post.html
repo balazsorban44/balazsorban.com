@@ -11,7 +11,7 @@
 		<title>{{page.title}}</title>
 		<meta property="og:title" content="{% if page.title %}{{ page.title | escape }}{% else %}{{ site.title | escape }}{% endif %}"/>
 	  <meta property="og:description" content="{{page.text}}"/>
-	  <meta property="og:url" content="{{site.url}}{{page.url}}"/>
+	  <meta property="og:url" content="{{site.homepage}}/{{page.type}}"/>
 	  <meta property="og:image" content="{{site.homepage}}/{{page.type}}/img/original/{{page.image}}.jpg"/>
 	</head>
 	<body>
