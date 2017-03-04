@@ -12,7 +12,8 @@
 		<meta property="og:title" content="{% if page.title %}{{ page.title | escape }}{% else %}{{ site.title | escape }}{% endif %}"/>
 	  <meta property="og:description" content="{{page.text}}"/>
 	  <meta property="og:url" content="{{site.homepage}}/{{page.url}}"/>
-	  <meta property="og:image" content="{{site.homepage}}/{{page.type}}/img/original/{{page.image}}.jpg"/>
+	  <meta property="og:image" content="{{site.homepage}}/{{page.type}}/img/thumb/{{page.image}}.jpg"/>
+		<meta property="fb:app_id" content="177644535633740"/>
 		<link rel="icon" href="{{site.homepage}}/assets/img/icons/favicon.ico">
 	</head>
 	<body id="post-{{page.type}}">
