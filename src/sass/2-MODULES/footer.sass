@@ -19,11 +19,17 @@ footer
       border: none
       @include bg-icon(1,'#{$icons}/back.svg')
       @include bg-icon(4,'#{$icons}/linkedin.png')
+
 #post
   footer
-    position: absolute
+    min-width: 0
+    width: 48px
+    position: fixed
     bottom: 0
-    right: 0
+    li
+      margin: 0
+      +size($base-font-size*3)
+
 @media (min-width: 640px)
   footer
     bottom: $base-font-size/2

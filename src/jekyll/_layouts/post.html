@@ -1,24 +1,39 @@
 ---
-layout: default
 ---
-
-<main class="post">
-	<h3 class="title">{{ page.title }}</h3>
-	<p class="meta">Date: {{ page.date }}</p>
-	<div id="content-img">
-		<img src=../../../img/original/{{page.image}}.jpg alt={{page.title}}>
-	</div>
-	<div id="bg-img">
-		<img src=../../../img/thumb/{{page.image}}.jpg alt={{page.title}}>
-	</div>
-	<ul>
-		<li itemprop="description">{{page.text}}</li>
-		<li itemprop="genre">tags: {{ page.tags }}</li>
-		<li itemprop="contentLocation">location: {{page.location}}</li>
-		<li itemprop="dateCreated">date taken: {{page.taken}}</li>
-	</ul>
-	<div id="map"></div>
-</main>
-<footer>
-	<li id="back-button"><a href="../../..">back</a></li>
-</footer>
+<!DOCTYPE html>
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+		<meta name="description" content="{{page.text}}"/>
+		<meta name="keywords" content="{{page.categories}}"/>
+		<meta name="author" content="{{site.author}}"/>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" type="text/css" href="{{site.homepage}}/assets/css/main.css">
+		<title>{{page.title}}</title>
+		<meta property="og:title" content="{% if page.title %}{{ page.title | escape }}{% else %}{{ site.title | escape }}{% endif %}"/>
+	  <meta property="og:description" content="{{page.text}}"/>
+	  <meta property="og:url" content="{{site.url}}{{page.url}}"/>
+	  <meta property="og:image" content="{{site.homepage}}/{{page.type}}/img/original/{{page.image}}.jpg"/>
+	</head>
+	<body>
+		<main class="post-{{page.type}}">
+			<h3 class="title">{{ page.title }}</h3>
+			<p class="meta">Date: {{ page.date }}</p>
+			<div id="content-img">
+				<img src=../../../img/original/{{page.image}}.jpg alt={{page.title}}>
+			</div>
+			<div id="bg-img">
+				<img src=../../../img/thumb/{{page.image}}.jpg alt={{page.title}}>
+			</div>
+			<ul>
+				<li itemprop="description">{{page.text}}</li>
+				<li itemprop="genre">tags: {{ page.tags }}</li>
+				<li itemprop="contentLocation">location: {{page.location}}</li>
+				<li itemprop="dateCreated">date taken: {{page.taken}}</li>
+			</ul>
+			<div id="map"></div>
+		</main>
+		<footer>
+			<li id="back-button"><a href="../../..">back</a></li>
+		</footer>
+	</body>
+</html>
