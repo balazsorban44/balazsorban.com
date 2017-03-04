@@ -1,5 +1,5 @@
 ---
-permalink: /photo/posts/:title.html
+permalink: /photo/posts/:title/index.html
 layout: post
 type: photo
 author: {{site.author}}
