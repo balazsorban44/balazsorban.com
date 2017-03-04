@@ -16,6 +16,7 @@ layout: compress
 	  <meta property="og:image" content="{{site.homepage}}/{{page.type}}/img/thumb/{{page.image}}.jpg"/>
 		<meta property="fb:app_id" content="177644535633740"/>
 		<link rel="icon" href="{{site.homepage}}/assets/img/icons/favicon.ico">
+		{% include analytics.html %}
 	</head>
 	<body id="post-{{page.type}}">
 		<main>
@@ -40,6 +41,5 @@ layout: compress
 				<li id="back-button"><a href="../../..">back</a></li>
 			</ul>
 		</footer>
-		{% include analytics.html %}
 	</body>
 </html>
