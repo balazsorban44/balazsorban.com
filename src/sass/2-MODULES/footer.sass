@@ -6,16 +6,24 @@ footer
     justify-content: space-around
     display: flex
   li
-    @include bg-icon(1,'#{$icons}/back.svg')
+    @include bg-icon(1,'#{$icons}/linkedin.png')
     @include bg-icon(2,'#{$icons}/call.svg')
     @include bg-icon(3,'#{$icons}/mail.svg')
-    @include bg-icon(4,'#{$icons}/linkedin.png')
 
-#pages
+#pages, #post
+  overflow-x: hidden
   footer
     position: static
-    margin-bottom: $base-font-size
-
+    margin: $base-font-size
+    li
+      border: none
+      @include bg-icon(1,'#{$icons}/back.svg')
+      @include bg-icon(4,'#{$icons}/linkedin.png')
+#post
+  footer
+    position: absolute
+    bottom: 0
+    right: 0
 @media (min-width: 640px)
   footer
     bottom: $base-font-size/2

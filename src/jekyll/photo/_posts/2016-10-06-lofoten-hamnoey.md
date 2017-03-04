@@ -1,5 +1,5 @@
 ---
-permalink: /photo/:title
+permalink: /photo/:title.html
 layout: post
 type: photo
 title:  "foggy day"

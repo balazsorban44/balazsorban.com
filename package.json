@@ -5,8 +5,8 @@
   "main": "index.js",
   "scripts": {
     "gulp": "gulp --continue",
-    "serve": "node node_modules/http-server/bin/http-server ./docs -p 8000 -a 0.0.0.0 -c-1",
-    "start": "npm run serve & npm run gulp"
+    "start": "npm run gulp",
+    "build": "gulp --gulpfile gulpfile-build.babel.js"
   },
   "repository": {
     "type": "git",

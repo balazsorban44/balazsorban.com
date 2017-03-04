@@ -3,8 +3,7 @@ source: src/jekyll/
 destination: docs/
 keep_files: [CNAME,assets/img, assets/css, index.html, assets/js, photo/img]
 exclude: [Gemfile, Gemfile.lock]
-# homepage: http://127.0.01:4000
-homepage: http://balazsorban.com
+homepage: http://127.0.0.1:4000
 author: Balázs Orbán
 email: info@balazsorban.com
 phone: +4795460627
