@@ -1,5 +1,5 @@
 ---
-permalink: /photo/:title.html
+permalink: /photo/posts/:title.html
 layout: post
 type: photo
 title:  "Trondheim fjord"

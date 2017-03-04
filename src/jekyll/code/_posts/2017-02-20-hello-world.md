@@ -1,5 +1,5 @@
 ---
-permalink: /code/:title
+permalink: /code/posts/:title.html
 layout: post
 type: code
 tags: javascript es6

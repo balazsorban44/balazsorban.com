@@ -6,10 +6,10 @@ layout: default
 	<h3 class="title">{{ page.title }}</h3>
 	<p class="meta">Date: {{ page.date }}</p>
 	<div id="content-img">
-		<img src=img/original/{{page.image}}.jpg alt={{page.title}}>
+		<img src=../img/original/{{page.image}}.jpg alt={{page.title}}>
 	</div>
 	<div id="bg-img">
-		<img src=img/thumb/{{page.image}}.jpg alt={{page.title}}>
+		<img src=../img/thumb/{{page.image}}.jpg alt={{page.title}}>
 	</div>
 	<ul>
 		<li itemprop="description">{{page.text}}</li>
@@ -20,5 +20,5 @@ layout: default
 	<div id="map"></div>
 </main>
 <footer>
-	<li id="back-button"><a href=".">back</a></li>
+	<li id="back-button"><a href="..">back</a></li>
 </footer>
