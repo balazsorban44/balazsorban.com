@@ -8,20 +8,6 @@ import cleanHTML from 'gulp-html-minifier'
 import babel from 'gulp-babel'
 import uglify from 'gulp-uglify'
 import chalk from 'chalk'
-import child from 'child_process'
-import gutil from 'gulp-util'
-import copy from 'gulp-copy'
-
-gulp.task('jekyll', () => {
-const jekyll = child.spawn('jekyll', ['build','config'],[,'config/_build.yml']),
-      jekyllLogger = (buffer) => {
-  buffer.toString()
-    .split(/\n/)
-    .forEach((message) => gutil.log('Jekyll: ' + message))
-}
-  jekyll.stdout.on('data', jekyllLogger)
-  jekyll.stderr.on('data', jekyllLogger)
-})
 
 gulp.task('img', () => {
   gulp.src('../src/img/assets/**/*')
@@ -76,9 +62,7 @@ gulp.task('copy', () => {
     gulp.src(['../docs/**/*'], {
     }).pipe(gulp.dest('..'))
 })
-// gulp.task('done', () => {
-//   console.log(chalk.green('You are all set! :)'))
-// })
-gulp.task('default', ['jekyll','es6','sass','pug','img','img-blog','thumb'])
+
+gulp.task('default', ['es6','sass','pug','img','img-blog','thumb'])
 
 module.exports = gulp
