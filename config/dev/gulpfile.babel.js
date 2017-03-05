@@ -3,8 +3,8 @@ import gulp from 'gulp'
 import path from 'path'
 
 // Preprocessors
-import sass from 'gulp-ruby-sass'
 import pug from 'gulp-pug'
+import sass from 'gulp-ruby-sass'
 import babel from 'gulp-babel'
 
 // Multimedia
@@ -15,15 +15,16 @@ import parallel from 'concurrent-transform'
 import os from 'os'
 
 // Utilities
-import jshint from 'gulp-jshint'
 import chalk from 'chalk'
 import child from 'child_process'
 import gutil from 'gulp-util'
+import jshint from 'gulp-jshint'
 import livereload from 'gulp-livereload'
+import open from 'gulp-open'
 
 // Constants
-const src = '../src/',
-      build = '../docs/'
+const src = '../../src/',
+      build = '../../docs/'
 
 // ----------------Tasks---------------- //
 
@@ -61,20 +62,20 @@ gulp.task('img', () => {
   .pipe(parallel(
       image(),
       os.cpus().length
-    ))
+  ))
   .pipe(gulp.dest(path.join(build + 'assets/img')))
 })
 gulp.task('img-blog', () => {
-  gulp.src(path.join(src + 'img/photo/**/*'))
+  gulp.src(path.join(src + 'img/photo/*.jpg'))
   .pipe(changed(path.join(build + 'assets/img/original')))
   .pipe(parallel(
       image(),
       os.cpus().length
-    ))
+  ))
   .pipe(gulp.dest(path.join(build + 'photo/img/original')))
 })
 gulp.task('thumb', () => {
-  gulp.src(path.join(build + 'photo/img/original'))
+  gulp.src(path.join(build + 'photo/img/original/*.jpg'))
   .pipe(changed(path.join(build + 'assets/img/thumb')))
   .pipe(parallel(
     imageResize({
@@ -84,14 +85,13 @@ gulp.task('thumb', () => {
       upscale : false
     }),
       os.cpus().length
-    ))
+  ))
   .pipe(gulp.dest(path.join(build + 'photo/img/thumb')))
 })
 
-
 // Jekyll
 gulp.task('jekyll', () => {
-const jekyll = child.spawn('jekyll', ['serve','config'],[,'config/_config.yml'])
+const jekyll = child.spawn('jekyll', ['serve','config'],[,'config/dev/_config.yml'])
 const jekyllLogger = (buffer) => {
   buffer.toString()
     .split(/\n/)
@@ -99,6 +99,12 @@ const jekyllLogger = (buffer) => {
 }
   jekyll.stdout.on('data', jekyllLogger)
   jekyll.stderr.on('data', jekyllLogger)
+})
+
+// Open browser
+gulp.task('open', () => {
+  gulp.src(__filename)
+  .pipe(open({uri: 'http://127.0.0.1:4000'}))
 })
 
 
@@ -112,9 +118,9 @@ gulp.task('watch', () => {
   gulp.watch(path.join(build + 'photo/img/original'), ['thumb'])
   gulp.watch(path.join(src + 'sass/**/*.sass'), ['sass'])
   gulp.watch(path.join(src + 'pug/**/*'), ['pug'])
-  gulp.watch(path.join(src + 'js'), ['es6'])
+  gulp.watch(path.join(src + 'js/*.js'), ['es6'])
   livereload.reload({quiet:true})
 })
-gulp.task('default', ['jekyll','preprocess','watch'])
+gulp.task('default', ['jekyll','preprocess','watch','open'])
 
 module.exports = gulp
