@@ -4,10 +4,10 @@
   "description": "This repository is to maintain my website available at **[balazsorban.com](http://balazsorban.com)**.",
   "main": "index.js",
   "scripts": {
-    "gulp": "gulp --gulpfile config/gulpfile.babel.js",
+    "gulp": "gulp --gulpfile config/dev/gulpfile.babel.js",
     "start": "npm run gulp",
-    "build": "gulp --gulpfile config/gulpfile-build.babel.js; JEKYLL_ENV=production jekyll build --config config/_build.yml",
-    "deploy": "gulp copy --gulpfile config/gulpfile-build.babel.js;git add -A  ^src;git commit -m 'Deploying changes.'; git push"
+    "build": "gulp --gulpfile config/build/gulpfile.babel.js; JEKYLL_ENV=production jekyll build --config config/build/_config.yml",
+    "deploy": "gulp copy --gulpfile config/build/gulpfile.babel.js"
   },
   "repository": {
     "type": "git",
@@ -34,6 +34,7 @@
     "gulp-jshint": "^2.0.4",
     "gulp-json-transform": "^0.4.2",
     "gulp-livereload": "^3.8.1",
+    "gulp-open": "^2.0.0",
     "gulp-pug": "^3.1.0",
     "gulp-ruby-sass": "^2.1.1",
     "gulp-uglify": "^2.0.1",
