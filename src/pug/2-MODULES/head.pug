@@ -1,19 +1,18 @@
-head
-  title Balázs Orbán's Portfolio
-  meta(charset='utf-8')
-  meta(property='og:title', content="Balázs Orbán's Portfolio")
-  meta(property='og:description', content='Look out for some code, some pictures, and awesomeness.')
-  meta(property='og:url', content=baseurl)
-  meta(property='og:image', content=baseurl+images+'/me-bw.jpg')
-  meta(name='description', content='Look out for some code, some pictures, and awesomeness')
-  meta(name='keywords' content='webdesign, code, coding, portfolio, photography, design')
-  meta(name='viewport', content='width=device-width, initial-scale=1.0')
-  link(href=icons+'/favicon.ico' sizes='64x64' type="image/x-icon" rel="icon")
-  link(rel='stylesheet', type='text/css', href=css+'/main.css')
-  script.
-    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-    ga('create', 'UA-77916573-1', 'auto');
-    ga('send', 'pageview');
+title #{title}
+meta(charset='utf-8')
+meta(property='og:title', content=title)
+meta(property='og:description', content='Look out for some code, some pictures, and awesomeness.')
+meta(property='og:url', content=baseurl)
+meta(property='og:image', content=baseurl+assets+'images/me-bw.jpg')
+meta(name='description', content='Look out for some code, some pictures, and awesomeness')
+meta(name='keywords' content='webdesign, code, coding, portfolio, photography, design')
+meta(name='viewport', content='width=device-width, initial-scale=1.0')
+link(href=assets+'img/icons/favicon.ico' sizes='64x64' type="image/x-icon" rel="icon")
+link(rel='stylesheet', type='text/css', href=assets+'css/main.css')
+script.
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-77916573-1', 'auto');
+  ga('send', 'pageview'); 
