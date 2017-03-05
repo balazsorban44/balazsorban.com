@@ -1,18 +1,19 @@
+include 1-ESSENTIALS/vars
 doctype html
 html(lang='en')
-  include ../1-ESSENTIALS/vars
-  include ../2-MODULES/head
+  head
+    include 2-MODULES/head
   body.index
     header
-      include ../2-MODULES/menu
+      include 2-MODULES/menu
     main#landing
       #name
         h1#firstname #{firstname}
-        h1#surname #{surname}
+        h1#surname #{lastname}
       #card
         #intro
           #intro-img
-            img(src='assets/img/me_big.jpg' alt='An image about me.')
+            img(src=assets+'img/me_big.jpg' alt='An image about me.')
           #intro-text
             p.me <b id='age'>#{defaultAge}</b> year old tech geek from <b>hungary</b>, living and studying in <b>norway</b>.
             button.open more about me
@@ -26,5 +27,5 @@ html(lang='en')
           p I started photography in <b><i>2013</i></b> while I was an exchange student in <b><i>Lofoten Islands, Norway</i></b>, but I am taking photos since then. Right now it is just a hobby, but if my time allows me, I will consider taking it more seriously.
           span.close
     footer
-      include ../2-MODULES/footer
-    include ../1-ESSENTIALS/defer
+      include 2-MODULES/footer
+    script(src=assets+'js/main.js')
