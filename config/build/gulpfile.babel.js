@@ -7,10 +7,11 @@ import pug from 'gulp-pug'
 import sass from 'gulp-ruby-sass'
 import babel from 'gulp-babel'
 
-// Minifiers
+// Minifiers & SEO
 import cleanHTML from 'gulp-html-minifier'
 import cleanCSS from 'gulp-clean-css'
 import uglify from 'gulp-uglify'
+import sitemap from 'gulp-sitemap'
 
 // Multimedia
 import image from 'gulp-image'
@@ -24,7 +25,8 @@ import chalk from 'chalk'
 
 // Constants
 const src = '../../src/',
-      build = '../../docs/'
+      build = '../../docs/',
+      siteUrl = 'http://balazsorban.com'
 
 
 // ----------------Tasks---------------- //
@@ -54,6 +56,17 @@ gulp.task('sass', () => {
     .pipe(uglify())
     .pipe(gulp.dest(path.join( build + 'assets/js')))
   })
+
+// SEO
+gulp.task('sitemap', () => {
+    gulp.src(path.join(build + '**/*.html'), {
+            read: false
+        })
+        .pipe(sitemap({
+            siteUrl
+        }))
+        .pipe(gulp.dest(build))
+})
 
 // Multimedia
 gulp.task('img', () => {
@@ -101,7 +114,7 @@ const jekyll = child.spawn('jekyll', ['serve','config'],[,'config/_config.yml'])
 const jekyllLogger = (buffer) => {
   buffer.toString()
     .split(/\n/)
-    .forEach((message) => gutil.log('Jekyll: ' + message));
+    .forEach((message) => gutil.log('Jekyll: ' + message))
 }
   jekyll.stdout.on('data', jekyllLogger)
   jekyll.stderr.on('data', jekyllLogger)
@@ -111,6 +124,6 @@ const jekyllLogger = (buffer) => {
 // ----------------Bundled tasks---------------- //
 
 
-gulp.task('default', ['es6','sass','pug','img','img-blog','thumb'])
+gulp.task('default', ['es6','sass','pug','img','img-blog','thumb','sitemap'])
 
 module.exports = gulp

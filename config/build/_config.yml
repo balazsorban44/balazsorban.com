@@ -1,6 +1,6 @@
 source: src/jekyll
 destination: docs
-keep_files: [assets/img, assets/css, index.html, assets/js, photo/img, code/img]
+keep_files: [assets/img, assets/css, index.html, assets/js, photo/img, code/img, sitemap.xml]
 exclude: [Gemfile, Gemfile.lock]
 homepage: http://balazsorban.com
 author: Balázs Orbán
