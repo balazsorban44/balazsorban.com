@@ -22,6 +22,7 @@ import os from 'os'
 
 // Utilities
 import chalk from 'chalk'
+import child_process from 'child_process'
 
 // Constants
 const src = '../../src/',
@@ -59,11 +60,31 @@ gulp.task('sass', () => {
 
 // SEO
 gulp.task('sitemap', () => {
-    gulp.src(path.join(build + '**/*.html'), {
+    gulp.src(['../../index.html','../../{code,photo}/**/*.html'], {
             read: false
         })
         .pipe(sitemap({
-            siteUrl
+            siteUrl,
+            mappings: [{
+              pages: 'index.html',
+              priority: 1.0,
+              // changefreq: 'monthly',
+              lastmod: (file) => {
+                let cmd = 'git log -1 --format=%cI "' + file.relative + '"'
+                return child_process.execSync(cmd, {
+                  cwd: file.base
+                }).toString().trim()
+              }
+            },{
+              pages: '*/index.html',
+              priority: 0.8
+              // changefreq: 'weekly'
+            },{
+              pages: '**/*.html',
+              priority: 0.5
+              // changefreq: 'weekly'
+            }
+          ]
         }))
         .pipe(gulp.dest(build))
 })
