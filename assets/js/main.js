@@ -1,1 +1,57 @@
-"use strict";window.addEventListener("load",function e(){window.removeEventListener("load",e,!1),init()},!1);var init=function(){function e(e){var t=new Date,n=new Date(e),o=t.getFullYear()-n.getFullYear(),r=t.getMonth()-n.getMonth();return(r<0||0===r&&t.getDate()<n.getDate())&&o--,o}function t(e){var t=e.clientX,n=e.clientY;c.style.margin=d/20+n/20+"px 0",a.style.minWidth=70+t/100+"vw"}document.querySelector("#age").innerText=e("1994.12.17");var n=document.querySelector("#intro"),o=document.querySelector("#me-text"),r=document.querySelector(".open"),i=document.querySelector(".close"),c=document.querySelector("#card"),a=document.querySelector("#landing"),d=window.innerHeight;r.addEventListener("click",function(){o.classList.remove("rotated-left"),n.classList.add("rotated-right")}),i.addEventListener("click",function(){n.classList.remove("rotated-right"),o.classList.add("rotated-left")}),window.matchMedia("(hover:hover)").matches&&(document.onmousemove=t)};
+"use strict";
+
+window.addEventListener("load", function load() {
+  window.removeEventListener("load", load, false);
+  init();
+}, false);
+
+var init = function init() {
+
+  //----------------------- SET AGE -----------------------#
+  function getAge(dateString) {
+    var today = new Date(),
+        birthDate = new Date(dateString),
+        age = today.getFullYear() - birthDate.getFullYear(),
+        m = today.getMonth() - birthDate.getMonth();
+
+    if (m < 0 || m === 0 && today.getDate() < birthDate.getDate()) {
+      age--;
+    }
+    return age;
+  }
+  document.querySelector('#age').innerText = getAge('1994.12.17');
+
+  //----------------------- SET AGE -----------------------#
+
+
+  var intro = document.querySelector('#intro'),
+      meText = document.querySelector('#me-text'),
+      open = document.querySelector('.open'),
+      close = document.querySelector('.close'),
+      card = document.querySelector('#card'),
+      landing = document.querySelector('#landing'),
+      iH = window.innerHeight;
+
+  open.addEventListener('click', function () {
+    // window.history.pushState('more','more','/more')
+    meText.classList.remove('rotated-left');
+    intro.classList.add('rotated-right');
+  });
+
+  close.addEventListener('click', function () {
+    // window.history.back()
+    intro.classList.remove('rotated-right');
+    meText.classList.add('rotated-left');
+  });
+
+  if (window.matchMedia('(hover:hover)').matches) {
+    document.onmousemove = handleMouseMove;
+  }
+
+  function handleMouseMove(e) {
+    var x = e.clientX,
+        y = e.clientY;
+    card.style.margin = iH / 20 + y / 20 + "px 0";
+    landing.style.minWidth = 70 + x / 100 + "vw";
+  }
+};
