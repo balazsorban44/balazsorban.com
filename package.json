@@ -7,7 +7,7 @@
     "gulp": "gulp --gulpfile config/dev/gulpfile.babel.js",
     "start": "npm run gulp",
     "build": "gulp --gulpfile config/build/gulpfile.babel.js; JEKYLL_ENV=production jekyll build --config config/build/_config.yml",
-    "deploy": "gulp copy --gulpfile config/build/gulpfile.babel.js"
+    "deploy": "gulp open --gulpfile config/build/gulpfile.babel.js;gulp copy --gulpfile config/build/gulpfile.babel.js"
   },
   "repository": {
     "type": "git",

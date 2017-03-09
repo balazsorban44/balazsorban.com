@@ -141,6 +141,12 @@ const jekyllLogger = (buffer) => {
   jekyll.stderr.on('data', jekyllLogger)
 })
 
+// Open browser
+gulp.task('open', () => {
+  gulp.src(__filename)
+  .pipe(open({uri: 'http://balazsorban.com'}))
+})
+
 
 // ----------------Bundled tasks---------------- //
 
