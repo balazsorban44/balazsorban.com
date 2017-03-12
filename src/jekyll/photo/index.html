@@ -15,7 +15,7 @@ description: "I am a big fan of the camera as well. You can find some my photos 
       </div>
       <div class="item-footer">
         <div class="item-author">
-          <span>by </span><span itemtype="http://schema.org/Person" itemprop="author">{{site.author}}</span>
+          <span>by </span><span itemtype="http://schema.org/Person" itemscope itemprop="author">{{site.author}}</span>
           <time datetime="{{ post.date | date_to_xmlschema }}" itemprop="datePublished dateModified">{{ post.date | date: "%B %d, %Y" }}</time>
         </div>
       </div>
