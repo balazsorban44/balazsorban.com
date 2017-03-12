@@ -1,9 +1,16 @@
 ---
-layout: default
+layout: compress
 ---
 
-{% include header.html %}
-<main class="items-{{page.type}}">
-	{{content}}
-</main>
-{% include footer.html %}
+<html>
+  {% include head.html %}
+
+  <body id={{page.layout}}>
+		{% include header.html %}
+		<main class="items-{{page.type}}">
+			{{content}}
+		</main>
+		{% include footer.html %}
+  </body>
+
+</html>
