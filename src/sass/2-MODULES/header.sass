@@ -12,7 +12,7 @@ header
     border-radius: $base-font-size*2
     margin: $base-font-size
   li
-    a
+    span
       color: $light
       font-size: $base-font-size
       font-weight: bold
@@ -22,7 +22,7 @@ header
       &:hover
         color: darken($accent-color, 10)
     &:last-child
-      a
+      span
         padding: $base-font-size
         padding-left: 0
         margin-right: 0
@@ -35,7 +35,7 @@ header
 @media (min-width: 360px)
   header
     li, li:last-child
-      a
+      span
         padding: 0 $base-font-size
 @media (min-width: 640px)
   header
@@ -49,7 +49,7 @@ header
     li:nth-child(2)
       font-size: $base-font-size*1.1
     li, li:last-child
-      a
+      span
         font-size: $base-font-size*1.1
         margin: 0
         padding: $base-font-size $base-font-size*2
@@ -69,7 +69,7 @@ header
       display: flex
       justify-content: center
       align-items: center
-      a
+      span
         color: $dark
         font-weight: 400
         font-size: $base-font-size*2

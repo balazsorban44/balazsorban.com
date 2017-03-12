@@ -5,15 +5,17 @@ type: photo
 ---
 {% for post in site.posts %}
   {% if post.type contains 'photo' %}
-    <article class="item-photo" itemscope itemtype="https://schema.org/Photograph">
+    <article class="item-photo" itemscope="" itemtype="http://schema.org/BlogPosting">
       <div class="item-content">
-        <h1 itemprop="name headline" class="post-title"><a href={{post.url}}>{{ post.title }}</a></h1>
-        <img class="item-img" alt="{{post.title}}" src="img/thumb/{{post.image}}.jpg"/>
+        <h1 class="post-title" itemprop="headline"><a href={{post.url}} itemprop="mainEntityOfPage">{{ post.title }}</a></h1>
+        <div itemprop="image" itemscope itemtype="http://schema.org/ImageObject">
+          <img class="item-img" alt="{{post.title}}" src="img/thumb/{{post.image}}.jpg" itemprop="url"/>
+        </div>
       </div>
       <div class="item-footer">
-        <div class="item-author" itemprop="author publisher" itemscope itemtype="http://schema.org/Person">
-          <span>by </span><span itemprop="name">{{site.author}}</span>
-          <time datetime="{{ post.date | date_to_xmlschema }}" itemprop="dateModified datePublished">{{ post.date | date: "%B %d, %Y" }}</time>
+        <div class="item-author">
+          <span>by </span><span itemtype="http://schema.org/Person" itemprop="author">{{site.author}}</span>
+          <time datetime="{{ post.date | date_to_xmlschema }}" itemprop="datePublished dateModified">{{ post.date | date: "%B %d, %Y" }}</time>
         </div>
       </div>
     </article>

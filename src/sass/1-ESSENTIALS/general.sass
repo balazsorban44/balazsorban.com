@@ -14,16 +14,20 @@
   color: $light
 
 html
+  +size(100%)
+  display: flex
+  align-items: center
+  justify-content: center
   background:
     image: url($images + 'bg.jpg')
     size: cover
     repeat: no-repeat
+  overflow: hidden
 body
   display: flex
   flex-direction: column
   justify-content: center
   align-items: center
-  min-height: 100vh
 
 hr
   margin: 0

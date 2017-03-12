@@ -19,20 +19,21 @@ layout: compress
 		{% include analytics.html %}
 	</head>
 	<body id="post-{{page.type}}">
-		<main>
-			<h3 class="title">{{ page.title }}</h3>
+		<main itemtype="http://schema.org/Photograph" itemscope>
+			<h3 class="title" itemprop="headline">{{ page.title }}</h3>
+			<h4>by <span itemprop="editor author publisher">{{page.author}}</span></h4>
 			<p class="meta">Date: {{ page.date }}</p>
 			<div id="content-img">
-				<img src=../../../img/original/{{page.image}}.jpg alt={{page.title}}>
+				<img src=../../../img/original/{{page.image}}.jpg alt={{page.title}} itemprop="mainEntityOfPage" content="../../../img/original/{{page.image}}.jpg">
 			</div>
 			<div id="bg-img">
 				<img src=../../../img/thumb/{{page.image}}.jpg alt={{page.title}}>
 			</div>
 			<ul>
 				<li itemprop="description">{{page.text}}</li>
-				<li itemprop="genre">tags: {{ page.tags }}</li>
-				<li itemprop="contentLocation">location: {{page.location}}</li>
-				<li itemprop="dateCreated">date taken: {{page.taken}}</li>
+				<li>tags: <span itemprop="keywords">{{ page.tags }}</span></li>
+				<li>location: <span itemprop="contentLocation locationCreated">{{page.location}}</span></li>
+				<li>date taken: <span itemprop="dateCreated">{{page.taken}}</span></li>
 			</ul>
 			<div id="map"></div>
 		</main>

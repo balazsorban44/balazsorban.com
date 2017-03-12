@@ -8,4 +8,12 @@
   <link rel="icon" href="{{site.homepage}}/assets/img/icons/favicon.ico">
   <title>{{page.title}}</title>
   {% include analytics.html %}
+  <script type="application/ld+json">
+  {% if page.type == "photo" %}
+    {% include schema-photo.json %}
+  {% endif %}
+  {% if page.type == "code" %}
+    {% include schema-code.json %}
+  {% endif %}
+  </script>
 </head>

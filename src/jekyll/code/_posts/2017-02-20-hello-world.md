@@ -1,7 +1,6 @@
 ---
-layout: post
 type: code
-tags: javascript es6
+tags: javascript, es6
 title:  React Web Store
 source: react-web-store
 image: 1

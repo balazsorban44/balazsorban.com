@@ -1,8 +1,12 @@
 a.skip-main(href='#card' tabindex="0") Skip to main content
 nav
-  ul
+  ul(itemscope itemtype="http://schema.org/BreadcrumbList")
+    li(itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem")
+      a(href=link1 itemprop="item")
+        span(itemprop='name') programmer
+        meta(itemprop='position' content='1')
     li
-      a(href=''+link1) programmer
-    li
-    li
-      a(href=''+link2) photographer
+    li(itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem")
+      a(href=link2 itemprop="item") 
+        span(itemprop='name') photographer
+        meta(itemprop='position' content='1')
