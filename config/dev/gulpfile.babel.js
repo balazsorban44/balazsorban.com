@@ -32,7 +32,7 @@ const src = '../../src/',
 // Preprocessors
 gulp.task('pug', () => {
   gulp.src(path.join(src + 'pug/index.pug'))
-  .pipe(pug())
+  .pipe(pug({pretty: true}))
   .pipe(gulp.dest(build))
   .pipe(livereload({quiet:true}))
 })
@@ -117,7 +117,7 @@ gulp.task('watch', () => {
   gulp.watch(path.join(src + 'img/**/*'), ['img','img-blog'])
   gulp.watch(path.join(build + 'photo/img/original'), ['thumb'])
   gulp.watch(path.join(src + 'sass/**/*.sass'), ['sass'])
-  gulp.watch(path.join(src + 'pug/**/*'), ['pug'])
+  gulp.watch([path.join(src + 'pug/**/*'),path.join(src + 'js/schema.json')], ['pug'])
   gulp.watch(path.join(src + 'js/*.js'), ['es6'])
   livereload.reload({quiet:true})
 })
