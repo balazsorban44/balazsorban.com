@@ -1,0 +1,23 @@
+{
+  "@context": "http://schema.org",
+  "@type": "Blog",
+  "about": "Personal photography blog",
+  "genre": "photography",
+  "thumbnailUrl": "http://balazsorban.com/assets/img/me-photo.jpg",
+  "author": {
+    "@context": "http://schema.org",
+    "@type": "Person",
+    "name": "Balázs Orbán",
+    "birthDate": "1994-12-17",
+    "jobTitle": "Web developer | Photographer | Student",
+    "alumniOf": {
+      "@type": "CollegeOrUniversity",
+      "legalName": "Norwegian University of Science and Technology"
+    },
+    "url": "http://www.balazsorban.com",
+    "address": "Norway, 7030 Trondheim",
+    "email": "info@balazsorban.com",
+    "nationality": "Hungary",
+    "image": "http://balazsorban.com/assets/img/me_big.jpg"
+  }
+}
