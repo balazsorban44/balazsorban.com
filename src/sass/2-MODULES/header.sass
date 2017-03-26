@@ -28,43 +28,90 @@ header
         margin-right: 0
         margin-left: $base-font-size
     &:nth-child(2)
+      text-align: center
+      min-width: $base-font-size
+      transform: translateX(33.333%)
       &::after
         color: darken($accent-color, 4)
         content: '|'
 
-@media (min-width: 360px)
+#pages header
+  position: absolute
+
+//HAMBURGER MENU
+// .hamburger-menu
+//   @include bg-icon(1, '#{$icons}/menu.svg',16px)
+//   position: fixed !important
+//   top: 1.5vh
+//   left: 1.5vh
+//   overflow: hidden
+//   z-index: 1
+//   nav
+//     flex-grow: 1
+//   ul
+//     margin: 0
+//     padding: 0
+//     background: none
+//     transform: scale(1.5)
+//     border: none
+//     flex-direction: column
+//     align-items: center
+//     li
+//       flex-grow: 1
+//       padding: 5vh 0
+//       &:nth-child(2)
+//         display: none
+//     span
+//       padding: $base-font-size*2
+//       margin: 0 !important
+
+
+// #pages
+//   header
+//     width: 36px
+//     top: 16px
+//     right: 16px
+//     padding: 9px 6px
+//     ul
+//       background: none
+//       border: none
+//       padding: 0
+//       margin: 0
+//       display: block
+//     li
+//       max-height: 2px
+//       background: $accent-color
+//       margin: 6px 0
+//       border-radius: $base-font-size*2
+//       text-align: center
+//       span
+//         font-size: 0
+//         margin: 0
+//       &:nth-child(2)
+//         &::after
+//           content: '.'
+//           color: transparent
+
+
+@media (min-width: 568px)
   header
-    li, li:last-child
-      span
-        padding: 0 $base-font-size
-@media (min-width: 640px)
-  header
+    max-width: 60vw
     ul
-      margin: 0
-      border-top-left-radius: 0
-      border-top-right-radius: 0
-      border-bottom-left-radius: $base-font-size
-      border-bottom-right-radius: $base-font-size
       justify-content: space-around
-    li:nth-child(2)
-      font-size: $base-font-size*1.1
-    li, li:last-child
-      span
-        font-size: $base-font-size*1.1
-        margin: 0
-        padding: $base-font-size $base-font-size*2
 
 @media (min-width: 768px)
-  header
+  #pages header
     position: static
+    margin-bottom: 5vh
+  header
     max-width: 640px
     ul
-      padding: $base-font-size/2 $base-font-size*8
+      padding: $base-font-size/2 $base-font-size
       background: none
       border: none
       border-radius: 0
       border-bottom: $slim-border
-    li, li:last-child
+    li
       min-width: 33.333%
       display: flex
       justify-content: center
@@ -72,15 +119,26 @@ header
       span
         color: $dark
         font-weight: 400
-        font-size: $base-font-size*2
+        font-size: $base-font-size*1.5
         transition: color .3s ease
         &:hover
           color: $accent-color
     li:nth-child(2)
       max-width: none
-      font-size: $base-font-size*2.5
+      font-size: $base-font-size*2
       &::after
         font-style: italic
         font-weight: bold
         color: darken($accent-color,4)
         content: '//'
+@media (min-width: 1024px)
+  header
+    position: static
+    ul
+      justify-content: center
+      li
+        span
+          margin: $base-font-size*2 !important
+          font-size: $base-font-size*2
+        &:nth-child(2)
+          font-size: $base-font-size*2.5

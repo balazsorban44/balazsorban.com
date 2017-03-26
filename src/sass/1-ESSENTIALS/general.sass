@@ -1,5 +1,5 @@
 ::-webkit-scrollbar
-  width: 4px
+  +size(4px)
 ::-webkit-scrollbar-thumb
   background: darken($accent-color,4)
   border-radius: 5px
@@ -7,33 +7,73 @@
     background: darken($accent-color,8)
 
 ::-webkit-scrollbar-track
-  background: transparentize($accent-color-light,.75)
+  background: transparent
 
 ::selection
   background-color: $accent-color-light
   color: $light
 
 html
-  +size(100%)
-  display: flex
-  align-items: center
-  justify-content: center
-  background:
-    image: url($images + 'bg.jpg')
-    size: cover
-    repeat: no-repeat
-  overflow: hidden
+  &::after
+    position: fixed
+    z-index: -1000
+    top: 0
+    content: ''
+    +size(100%)
+    display: flex
+    justify-content: center
+    background:
+      image: url($images + 'bg.jpg')
+      size: cover
+      repeat: no-repeat
 body
+  min-height: 100vh
   display: flex
   flex-direction: column
   justify-content: center
   align-items: center
 
 hr
-  margin: 0
-  margin-top: 4px
+  position: relative
+  max-width: 80vw
+  left: 10vw
+  margin: 8px 0
   border: $slim-border
-#pages
-  min-height: 100vh
-  max-width: 100vw
-  overflow-x: hidden
+h1,h2
+  text-align: center
+  color: $accent-color
+  font:
+    weight: bold
+    style: italic
+
+h1
+  font-size: $base-font-size*2
+  padding: 0 4px
+  text-transform: lowercase
+h2
+  font-size: $base-font-size*1.4
+  margin: $base-font-size
+a
+  white-space: nowrap
+  color: $light
+  font-weight: bold
+  font-size: $base-font-size*.7
+
+p
+  margin: 0 3.5vh
+  line-height: 1.5
+  text-align: justify
+@media (min-width: 412px)
+  h1
+    font-size: $base-font-size*1.6
+
+@media (min-width: 768px)
+  hr
+    display: none
+  h1
+    font-size: $base-font-size*2.5
+  h2
+    font-size: $base-font-size*2
+    text-align: left
+    margin: 0 0 2.5vw 10vw
+@media (min-width: 1024px)

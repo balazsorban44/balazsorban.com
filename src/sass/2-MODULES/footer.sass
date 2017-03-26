@@ -2,40 +2,51 @@ footer
   position: absolute
   bottom: $base-font-size
   ul
+    padding-top: $base-font-size
     min-width: 100vw
     justify-content: space-around
     display: flex
   li
-    @include bg-icon(1,'#{$icons}/linkedin.png')
-    @include bg-icon(2,'#{$icons}/call.svg')
-    @include bg-icon(3,'#{$icons}/mail.svg')
+    @include bg-icon(1,'#{$icons}/linkedin.png',24px)
+    @include bg-icon(2,'#{$icons}/call.svg',24px)
+    @include bg-icon(3,'#{$icons}/mail.svg',24px)
 
 #pages
   overflow-x: hidden
   footer
     position: static
-    margin: $base-font-size
+    margin: $base-font-size 0
     li
       @include bg-icon(1,'#{$icons}/back.svg')
       @include bg-icon(2,'#{$icons}/call.svg')
       @include bg-icon(3,'#{$icons}/mail.svg')
       @include bg-icon(4,'#{$icons}/linkedin.png')
 
-@media (min-width: 640px)
+@media (min-width: 568px)
+  .landing footer ul
+    min-width: 0
   footer
-    bottom: $base-font-size/2
-    left: 50%
     ul
-      min-width: 512px
+      min-width: 540px
+      justify-content: center
+      li
+        margin: 0 $base-font-size
 
 @media (min-width: 768px)
+  .landing footer
+    position: absolute
+  #pages footer
+    margin: 0
+    margin-top: 5vh
   footer
     position: static
-    @media (orientation: landscape)
-      min-width: 640px
-      ul
-        border-top: $slim-border
-        justify-content: flex-start
-        li
-          margin: $base-font-size
-          border: none
+    min-width: 640px
+    ul
+      border-top: $slim-border
+      justify-content: flex-start
+      li
+        border: none
+@media (min-width: 1024px)
+  .landing footer
+    position: static
+    margin-top: 16px

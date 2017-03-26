@@ -14,3 +14,25 @@
 .rotated-right
   @extend .rotated-left
   transform: rotateY(180deg) !important
+  @media (min-width: 640px) and (max-width: 768px)
+    #intro-img
+      display: none
+
+// .grow
+//   animation: .5s grow forwards
+//
+//
+// @keyframes grow
+//   50%
+//     width: 100vw
+//     height: 100vw
+//   70%,100%
+//     // border-radius: 0
+//     top: 0
+//     left: 0
+//     border-radius: 0
+//   100%
+//     border: none
+//     width: 100vw
+//     height: 100vw
+//     padding: 0
