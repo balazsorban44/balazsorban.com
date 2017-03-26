@@ -104,7 +104,7 @@ const jekyllLogger = (buffer) => {
 // Open browser
 gulp.task('open', () => {
   gulp.src(__filename)
-  .pipe(open({uri: 'http://127.0.0.1:4000'}))
+  .pipe(open({uri: 'http://0.0.0.0:4000'}))
 })
 
 
