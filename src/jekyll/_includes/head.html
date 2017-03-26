@@ -3,17 +3,18 @@
   <meta name="description" content="{{page.description}}"/>
   <meta name="keywords" content="photography, coding, portfolio, web development"/>
   <meta name="author" content="{{site.author}}"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" type="text/css" href={{site.homepage}}/assets/css/main.css>
+  <meta name="viewport" content="width=device-width", initial-scale="1">
+  <link rel="stylesheet" type="text/css" href="{{site.homepage}}/assets/css/main.css">
   <link rel="icon" href="{{site.homepage}}/assets/img/icons/favicon.ico">
+  <script src="{{site.homepage}}/assets/js/main.js" charset="utf-8"></script>
   <title>{{page.title}}</title>
   {% include analytics.html %}
   <script type="application/ld+json">
-  {% if page.type == "photo" %}
-    {% include schema-photo.json %}
-  {% endif %}
-  {% if page.type == "code" %}
-    {% include schema-code.json %}
-  {% endif %}
+    {% if page.type == "photo" %}
+      {% include schema-photo.json %}
+    {% endif %}
+    {% if page.type == "code" %}
+      {% include schema-code.json %}
+    {% endif %}
   </script>
 </head>
