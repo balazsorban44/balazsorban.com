@@ -1,6 +1,6 @@
 ---
 layout: pages
-title: Programming by Balázs Orbán
+title: Programming | Balázs Orbán's portfolio
 type: code
 description: You can find some of my coding projects here. Go and check out the source code or the live demo.
 ---
@@ -10,9 +10,9 @@ description: You can find some of my coding projects here. Go and check out the 
   	  <h1>{{post.title}}</h1>
   	  <p>{{post.text}}</p>
       <h2>You can check out the source code at GitHub:</h2>
-      <a href="https://github.com/balazsorban44/{{post.source}}">{{post.source}}</a>
+      <a href='https://github.com/balazsorban44/{{post.source}}' target='_blank'>{{post.source}}</a>
       <h3>Or look  at the live demo here:</h3>
-      <a href="{{site.homepage}}/{{post.source}}">{{post.title}}</a>
+      <a href='{{site.homepage}}/{{post.source}}' target='_blank'>{{post.title}}</a>
   	</article>
   {% endif %}
 {% endfor %}
