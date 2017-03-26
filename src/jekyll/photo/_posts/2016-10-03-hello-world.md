@@ -1,7 +1,7 @@
 ---
 layout: post
 type: photo
-title:  "Hello world"
+title:  Hello world
 author: Balázs Orbán
 date:   2016-03-31 20:00:00 +0100
 taken:  2016-03-31 20:00

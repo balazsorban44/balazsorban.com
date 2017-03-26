@@ -1,7 +1,7 @@
 ---
 layout: post
 type: photo
-title:  "Second image"
+title:  Second image
 author: Balázs Orbán
 date:   2016-10-05 00:30:00 +0100
 taken:  2015-10-27 23:45

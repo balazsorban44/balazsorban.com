@@ -1,7 +1,7 @@
 ---
 layout: post
 type: photo
-title:  "Amazing Lofoten"
+title:  Amazing Lofoten
 author: Balázs Orbán
 date:   2016-10-07 16:10:00 +0100
 taken:  2015-07-31 14:56
