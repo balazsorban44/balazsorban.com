@@ -1,16 +1,34 @@
 {
   "@context": "http://schema.org",
-  "@type": "Person",
-  "name": "Balázs Orbán",
-  "birthDate": "1994-12-17",
-  "jobTitle": "Web developer | Photographer | Student",
-  "alumniOf": {
-    "@type": "CollegeOrUniversity",
-    "legalName": "Norwegian University of Science and Technology"
-  },
-  "url": "http://www.balazsorban.com",
-  "address": "Norway, 7030 Trondheim",
-  "email": "info@balazsorban.com",
-  "nationality": "Hungary",
-  "image": "http://balazsorban.com/assets/img/me_big.jpg"
+  "@type": "WebSite",
+  "name": "Balázs Orbán's portfolio",
+  "creator": {
+    "@context": "http://schema.org",
+    "@type": "Person",
+    "name": "Balázs Orbán",
+    "sameAs": [
+      "https://www.linkedin.com/in/balazsorban44",
+      "https://www.facebook.com/balazsorban44",
+      "https://www.instagram.com/balazsorban44",
+      "https://plus.google.com/+balazsorban",
+      "https://twitter.com/balazsorban44"
+    ],
+    "birthDate": "1994-12-17",
+    "jobTitle": "Web developer | Photographer | Student",
+    "alumniOf": {
+      "@type": "CollegeOrUniversity",
+      "legalName": "Norwegian University of Science and Technology",
+      "url": "http://ntnu.edu"
+    },
+    "brand": {
+      "@context": "http://schema.org",
+      "@type": "Organization",
+      "url": "http://www.balazsorban.com",
+      "logo": "http://www.balazsorban.com/img/logo.svg"
+    },
+    "address": "Norway, 7030 Trondheim",
+    "email": "info@balazsorban.com",
+    "nationality": "Hungary",
+    "image": "http://balazsorban.com/assets/img/me_big.jpg"
+  }
 }
