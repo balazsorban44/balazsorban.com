@@ -2,52 +2,52 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
         <loc>http://balazsorban.com/</loc>
-        <lastmod>2017-03-26T19:44:38.000Z</lastmod>
+        <lastmod>2017-03-26T20:08:50.000Z</lastmod>
         <priority>1</priority>
     </url>
     <url>
         <loc>http://balazsorban.com/code/</loc>
-        <lastmod>2017-03-26T19:42:45.791Z</lastmod>
+        <lastmod>2017-03-26T20:07:49.293Z</lastmod>
         <priority>0.8</priority>
     </url>
     <url>
         <loc>http://balazsorban.com/photo/</loc>
-        <lastmod>2017-03-26T19:42:45.791Z</lastmod>
+        <lastmod>2017-03-26T20:07:49.297Z</lastmod>
         <priority>0.8</priority>
     </url>
     <url>
         <loc>http://balazsorban.com/code/2017/02/20/hello-world.html</loc>
-        <lastmod>2017-03-26T19:42:45.815Z</lastmod>
+        <lastmod>2017-03-26T20:07:49.321Z</lastmod>
         <priority>0.5</priority>
     </url>
     <url>
         <loc>http://balazsorban.com/photo/2016/03/31/hello-world.html</loc>
-        <lastmod>2017-03-26T19:42:45.815Z</lastmod>
+        <lastmod>2017-03-26T20:07:49.321Z</lastmod>
         <priority>0.5</priority>
     </url>
     <url>
         <loc>http://balazsorban.com/photo/2016/10/05/lofoten-hamnoey.html</loc>
-        <lastmod>2017-03-26T19:42:45.815Z</lastmod>
+        <lastmod>2017-03-26T20:07:49.321Z</lastmod>
         <priority>0.5</priority>
     </url>
     <url>
         <loc>http://balazsorban.com/photo/2016/10/05/second-post.html</loc>
-        <lastmod>2017-03-26T19:42:45.815Z</lastmod>
+        <lastmod>2017-03-26T20:07:49.321Z</lastmod>
         <priority>0.5</priority>
     </url>
     <url>
         <loc>http://balazsorban.com/photo/2016/10/07/amazing-lofoten.html</loc>
-        <lastmod>2017-03-26T19:42:45.815Z</lastmod>
+        <lastmod>2017-03-26T20:07:49.321Z</lastmod>
         <priority>0.5</priority>
     </url>
     <url>
         <loc>http://balazsorban.com/photo/2016/11/21/kabelvaag.html</loc>
-        <lastmod>2017-03-26T19:42:45.815Z</lastmod>
+        <lastmod>2017-03-26T20:07:49.321Z</lastmod>
         <priority>0.5</priority>
     </url>
     <url>
         <loc>http://balazsorban.com/photo/2017/02/21/trondheim-fjord.html</loc>
-        <lastmod>2017-03-26T19:42:45.815Z</lastmod>
+        <lastmod>2017-03-26T20:07:49.321Z</lastmod>
         <priority>0.5</priority>
     </url>
 </urlset>
