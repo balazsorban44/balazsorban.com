@@ -7,47 +7,47 @@
     </url>
     <url>
         <loc>http://balazsorban.com/code/</loc>
-        <lastmod>2017-04-02T11:28:25.810Z</lastmod>
+        <lastmod>2017-04-02T12:36:24.823Z</lastmod>
         <priority>0.8</priority>
     </url>
     <url>
         <loc>http://balazsorban.com/photo/</loc>
-        <lastmod>2017-04-02T11:28:25.814Z</lastmod>
+        <lastmod>2017-04-02T12:36:24.823Z</lastmod>
         <priority>0.8</priority>
     </url>
     <url>
         <loc>http://balazsorban.com/code/2017/02/20/hello-world.html</loc>
-        <lastmod>2017-04-02T11:28:25.830Z</lastmod>
+        <lastmod>2017-04-02T12:36:24.843Z</lastmod>
         <priority>0.5</priority>
     </url>
     <url>
         <loc>http://balazsorban.com/photo/2016/03/31/hello-world.html</loc>
-        <lastmod>2017-04-02T11:28:25.830Z</lastmod>
+        <lastmod>2017-04-02T12:36:24.843Z</lastmod>
         <priority>0.5</priority>
     </url>
     <url>
         <loc>http://balazsorban.com/photo/2016/10/05/lofoten-hamnoey.html</loc>
-        <lastmod>2017-04-02T11:28:25.830Z</lastmod>
+        <lastmod>2017-04-02T12:36:24.843Z</lastmod>
         <priority>0.5</priority>
     </url>
     <url>
         <loc>http://balazsorban.com/photo/2016/10/05/second-post.html</loc>
-        <lastmod>2017-04-02T11:28:25.830Z</lastmod>
-        <priority>0.5</priority>
-    </url>
-    <url>
-        <loc>http://balazsorban.com/photo/2016/10/07/amazing-lofoten.html</loc>
-        <lastmod>2017-04-02T11:28:25.830Z</lastmod>
-        <priority>0.5</priority>
-    </url>
-    <url>
-        <loc>http://balazsorban.com/photo/2017/02/21/trondheim-fjord.html</loc>
-        <lastmod>2017-04-02T11:28:25.830Z</lastmod>
+        <lastmod>2017-04-02T12:36:24.843Z</lastmod>
         <priority>0.5</priority>
     </url>
     <url>
         <loc>http://balazsorban.com/photo/2016/11/21/kabelvaag.html</loc>
-        <lastmod>2017-04-02T11:28:25.830Z</lastmod>
+        <lastmod>2017-04-02T12:36:24.843Z</lastmod>
+        <priority>0.5</priority>
+    </url>
+    <url>
+        <loc>http://balazsorban.com/photo/2016/10/07/amazing-lofoten.html</loc>
+        <lastmod>2017-04-02T12:36:24.843Z</lastmod>
+        <priority>0.5</priority>
+    </url>
+    <url>
+        <loc>http://balazsorban.com/photo/2017/02/21/trondheim-fjord.html</loc>
+        <lastmod>2017-04-02T12:36:24.843Z</lastmod>
         <priority>0.5</priority>
     </url>
 </urlset>
