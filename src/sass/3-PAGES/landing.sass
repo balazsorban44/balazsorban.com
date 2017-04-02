@@ -1,5 +1,3 @@
-.landing
-  perspective: 100vw
 #name, #card
   display: flex
 #name
@@ -30,6 +28,7 @@
 
 #me-text
   position: absolute
+  left: 0
   top: $base-font-size*4
   max-height: 65vh
   overflow-y: scroll
@@ -106,6 +105,8 @@
   #intro-img
     +size(25vmax)
 @media (min-width: 768px)
+  .landing
+    perspective: 100vw
   #landing
     display: flex
     flex-direction: column
