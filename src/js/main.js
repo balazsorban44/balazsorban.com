@@ -12,9 +12,18 @@ const iW = window.innerWidth
 
   // LANDING PAGE
 if (document.querySelector('.landing') !== null) {
+  const landing = document.querySelector('.landing')
+  // landing.style.maxHeight = `${window.innerHeight}px`
+  landing.style.minHeight = `${window.innerHeight}px`
+
+  window.addEventListener('resize', function(event){
+    // landing.style.maxHeight = `${window.innerHeight}px`
+    landing.style.minHeight = `${window.innerHeight}px`
+
+})
 if (iW >= 1024) {
   const docElm = document.documentElement,
-  cardElm = document.querySelector('#card'),
+  cardElm = document.querySelector('#landing'),
   { clientWidth, clientHeight } = docElm,
   mouseMove$ = Rx.Observable
   .fromEvent(docElm, 'mousemove')
@@ -79,7 +88,7 @@ if (iW >= 1024) {
     meText.classList.remove('rotated-left')
     intro.classList.add('rotated-right')
     if (iW <= 768) {
-      name.style.display = 'none'
+      name.style.visibility = 'hidden'
     }
   })
 
@@ -88,7 +97,7 @@ if (iW >= 1024) {
     intro.classList.remove('rotated-right')
     meText.classList.add('rotated-left')
     if (iW <= 768) {
-      name.style.display = 'flex'
+      name.style.visibility = 'visible'
     }
   })
 

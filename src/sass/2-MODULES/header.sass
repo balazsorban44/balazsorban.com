@@ -1,8 +1,14 @@
 header
   width: 100vw
-  position: fixed
-  top: 0
   z-index: 1000
+  transform: translateY(-100%)
+  opacity: 0
+  animation:
+    name: slide-down
+    duration: .4s
+    timing-function: ease-out
+    fill-mode: forwards
+    delay: .9s
   ul
     background: lighten($accent-color, 6)
     display: flex
@@ -36,6 +42,7 @@ header
         content: '|'
 
 #pages header
+  top: 0
   position: absolute
 
 //HAMBURGER MENU

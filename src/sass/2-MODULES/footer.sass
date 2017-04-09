@@ -1,6 +1,13 @@
 footer
-  position: absolute
-  bottom: $base-font-size
+  margin-bottom: $base-font-size
+  transform: translateY(100%)
+  opacity: 0
+  animation:
+    name: slide-up
+    duration: .4s
+    timing-function: ease-out
+    fill-mode: forwards
+    delay: .9s
   ul
     padding-top: $base-font-size
     min-width: 100vw
@@ -34,7 +41,7 @@ footer
 
 @media (min-width: 768px)
   .landing footer
-    position: absolute
+    margin-top: $base-font-size
   #pages footer
     margin: 0
     margin-top: 5vh

@@ -19,7 +19,8 @@ html
     z-index: -1000
     top: 0
     content: ''
-    +size(100%)
+    width: 100vw
+    min-height: 100vh
     display: flex
     justify-content: center
     background:
@@ -30,7 +31,7 @@ body
   min-height: 100vh
   display: flex
   flex-direction: column
-  justify-content: center
+  justify-content: space-between
   align-items: center
 
 hr
@@ -76,3 +77,6 @@ p
     font-size: $base-font-size*2
     text-align: left
     margin: 0 0 2.5vw 10vw
+@media (min-width: 1024px)
+  body
+    justify-content: center

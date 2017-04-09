@@ -2,12 +2,31 @@
   display: flex
 #name
   justify-content: center
+  transform: translateX(-100%)
+  animation:
+    name: slide-right
+    duration: .5s
+    timing-function: ease-out
+    fill-mode: forwards
+    delay: 1.3s
+  span
+    color: $accent-color
+#card
+  position: relative
 #intro
   transition: .5s
 #intro-img
   margin: $base-font-size/2 auto
   +size(60vmin)
   position: relative
+  transform: scale(0)
+  animation:
+    name: scale-up
+    duration: .5s
+    timing-function: ease-out
+    delay: .5s
+    fill-mode: forwards
+
   img, &::after
     border-radius: 50%
   &::after
@@ -22,14 +41,21 @@
   margin: 0 5vh
   text-align: center
   line-height: 1.5
+  opacity: 0
+  animation:
+    name: slide-left
+    duration: .5s
+    timing-function: ease-out
+    fill-mode: forwards
+    delay: 1.3s
 .me
   text-align: center
   margin: 0
 
 #me-text
   position: absolute
+  top: -$base-font-size*2
   left: 0
-  top: $base-font-size*4
   max-height: 65vh
   overflow-y: scroll
   transition: .5s
@@ -59,7 +85,12 @@
     text-align: center
     content: '✕'
     background: $accent-color
-
+@media (max-width: 320px) and (min-height: 568px)
+  #me-text
+    top: -$base-font-size*5
+@media (min-width: 360px)
+  #me-text
+    top: -$base-font-size*5
 @media (min-width: 412px)
   #me-text
     h2
@@ -68,22 +99,23 @@
       margin: 0 10vw
 @media (min-width: 480px)
   #landing
-    width: 90vw
+    width: 100vw
     display: flex
     align-items: center
-    justify-content: space-between
+    justify-content: center
   #name
+    animation-name: slide-left
+    transform: translateX(200%)
     position: relative
     top: -12vw
-    left: 58%
+    left: 38%
 
   #card
     max-width: 40vw
   #intro-img
     position: absolute
-    left: 15%
-    top: 55%
-    transform: translateY(-50%)
+    left: -90%
+    top: 10%
     margin-top: -5vw
     +size(30vmax)
   #intro-text
@@ -98,12 +130,18 @@
   #landing
     justify-content: center
   #name
+    transform: none
+    opacity: 0
     top: -7vw
     left: 38vw
   #intro
     min-width: 50vw
   #intro-img
-    +size(25vmax)
+    +size(40vh)
+  #intro-text
+    transform: none
+    animation-duration: .7s
+    opacity: 0
 @media (min-width: 768px)
   .landing
     perspective: 100vw
@@ -113,12 +151,14 @@
     max-width: 60vw
   #name
     position: static
+    animation-name: slide-right
   #card
     max-width: none
   #intro-img
-    margin-top: 0
+    margin: 5% auto
     position: static
-    transform: translate(0)
+    opacity: 0
+    transform: scale(0)
     +size(40vw)
   #intro-text
     margin: 0
@@ -143,34 +183,58 @@
 
 @media (min-width: 1024px)
   #landing
-    justify-content: space-around
+    justify-content: center
     flex-direction: row
+    max-width: 100%
+    margin: 5%
   #name
     display: flex
     flex-direction: column
+    animation-name: none
+    opacity: 1
+    margin-right: 10%
+
+  #intro-img, #intro-text
+    transform: none
+    opacity: 1
+    animation: none
+    margin: 0
+  // #intro
+  //   opacity: 0
+  //   transform: translateX(200%)
+  //   animation: 1s slide-left 1s forwards
   #firstname, #lastname
     font-size: $base-font-size*5
+    overflow: hidden
+    span
+      display: inline-block
+      transform: translateY(-100%)
+      @for $i from 1 through 6
+        &:nth-child(#{$i})
+          animation: slide-down 1s forwards
+          animation-delay: $i*.1s
   #firstname
     margin-left: -10vw
     font-weight: normal
+
   #lastname
     margin-left: 5vw
-    color: $dark
-    &::after
-      content: '.'
+    span
+      color: $dark
+      @for $i from 1 through 6
+        &:nth-child(#{$i})
+          animation-delay: 0.3 + $i*.1s
   #card
     position: relative
-    width: 40vw
-    height: 35vh
     perspective: 100vw
-    margin: 32px 0
+    height: 35vmin
   #intro-img
     z-index: -1
     position: absolute
     top: 0
     left: 0
     width: 100%
-    height: 35vh
+    height: 100%
     overflow: hidden
     img
       position: absolute
@@ -202,6 +266,8 @@
     width: 40vw
     height: 35vh
     overflow-y: scroll
+    @media (orientation: portrait)
+      height: 27.5vh
     h2
       color: $light
       font-size: $base-font-size*1.5
