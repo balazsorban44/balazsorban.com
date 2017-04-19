@@ -16,7 +16,7 @@ if (document.querySelector('.landing') !== null) {
   // landing.style.maxHeight = `${window.innerHeight}px`
   landing.style.minHeight = `${window.innerHeight}px`
 
-  window.addEventListener('resize', function(event){
+  window.addEventListener('resize', () => {
     // landing.style.maxHeight = `${window.innerHeight}px`
     landing.style.minHeight = `${window.innerHeight}px`
 
@@ -116,10 +116,27 @@ if (iW >= 1024) {
 
 // PHOTO POSTS
 if (document.querySelector('.photo') !== null) {
+  alert = (text, x, y) => {
+    if (document.querySelector('#copyright') === null) {
+      const alertBox = document.createElement('div'),
+            alertText = document.createTextNode(text)
+      alertBox.setAttribute('id','copyright')
+      alertBox.setAttribute('style', `top: ${y}px; left: ${x}px`)
+      alertBox.appendChild(alertText)
+      document.body.insertBefore(alertBox, document.body.children[0])
+      setTimeout(() => {
+        document.querySelector('#copyright').remove()
+      }, 2000)
+    }
+  }
   const backButton = document.querySelector('#post-photo footer'),
         contentImg = document.querySelector('#content-img img'),
         bgImg = document.querySelector('#bg-img img')
 
+  contentImg.addEventListener('contextmenu', (e) => {
+    alert(`Plase, don't! - © Balázs Orbán - Thank you!`, e.clientX, e.clientY)
+    e.preventDefault()
+  })
   if (iW < 768) {
     backButton.style.top = `${contentImg.height}px`
   }
