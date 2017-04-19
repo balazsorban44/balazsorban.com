@@ -1,6 +1,6 @@
-const tag = document.createElement("script")
-tag.src = "https://unpkg.com/@reactivex/rxjs@latest/dist/global/Rx.min.js"
-document.getElementsByTagName("head")[0].appendChild(tag)
+// const tag = document.createElement("script")
+// tag.src = "https://unpkg.com/@reactivex/rxjs@latest/dist/global/Rx.min.js"
+// document.getElementsByTagName("head")[0].appendChild(tag)
 window.addEventListener("load", function load(){
     window.removeEventListener("load", load, false)
     init()
@@ -21,45 +21,45 @@ if (document.querySelector('.landing') !== null) {
     landing.style.minHeight = `${window.innerHeight}px`
 
 })
-if (iW >= 1024) {
-  const docElm = document.documentElement,
-  cardElm = document.querySelector('#landing'),
-  { clientWidth, clientHeight } = docElm,
-  mouseMove$ = Rx.Observable
-  .fromEvent(docElm, 'mousemove')
-  .map(event => ({ x: event.clientX, y: event.clientY })),
-
-  touchMove$ = Rx.Observable
-  .fromEvent(docElm, 'touchmove')
-  .map(event => ({
-    x: event.touches[0].clientX,
-    y: event.touches[0].clientY
-  })),
-
-  lerp = (start, end) => {
-    const dx = end.x - start.x,
-    dy = end.y - start.y
-
-    return {
-      x: start.x + dx * 0.8,
-      y: start.y + dy * 0.8,
-    };
-  }
-
-  const move$ = Rx.Observable.merge(mouseMove$, touchMove$),
-  animationFrame$ = Rx.Observable.interval(0, Rx.Scheduler.animationFrame),
-
-  smoothMove$ = animationFrame$
-  .withLatestFrom(move$, (tick, move) => move)
-  .scan(lerp);
-
-  smoothMove$.subscribe(pos => {
-    const rotX = (pos.y / clientHeight * -50) + 25,
-    rotY = (pos.x / clientWidth * 50) - 25
-
-    cardElm.style.cssText = `transform: rotateX(${rotX}deg) rotateY(${rotY}deg);`
-  })
-}
+// if (iW >= 1024) {
+//   const docElm = document.documentElement,
+//   cardElm = document.querySelector('#landing'),
+//   { clientWidth, clientHeight } = docElm,
+//   mouseMove$ = Rx.Observable
+//   .fromEvent(docElm, 'mousemove')
+//   .map(event => ({ x: event.clientX, y: event.clientY })),
+//
+//   touchMove$ = Rx.Observable
+//   .fromEvent(docElm, 'touchmove')
+//   .map(event => ({
+//     x: event.touches[0].clientX,
+//     y: event.touches[0].clientY
+//   })),
+//
+//   lerp = (start, end) => {
+//     const dx = end.x - start.x,
+//     dy = end.y - start.y
+//
+//     return {
+//       x: start.x + dx * 0.8,
+//       y: start.y + dy * 0.8,
+//     };
+//   }
+//
+//   const move$ = Rx.Observable.merge(mouseMove$, touchMove$),
+//   animationFrame$ = Rx.Observable.interval(0, Rx.Scheduler.animationFrame),
+//
+//   smoothMove$ = animationFrame$
+//   .withLatestFrom(move$, (tick, move) => move)
+//   .scan(lerp);
+//
+//   smoothMove$.subscribe(pos => {
+//     const rotX = (pos.y / clientHeight * -50) + 25,
+//     rotY = (pos.x / clientWidth * 50) - 25
+//
+//     cardElm.style.cssText = `transform: rotateX(${rotX}deg) rotateY(${rotY}deg);`
+//   })
+// }
 
 
 
@@ -100,7 +100,7 @@ if (iW >= 1024) {
       name.style.visibility = 'visible'
     }
   })
-
+  //
   // let handleMouseMove = (e) => {
   //   let x = e.clientX,
   //   y = e.clientY
