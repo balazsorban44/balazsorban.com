@@ -3,6 +3,7 @@ source: ../../src/jekyll/
 destination: ../../docs/
 keep_files: [assets/img, assets/css, index.html, assets/js, photo/img, code/img]
 exclude: [Gemfile, Gemfile.lock]
+future: true
 homepage: http://0.0.0.0:4000
 author: Balázs Orbán
 email: info@balazsorban.com
