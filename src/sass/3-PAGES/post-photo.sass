@@ -34,15 +34,13 @@
       max-width: 48px
       @include bg-icon(1,'#{$icons}/back.svg')
 #content-img
-  display: flex
-  justify-content: center
   overflow-x: scroll
+  display: flex
   img
-    max-height: 85vh
+    max-width: none
+    height: 65vh
     @media (orientation: portrait)
-      min-height: 45vh
-      max-height: 45vh
-      max-width: none
+      height: 45vh
 
 #bg-img
   top: 0
@@ -86,13 +84,16 @@
   h4
     color: transparentize($light, .05)
     margin: 4px
+@media (min-width: 568px)
+  #content-img
+    justify-content: center
 @media (min-width: 768px)
   #content-img
     align-items: center
     img
-      max-height: 45vh
+      height: 45vh
       @media (orientation: portrait)
-        min-height: 0
+        height: auto
         width: 90vw
   #content
     @media (orientation: landscape)
