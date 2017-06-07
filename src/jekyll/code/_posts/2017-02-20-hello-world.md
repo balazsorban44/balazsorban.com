@@ -2,7 +2,7 @@
 type: code
 tags: [javascript, es6]
 title:  React Web Store
-source: react-web-store
+source: https://github.com/balazsorban44/react-web-store
 live: http://balazsorban.com/react-web-store
 image: 1
 tools: [react, sass, pug, webpack]
