@@ -3,7 +3,7 @@ layout: post
 type: photo
 title: Buckingham Palace
 author: Balázs Orbán
-date: 2017-04-20 14:52:00 +0100
+date: 2017-04-20 16:15:00 +0100
 taken: 2017-03-02 14:52
 tags: architecture
 image: 7
