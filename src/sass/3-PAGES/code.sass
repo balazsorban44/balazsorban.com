@@ -60,7 +60,6 @@
 .item-code-tools
   img
     // background: darken($accent-color, 4)
-    border-radius: 50%
     margin: 2px
     +size(32px)
 
@@ -75,17 +74,22 @@
   font-size: .7em
   padding: 0 4px 4px 0
   text-align: right
-
 @media (min-width: 768px)
   .items-code
     margin: 0
-    justify-content: center
     max-width: none
     display: flex
     flex-wrap: wrap
+    justify-content: center
   .item-code
     max-width: 300px
+  .item-code-desc a
+    font-size: .9em
   .item-code-links ul
     justify-content: flex-start
     li
       padding-left: 1em
+
+@media (min-width: 1024px)
+  .items-code
+    max-width: 75%
