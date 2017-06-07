@@ -14,11 +14,12 @@ layout: compress
     {% for post in site.posts limit:10 %}
       {% if post.type contains 'photo' %}
         <item>
+          <link>{{site.homepage}}/photo/img/thumb/{{post.image}}.jpg</link>
           <image>
             <url>{{site.homepage}}/photo/img/thumb/{{post.image}}.jpg</url>
             <title>{{ post.title | xml_escape }}</title>
             <description>{{ post.text | xml_escape }}</description>
-            <link>{{ post.url | prepend: site.homepage}}</link>
+            <link>{{site.homepage}}</link>
           </image>
           <pubDate>{{ post.date | date_to_rfc822 }}</pubDate>
           <guid isPermaLink="true">{{ post.url | prepend: site.homepage}}</guid>
