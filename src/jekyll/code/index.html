@@ -8,11 +8,51 @@ description: You can find some of my coding projects here. Go and check out the 
   {% if post.type contains 'code' %}
   	<article class='item-code'>
   	  <h1>{{post.title}}</h1>
-  	  <p>{{post.text}}</p>
-      <h2>You can check out the source code at GitHub:</h2>
-      <a href='https://github.com/balazsorban44/{{post.source}}' target='_blank'>{{post.source}}</a>
-      <h3>Or look  at the live demo here:</h3>
-      <a href='{{site.homepage}}/{{post.source}}' target='_blank'>{{post.title}}</a>
+      <div class="item-code-desc">
+        {{post.content}}
+      </div>
+      <div class="item-code-links">
+        <h2>Links:</h2>
+        <ul>
+          <li>
+            <a class="item-code-link" href='https://github.com/balazsorban44/{{post.source}}' target='_blank'>Source code</a>
+          </li>
+          <li>
+            <a class="item-code-link" href='{{post.live}}' target='_blank'>Live/Preview</a>
+          </li>
+        </ul>
+      </div>
+      <div class="item-code-tags">
+        <h2>Tags:</h2>
+        <ul>
+          {% for item  in post.tags %}
+            {% if forloop.last %}
+              <li>
+                {{item}}
+              </li>
+            {% else %}
+              <li>
+                {{item}},
+              </li>
+            {% endif %}
+          {% endfor %}
+        </ul>
+      </div>
+      <div class="item-code-tools">
+        <h2>Tools used:</h2>
+        <ul>
+          {% for item  in post.tools %}
+            <li>
+              <img class="item-code-used-item"src="{{site.homepage}}/assets/img/icons/{{item}}.svg" title="{{item}} "alt="{{item}}">
+            </li>
+          {% endfor %}
+        </ul>
+      </div>
+
+      <div class="item-code-posted">
+        <p>Posted: </p>
+        <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%B %d, %Y" }}</time>
+      </div>
   	</article>
   {% endif %}
 {% endfor %}
