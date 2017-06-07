@@ -1,24 +1,91 @@
 .items-code
+  margin-top: 60px
+  h2,h3,p
+    color: $dark
+
   h1
+    margin: .8em 0 .5em
+    color: $accent-color
+    text-align: left
+    text-transform: capitalize
     font-size: $base-font-size*1.2
-  h1,h2,h3,p,a
-    color: $light
-  p
-    margin-bottom: 10px
-    text-align: center
-  h2,h3,a
-    display: inline
-  a
-    text-decoration: underline
-    font-weight: bold
+  h2
+    text-align: left
+    font-size: 1em
+    font-weight: normal
+    margin: 0
+  ul
+    margin: .5em
+    display: flex
+    flex-wrap: wrap
+
 .item-code
   max-width: 320px
-  margin: 10px
-  background: $accent-color
-  padding: 10px
+  margin: 1em
+  background: transparentize($light, .5)
+  border: $slim-border
+  padding: 0 1em
+  position: relative
+
+.item-code-links, .item-code-tags, .item-code-tools
+  border-top: $slim-border
+  padding: .5em 0
+
+.item-code-links
+  display: flex
+  align-items: center
+  ul
+    flex-grow: 1
+    justify-content: space-between
+    padding-bottom: 4px
+
+.item-code-link
+  @extend button
+  transition: .2s
+
+.item-code-tags ul
+  margin-left: 0
+  li
+    padding-left: 4px
+
+.item-code-desc p
+  line-height: normal
+  margin: 0
+  margin-bottom: 10px
+  a
+    text-decoration: underline
+    color: $accent-color
+
+
+.item-code-tools
+  img
+    // background: darken($accent-color, 4)
+    border-radius: 50%
+    margin: 2px
+    +size(32px)
+
+.item-code-posted
+  position: absolute
+  bottom: 0
+  right: 0
+  p
+    display: inline
+    margin: 0
+  color: $accent-color
+  font-size: .7em
+  padding: 0 4px 4px 0
+  text-align: right
 
 @media (min-width: 768px)
+  .items-code
+    margin: 0
+    justify-content: center
+    max-width: none
+    display: flex
+    flex-wrap: wrap
   .item-code
-    max-width: 540px
-    padding: 30px
-    
+    max-width: 300px
+  .item-code-links ul
+    justify-content: flex-start
+    li
+      padding-left: 1em
