@@ -1,6 +1,6 @@
 ---
 type: code
-tags: [school, javascript, css, html]
+tags: [School, Responsive, Norwegian]
 title:  Gabionbutikken
 source: https://github.com/torjusti/it2805-project
 live: https://torjusti.github.io/it2805-project/
