@@ -27,7 +27,7 @@ import child_process from 'child_process'
 // Constants
 const src = '../../src/',
       build = '../../docs/',
-      siteUrl = 'http://balazsorban.com'
+      siteUrl = 'https://balazsorban.com'
 
 
 // ----------------Tasks---------------- //
@@ -144,13 +144,13 @@ const jekyllLogger = (buffer) => {
 // Open browser
 gulp.task('open', () => {
   gulp.src(__filename)
-  .pipe(open({uri: 'http://balazsorban.com'}))
+  .pipe(open({uri: 'https://balazsorban.com'}))
 })
 
 
 // ----------------Bundled tasks---------------- //
 
 
-gulp.task('default', ['es6','sass','pug','img','img-blog','thumb','sitemap'])
+gulp.task('default', ['es6','sass','pug','sitemap'])
 
 module.exports = gulp

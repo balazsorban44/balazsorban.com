@@ -3,7 +3,7 @@ destination: docs
 keep_files: [assets/img, assets/css, index.html, assets/js, photo/img, code/img, sitemap.xml]
 exclude: [Gemfile, Gemfile.lock]
 future: true
-homepage: http://balazsorban.com
+homepage: https://balazsorban.com
 author: Balázs Orbán
 email: info@balazsorban.com
 phone: +4795460627
