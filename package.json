@@ -11,7 +11,7 @@
     "build": "npm run gulpBuild; npm run jekyllBuild",
     "copyDeploy": "gulp copy --gulpfile config/build/gulpfile.babel.js",
     "stageDeploy": "git add .; git reset -- src/* config package.json .gitignore postcss.config.js",
-    "deploy": "npm run build; git add docs ; git commit -m 'Deploying changes.'; git push"
+    "deploy": "npm run build; npm run copyDeploy; npm run stageDeploy; git commit -m 'Deploying changes.'; git push"
   },
   "repository": {
     "type": "git",
