@@ -1,0 +1,31 @@
+{
+  "name": "balazsorban-com-new",
+  "version": "1.0.0",
+  "description": "Complete redesign of balazsorban.com",
+  "main": "index.js",
+  "repository": "https://github.com/balazsorban44/balazsorban.com",
+  "homepage": "https://balazsorban.com/new/dist",
+  "author": {
+    "name": "Balázs Orbán",
+    "email": "info@balazsorban.com",
+    "url": "https://balazsorban.com"
+  },
+  "license": "MIT",
+  "private": false,
+  "dependencies": {
+    "node-sass-chokidar": "^0.0.3",
+    "npm-run-all": "^4.1.1",
+    "react": "^16.0.0",
+    "react-dom": "^16.0.0",
+    "react-scripts": "1.0.17"
+  },
+  "scripts": {
+    "build-css": "node-sass-chokidar --include-path ./src/sass src/sass/main.sass src/main.css",
+    "watch-css": "npm run build-css && node-sass-chokidar --include-path ./src/sass src/sass/main.sass src/main.css -w -r",
+    "start-js": "react-scripts start",
+    "start": "npm-run-all -p watch-css start-js",
+    "build": "npm run build-css && react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
+  }
+}

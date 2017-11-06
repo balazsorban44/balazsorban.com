@@ -1,0 +1,38 @@
+@import vars
+
+.PLACEHOLDER
+  width: 80vw
+  max-width: 480px
+  height: 80vw
+  max-height: 480px
+  display: flex
+  justify-content: center
+  align-items: center
+  background-color: grey
+
+body
+  background-color: $background-color-1
+  color: white
+  margin: 0
+  padding: 0
+  font-family: monospace
+
+.page
+  display: flex
+  justify-content: center
+  align-items: center
+  flex-direction: column
+  width: 100vw
+  height: 100vh
+
+h1
+  font-style: italic
+  text-align: center
+  font-size: 3em
+
+h1, .subtitle
+  color: $main-color
+
+  @media(min-width: 640px)
+    br
+      display: none
