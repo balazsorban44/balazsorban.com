@@ -4,7 +4,7 @@
   "description": "Complete redesign of balazsorban.com",
   "main": "index.js",
   "repository": "https://github.com/balazsorban44/balazsorban.com",
-  "homepage": "https://balazsorban.com/new/dist",
+  "homepage": "https://new-balazsorban.netlify.com",
   "author": {
     "name": "Balázs Orbán",
     "email": "info@balazsorban.com",
