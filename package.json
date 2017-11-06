@@ -9,7 +9,8 @@
     "gulpBuild": "gulp --gulpfile config/build/gulpfile.babel.js;",
     "jekyllBuild": "JEKYLL_ENV=production jekyll build --config config/build/_config.yml",
     "build": "npm run gulpBuild; npm run jekyllBuild",
-    "deploy": "npm run build; git add docs ; git commit -m ':rocket: Deploy'; git push"
+    "deploy": "npm run build; git add docs ; git commit -m ':rocket: Deploy'; git push",
+    "buildNew": "npm run --prefix new build"
   },
   "repository": {
     "type": "git",
