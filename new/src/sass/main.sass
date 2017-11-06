@@ -1,4 +1,5 @@
 @import vars
+@import shame
 
 .PLACEHOLDER
   width: 80vw
@@ -22,17 +23,108 @@ body
   justify-content: center
   align-items: center
   flex-direction: column
-  width: 100vw
+  width: 100%
   height: 100vh
 
 h1
   font-style: italic
   text-align: center
   font-size: 3em
+  transition: 0.3s ease-in-out
+  will-change: opacity transform
+
+  &:hover
+    opacity: 0.7
+    transform: scale(1.1)
 
 h1, .subtitle
+  cursor: pointer
   color: $main-color
 
   @media(min-width: 640px)
     br
       display: none
+
+p
+  line-height: 1.4
+
+a
+  display: inline-block
+  color: $main-color-dark
+  margin: 0.2em 0
+  transition: color .2s ease-in-out
+  &:hover
+    color: white
+    font-weight: bold
+
+.intro
+  position: relative
+  width: 85vw
+  display: flex
+  align-items: center
+  justify-content: center
+  @media(min-width: 640px)
+    width: 500px
+    height: 500px
+    border-radius: 50%
+    background-color: transparentize($background-color-2, .8)
+
+.close-intro-text
+  position: absolute
+  top: 12px
+  cursor: pointer
+  z-index: 2
+  display: flex
+  justify-content: center
+  align-items: center
+  padding: 1em
+  background-color: $background-color-2
+  width: 12px
+  height: 12px
+  border-radius: 50%
+  @media(max-width: 640px)
+    right: 0
+    top: -48px
+
+.intro-textbox
+  flex-direction: column
+  align-items: center
+  max-width: 640px
+  position: relative
+  text-align: justify
+  p
+    shape-outside: circle(50%)
+    padding: 0.5em 0
+    margin: 0
+    border-top: 1px solid $background-color-2
+    @media(min-width: 640px)
+      border-top: none
+
+  h4
+    bottom: 0
+    right: 0
+    margin: 1rem
+    font-size: 5em
+    opacity: .2
+    color: $main-color-dark
+    pointer-events: none
+    position: absolute
+    @media(min-width: 640px)
+      position: static
+      font-size: 1em
+      opacity: 1
+
+.intro-img
+  position: relative
+  z-index: 1
+  float: left
+  shape-outside: circle(50%)
+  padding: 1em 1em .5em
+  margin-left: -2em
+  border-radius: 50%
+  @media(min-width: 640px)
+    margin-left: 0
+    transition: .5s ease-in-out
+    &:hover
+      cursor: pointer
+      transform: scale(.9)
