@@ -13,13 +13,13 @@ const setParticles = (innerWidth, innerHeight) =>  ({
       }
     },
     "color": {
-      "value": "#ff4500"
+      "value": "#ff3300"
     },
     "shape": {
       "type": "circle"
     },
     "opacity": {
-      "value": 0.9,
+      "value": 0.6,
       "random": false,
       "anim": {
         "enable": false,
@@ -41,8 +41,8 @@ const setParticles = (innerWidth, innerHeight) =>  ({
     "line_linked": {
       "enable": true,
       "distance": innerWidth < innerHeight ? innerHeight/10 : innerWidth/15,
-      "color": "#ff4500",
-      "opacity": 1,
+      "color": "#ff3300",
+      "opacity": .6,
       "width": .5
     },
     "move": {
