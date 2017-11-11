@@ -1,0 +1,23 @@
+.header
+  position: absolute
+  top: 0
+  right: 0
+
+.social
+  display: flex
+  align-items: center
+  list-style-type: none
+  li
+    margin: .5em
+    cursor: pointer
+    transition: .3s ease-in-out
+    padding: 6px
+    display: flex
+    justify-content: center
+    align-items: center
+    border-bottom: 2px solid $main-color
+    >img
+      padding: 3px
+    &:hover
+      background-color: $main-color
+      border-bottom-color: white
