@@ -4,6 +4,9 @@ main.css
 # dependencies
 /node_modules
 
+# deployment
+/build
+
 # testing
 /coverage
 
