@@ -1,0 +1,30 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --primary-color: hsl(16.2, 100%, 50%);
+}
+
+::selection {
+  background-color: var(--primary-color);
+}
+
+html {
+  scroll-behavior: smooth;
+  background: #000;
+  color: #fff;
+  font-family: sans-serif;
+}
+
+#__next {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+@media (min-width: 768px) {
+  #__next {
+    justify-content: center;
+  }
+}
