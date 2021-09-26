@@ -41,7 +41,7 @@ export default function Home() {
         <Emoji label="locked padlock">🔒</Emoji>
         {". A Hungarian "}
         <Emoji label="Hungarian flag">🇭🇺</Emoji>
-        {"living in Norway "}
+        {" living in Norway "}
         <Emoji label="Norwegian flag">🇳🇴</Emoji>
         {". Likes bouldering"} <Emoji label="climbing">🧗</Emoji>
         {", riding my e-bike"} <Emoji label="bicycling">🚴</Emoji>
