@@ -4,12 +4,13 @@ import { getNowPlaying } from "lib/spotify"
 export default async function handler(_: NextApiRequest, res: NextApiResponse) {
   const response = await getNowPlaying()
 
-  const result = await response.json()
   if (response.status === 204 || response.status > 400) {
-    console.log(result)
+    const error = await response.text()
+    console.log(error)
+
     return res.status(200).json({ isPlaying: false })
   }
-  const song = result
+  const song = await response.json()
 
   if (song.item === null) {
     return res.status(200).json({ isPlaying: false })
