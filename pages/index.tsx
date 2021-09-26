@@ -65,15 +65,24 @@ function Me() {
           borderWidth: "120px 0 120px 207.8px",
         }}
       />
-      <span className="absolute" style={{ top: 0, left: 60 }}>
+      <button
+        className="absolute group focus:outline-none"
+        style={{ top: 0, left: 60 }}
+      >
         <Image
-          className="rounded-full filter grayscale contrast-150 brightness-75 transition duration-200 hover:grayscale-0 hover:transform hover:scale-95 hover:opacity-100 hover:contrast-100 hover:brightness-100"
+          className="
+          rounded-full
+          transition duration-200
+          transform hover:scale-95 group-focus:scale-95 hover:opacity-100 group-focus:opacity-100
+          filter grayscale contrast-150 brightness-75 hover:grayscale-0 group-focus:grayscale-0 hover:contrast-100 group-focus:contrast-100 hover:brightness-100 group-focus:brightness-100
+          group-focus:shadow-ring
+          "
           src="/me.jpg"
           width="240"
           height="240"
           alt="A headshot of me"
         />
-      </span>
+      </button>
     </div>
   )
 }
