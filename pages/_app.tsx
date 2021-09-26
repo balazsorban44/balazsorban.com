@@ -4,6 +4,7 @@ import { Link } from "components/link"
 import "../global.css"
 import Head from "next/head"
 import { useRouter } from "next/router"
+import { useAnalytics } from "lib/analytics"
 
 const meta = {
   title: "Balázs Orbán",
@@ -12,6 +13,8 @@ const meta = {
 }
 
 export default function App({ Component, pageProps }) {
+  useAnalytics()
+
   const router = useRouter()
   return (
     <>
