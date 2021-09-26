@@ -18,7 +18,7 @@ export function NowPlaying() {
       <div className="inline-flex flex-col items-center sm:flex-row w-full max-w-full truncate">
         {data?.songUrl ? (
           <a
-            className="text-gray-600 p-1 dark:text-gray-200 font-medium max-w-max truncate focus:outline-none focus:ring-4 focus:ring-main ring-inset focus:ring-opacity-50 focus:border-transparent"
+            className="text-gray-400 p-1 font-medium max-w-max truncate focus:outline-none focus:ring-4 focus:ring-main ring-inset focus:ring-opacity-50 focus:border-transparent"
             href={data.songUrl}
             target="_blank"
             rel="noopener noreferrer"
@@ -26,12 +26,10 @@ export function NowPlaying() {
             {data.title}
           </a>
         ) : (
-          <p className="text-gray-600 dark:text-gray-200 font-medium">
-            Not Playing
-          </p>
+          <p className="text-gray-400 font-medium">Not Playing</p>
         )}
         <Divider />
-        <p className="text-gray-400 dark:text-gray-300 max-w-max truncate">
+        <p className="text-gray-200 max-w-max truncate">
           {data?.artist ?? "Spotify"}
         </p>
       </div>
