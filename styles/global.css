@@ -28,7 +28,7 @@
 html {
   scroll-behavior: smooth;
   background: #000;
-  color: #fff;
+  color: #fff !important;
   font-family: sans-serif;
 }
 
@@ -44,8 +44,12 @@ html {
   }
 }
 
+.prose {
+  @apply text-white;
+}
+
 .prose .anchor {
-  @apply absolute invisible;
+  @apply absolute invisible hover:bg-transparent border-0;
 
   margin-left: -1em;
   padding-right: 0.5em;
@@ -59,11 +63,14 @@ html {
 }
 
 .prose a {
-  @apply transition-all no-underline;
+  @apply transition-all no-underline text-white;
+}
+
+.prose h3 {
+  color: inherit;
 }
 
 .prose .anchor:after {
-  @apply text-gray-300;
   content: "#";
 }
 
