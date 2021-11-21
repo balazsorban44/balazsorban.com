@@ -1,7 +1,7 @@
 import { Divider } from "components/dividier"
 import { Emoji } from "components/emoji"
 import { Link } from "components/link"
-import "../global.css"
+import "styles/global.css"
 import Head from "next/head"
 import { useRouter } from "next/router"
 import { useAnalytics } from "lib/analytics"
