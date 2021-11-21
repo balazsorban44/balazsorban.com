@@ -2,6 +2,9 @@ const { withContentlayer } = require("next-contentlayer")
 
 /** @type {import('next').NextConfig} */
 module.exports = withContentlayer()({
+  images: {
+    domains: ["assets.vercel.com"],
+  },
   swcMinify: true,
   reactStrictMode: true,
   webpack: (config, { dev, isServer }) => {

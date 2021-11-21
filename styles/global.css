@@ -59,7 +59,7 @@ html {
 }
 
 .prose a {
-  @apply transition-all;
+  @apply transition-all no-underline;
 }
 
 .prose .anchor:after {

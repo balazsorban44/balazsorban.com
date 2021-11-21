@@ -1,5 +1,7 @@
 import Link from "next/link"
 import Image from "next/image"
+import { Emoji } from "components/emoji"
+import { Link as StyledLink } from "components/link"
 
 const CustomLink = (props) => {
   const href = props.href
@@ -7,13 +9,14 @@ const CustomLink = (props) => {
 
   if (isInternalLink) {
     return (
+      // eslint-disable-next-line @next/next/link-passhref
       <Link href={href}>
-        <a {...props} />
+        <StyledLink {...props} />
       </Link>
     )
   }
 
-  return <a target="_blank" rel="noopener noreferrer" {...props} />
+  return <StyledLink target="_blank" rel="noopener noreferrer" {...props} />
 }
 
 function RoundedImage(props) {
@@ -23,6 +26,7 @@ function RoundedImage(props) {
 const MDXComponents = {
   Image: RoundedImage,
   a: CustomLink,
+  Emoji,
 }
 
 export default MDXComponents
