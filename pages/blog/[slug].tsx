@@ -1,18 +1,17 @@
-// import { useMDXComponent } from "next-contentlayer/hooks"
-// import components from "components/mdx-components"
-// import BlogLayout from "layouts/blog"
+import { useMDXComponent } from "next-contentlayer/hooks"
+import components from "components/mdx-components"
+import BlogLayout from "layouts/blog"
 import { allBlogs } from ".contentlayer/data"
 import type { Blog } from ".contentlayer/types"
 
 export default function Post({ post }: { post: Blog }) {
-  return null
-  // const Component = useMDXComponent(post.body.code)
+  const Component = useMDXComponent(post.body.code)
 
-  // return (
-  //   <BlogLayout post={post}>
-  //     <Component components={components} />
-  //   </BlogLayout>
-  // )
+  return (
+    <BlogLayout post={post}>
+      <Component components={components} />
+    </BlogLayout>
+  )
 }
 
 export async function getStaticPaths() {
@@ -24,8 +23,6 @@ export async function getStaticPaths() {
 
 export async function getStaticProps({ params }) {
   const post = allBlogs.find((post) => post.slug === params.slug)
-
-  console.log(post)
 
   return { props: { post } }
 }
