@@ -38,12 +38,6 @@ html {
   min-height: 100vh;
 }
 
-@media (min-width: 768px) {
-  #__next {
-    justify-content: center;
-  }
-}
-
 .prose {
   @apply text-white;
 }
