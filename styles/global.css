@@ -60,7 +60,10 @@ html {
   @apply transition-all no-underline text-white;
 }
 
-.prose h3 {
+.prose h3,
+.prose h2,
+.prose strong,
+.prose blockquote {
   color: inherit;
 }
 
