@@ -33,7 +33,7 @@ export default function Container(props) {
   const { children, skipHeader, ...customMeta } = props
   const router = useRouter()
   const meta = {
-    title: "Balázs Orbnán - Software Engineer, OSS maintainer.",
+    title: "Balázs Orbán - Software Engineer, OSS maintainer.",
     description: `Maintains Next.js, NextAuth.js and React.js Hungarian docs.`,
     image: "https://balazsorban.com/images/me.jpg",
     type: "website",
