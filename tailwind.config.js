@@ -1,6 +1,6 @@
 module.exports = {
   mode: "jit",
-  purge: ["./**/*.{ts,tsx}"],
+  purge: ["./pages/**/*.tsx", "./components/**/*.tsx", "./layouts/**/*.tsx"],
   darkMode: false,
   theme: {
     extend: {
@@ -15,5 +15,5 @@ module.exports = {
   variants: {
     extend: {},
   },
-  plugins: [],
+  plugins: [require("@tailwindcss/typography")],
 }

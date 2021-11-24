@@ -19,9 +19,14 @@ export default function Home() {
 
   return (
     <div className="flex flex-col justify-center">
-      <h1 className="text-4xl mb-2">
-        <strong>Balázs</strong> Orbán
-      </h1>
+      <div className="text-4xl mb-2 flex justify-between items-baseline">
+        <h1>
+          <strong>Balázs</strong> Orbán
+        </h1>
+        <Link href="/blog" className="text-sm">
+          Blog
+        </Link>
+      </div>
       <p className="opacity-90 sm:max-w-md">
         {hasStarted ? null : <Countdown time={tick} />}
         <a href="https://twitter.com/balazsorban44/status/1432769186938380291">
@@ -77,7 +82,7 @@ function Me() {
           filter grayscale contrast-150 brightness-75 hover:grayscale-0 group-focus:grayscale-0 hover:contrast-100 group-focus:contrast-100 hover:brightness-100 group-focus:brightness-100
           group-focus:shadow-ring
           "
-          src="/me.jpg"
+          src="/images/me.jpg"
           width="240"
           height="240"
           alt="A headshot of me"

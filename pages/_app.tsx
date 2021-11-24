@@ -1,7 +1,7 @@
 import { Divider } from "components/dividier"
 import { Emoji } from "components/emoji"
 import { Link } from "components/link"
-import "../global.css"
+import "styles/global.css"
 import Head from "next/head"
 import { useRouter } from "next/router"
 import { useAnalytics } from "lib/analytics"
@@ -42,7 +42,7 @@ export default function App({ Component, pageProps }) {
       <main className="p-4 flex items-center flex-col">
         <Component {...pageProps} />
       </main>
-      <footer className="flex items-center flex-wrap space-x-4 justify-center sm:mx-auto">
+      <footer className="flex items-center flex-wrap space-x-4 justify-center sm:mx-auto mb-8">
         <Link
           target="_blank"
           rel="noopener noreferrer"

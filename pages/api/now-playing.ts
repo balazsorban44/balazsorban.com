@@ -2,6 +2,12 @@ import type { NextApiRequest, NextApiResponse } from "next"
 import { getNowPlaying } from "lib/spotify"
 
 export default async function handler(_: NextApiRequest, res: NextApiResponse) {
+  if (process.env.NODE_ENV !== "production") {
+    return res.json({
+      artist: "Development",
+      isPlaying: true,
+    })
+  }
   const response = await getNowPlaying()
 
   if (response.status === 204 || response.status > 400) {
@@ -28,7 +34,7 @@ export default async function handler(_: NextApiRequest, res: NextApiResponse) {
     "public, s-maxage=60, stale-while-revalidate=30"
   )
 
-  return res.status(200).json({
+  return res.json({
     album,
     albumImageUrl,
     artist,
