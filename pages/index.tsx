@@ -1,7 +1,8 @@
 import * as React from "react"
 import Image from "next/image"
+import Link from "next/link"
 import { Emoji } from "components/emoji"
-import { Link } from "components/link"
+import { Link as StyledLink } from "components/link"
 import { NowPlaying } from "components/now-playing"
 
 const start = new Date("2021-11-29")
@@ -23,8 +24,8 @@ export default function Home() {
         <h1>
           <strong>Balázs</strong> Orbán
         </h1>
-        <Link href="/blog" className="text-sm">
-          Blog
+        <Link href="/blog" passHref>
+          <StyledLink className="text-sm">Blog</StyledLink>
         </Link>
       </div>
       <p className="opacity-90 sm:max-w-md">
