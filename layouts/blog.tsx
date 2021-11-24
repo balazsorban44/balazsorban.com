@@ -24,7 +24,7 @@ export default function BlogLayout(props: PropsWithChildren<{ post: Blog }>) {
       date={new Date(post.publishedAt).toISOString()}
       type="article"
     >
-      <article className="flex flex-col items-start justify-center w-full max-w-2xl mx-auto mb-2">
+      <article className="flex flex-col items-start justify-center w-full max-w-2xl mx-auto mb-6">
         <h1 className="mb-4 text-3xl font-bold tracking-tight md:text-5xl">
           {post.title}
         </h1>

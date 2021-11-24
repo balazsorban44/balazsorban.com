@@ -42,7 +42,7 @@ export default function App({ Component, pageProps }) {
       <main className="p-4 flex items-center flex-col">
         <Component {...pageProps} />
       </main>
-      <footer className="flex items-center flex-wrap space-x-4 justify-center sm:mx-auto">
+      <footer className="flex items-center flex-wrap space-x-4 justify-center sm:mx-auto mb-8">
         <Link
           target="_blank"
           rel="noopener noreferrer"

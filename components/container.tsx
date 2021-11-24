@@ -80,9 +80,9 @@ export default function Container(props) {
           </div>
         </nav>
       </div>
-      <main id="skip" className="flex flex-col justify-center px-8">
+      <div id="skip" className="flex flex-col justify-center px-8">
         {children}
-      </main>
+      </div>
     </div>
   )
 }
