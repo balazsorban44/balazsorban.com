@@ -18,7 +18,7 @@ export function NowPlaying() {
       <div className="inline-flex flex-col sm:flex-row w-full max-w-full truncate items-center">
         {data?.songUrl ? (
           <a
-            className="text-gray-400 p-1 font-medium max-w-max truncate focus:outline-none focus:ring-4 focus:ring-main ring-inset focus:ring-opacity-50 focus:border-transparent"
+            className="text-gray-400 p-1 font-medium max-w-xs truncate focus:outline-none focus:ring-4 focus:ring-main ring-inset focus:ring-opacity-50 focus:border-transparent"
             href={data.songUrl}
             target="_blank"
             rel="noopener noreferrer"

@@ -39,6 +39,7 @@ export default function App({ Component, pageProps }) {
         <meta name="twitter:title" content={meta.title} />
         <meta name="twitter:description" content={meta.description} />
       </Head>
+
       <main className="p-4 flex items-center flex-col flex-1">
         <Component {...pageProps} />
       </main>

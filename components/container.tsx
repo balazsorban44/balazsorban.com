@@ -2,30 +2,23 @@ import Head from "next/head"
 import { useRouter } from "next/router"
 import { useState, useEffect } from "react"
 import NextLink from "next/link"
-import cn from "classnames"
-
-import MobileMenu from "components/mobile-menu"
+import { Link as StyledLink } from "components/link"
 
 function NavItem({ href, text }) {
   const router = useRouter()
-  const isActive = router.asPath === href
+  const isActive = href !== "/" && router.asPath.startsWith(href)
 
   return (
-    <NextLink href={href}>
-      <a
-        className={cn(
-          isActive ? "font-semibold" : "font-normal",
-          "hidden md:inline-block p-1 sm:px-3 sm:py-2 rounded-lg transition-all"
-        )}
-      >
-        <span className="capsize">{text}</span>
-      </a>
+    <NextLink href={href} passHref>
+      <StyledLink className={isActive ? "bg-main" : undefined}>
+        {text}
+      </StyledLink>
     </NextLink>
   )
 }
 
 export default function Container(props) {
-  const [mounted, setMounted] = useState(false)
+  const [, setMounted] = useState(false)
 
   // After mounting, we have access to the theme
   useEffect(() => setMounted(true), [])
@@ -72,18 +65,13 @@ export default function Container(props) {
         children
       ) : (
         <>
-          <div className="flex flex-col justify-center px-8">
-            <nav className="flex items-center justify-between w-full relative max-w-2xl border-gray-200 mx-auto pt-8 pb-8 sm:pb-16">
-              <a href="#skip" className="skip-nav">
-                Skip to content
-              </a>
-              <div className="ml-[-0.60rem]">
-                <MobileMenu />
-                <NavItem href="/" text="Home" />
-                <NavItem href="/blog" text="Blog" />
-              </div>
-            </nav>
-          </div>
+          <nav className="flex justify-center w-full pt-8 pb-8 sm:pb-16 gap-8">
+            <a href="#skip" className="skip-nav">
+              Skip to content
+            </a>
+            <NavItem href="/" text="Home" />
+            <NavItem href="/blog" text="Blog" />
+          </nav>
           <div id="skip" className="flex flex-col justify-center px-8">
             {children}
           </div>

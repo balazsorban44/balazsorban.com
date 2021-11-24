@@ -65,7 +65,7 @@ export default function Home() {
 
 function Me() {
   return (
-    <div className="relative transform  scale-75 sm:m-16 sm:transform-none">
+    <div className="relative transform scale-75 sm:m-16 sm:transform-none">
       <div
         className="opacity-50 transition-opacity duration-200 hover:opacity-95"
         style={{

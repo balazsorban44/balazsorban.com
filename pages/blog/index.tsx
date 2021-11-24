@@ -26,7 +26,7 @@ export default function Blog({
     >
       <div className="flex flex-col items-start justify-center max-w-2xl mx-auto mb-16">
         <h1 className="mb-4 text-3xl font-bold tracking-tight md:text-5xl">
-          Blog
+          All articles
         </h1>
         <div className="relative w-full mb-4">
           <input
@@ -51,9 +51,6 @@ export default function Blog({
             />
           </svg>
         </div>
-        <h3 className="mt-8 mb-4 text-2xl font-bold tracking-tight md:text-4xl">
-          All articles
-        </h3>
         {!filteredBlogPosts.length && <p className="mb-4 ">No posts found.</p>}
         {filteredBlogPosts.map((post) => (
           <BlogPost key={post.title} {...post} />
