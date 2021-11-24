@@ -37,13 +37,13 @@ export default function Home() {
           </span>
         </a>
         {" Maintains"}&nbsp;
-        <Link
+        <StyledLink
           target="_blank"
           rel="noopener noreferrer"
           href="https://next-auth.js.org"
         >
           NextAuth.js
-        </Link>
+        </StyledLink>
         <Emoji label="locked padlock">🔒</Emoji>
         {". A Hungarian "}
         <Emoji label="Hungarian flag">🇭🇺</Emoji>
