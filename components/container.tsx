@@ -30,18 +30,18 @@ export default function Container(props) {
   // After mounting, we have access to the theme
   useEffect(() => setMounted(true), [])
 
-  const { children, ...customMeta } = props
+  const { children, skipHeader, ...customMeta } = props
   const router = useRouter()
   const meta = {
     title: "Balázs Orbnán - Software Engineer, OSS maintainer.",
     description: `Maintains Next.js, NextAuth.js and React.js Hungarian docs.`,
-    image: "https://balazsorban.com/images/me.png",
+    image: "https://balazsorban.com/images/me.jpg",
     type: "website",
     ...customMeta,
   }
 
   return (
-    <div>
+    <>
       <Head>
         <title>{meta.title}</title>
         <meta name="robots" content="follow, index" />
@@ -68,21 +68,27 @@ export default function Container(props) {
           <meta property="article:published_time" content={meta.date} />
         )}
       </Head>
-      <div className="flex flex-col justify-center px-8">
-        <nav className="flex items-center justify-between w-full relative max-w-2xl border-gray-200 mx-auto pt-8 pb-8 sm:pb-16">
-          <a href="#skip" className="skip-nav">
-            Skip to content
-          </a>
-          <div className="ml-[-0.60rem]">
-            <MobileMenu />
-            <NavItem href="/" text="Home" />
-            <NavItem href="/blog" text="Blog" />
+      {skipHeader ? (
+        children
+      ) : (
+        <>
+          <div className="flex flex-col justify-center px-8">
+            <nav className="flex items-center justify-between w-full relative max-w-2xl border-gray-200 mx-auto pt-8 pb-8 sm:pb-16">
+              <a href="#skip" className="skip-nav">
+                Skip to content
+              </a>
+              <div className="ml-[-0.60rem]">
+                <MobileMenu />
+                <NavItem href="/" text="Home" />
+                <NavItem href="/blog" text="Blog" />
+              </div>
+            </nav>
           </div>
-        </nav>
-      </div>
-      <div id="skip" className="flex flex-col justify-center px-8">
-        {children}
-      </div>
-    </div>
+          <div id="skip" className="flex flex-col justify-center px-8">
+            {children}
+          </div>
+        </>
+      )}
+    </>
   )
 }
