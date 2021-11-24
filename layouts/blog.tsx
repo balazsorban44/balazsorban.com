@@ -34,7 +34,7 @@ export default function BlogLayout(props: PropsWithChildren<{ post: Blog }>) {
               alt="Balázs Orbán"
               height={24}
               width={24}
-              src="/me.jpg"
+              src="/images/me.jpg"
               className="rounded-full"
             />
             <p className="ml-2 text-sm">

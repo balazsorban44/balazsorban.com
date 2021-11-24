@@ -35,7 +35,7 @@ export default function Container(props) {
   const meta = {
     title: "Balázs Orbnán - Software Engineer, OSS maintainer.",
     description: `Maintains Next.js, NextAuth.js and React.js Hungarian docs.`,
-    image: "https://balazsorban.com/me.png",
+    image: "https://balazsorban.com/images/me.png",
     type: "website",
     ...customMeta,
   }

@@ -82,7 +82,7 @@ function Me() {
           filter grayscale contrast-150 brightness-75 hover:grayscale-0 group-focus:grayscale-0 hover:contrast-100 group-focus:contrast-100 hover:brightness-100 group-focus:brightness-100
           group-focus:shadow-ring
           "
-          src="/me.jpg"
+          src="/images/me.jpg"
           width="240"
           height="240"
           alt="A headshot of me"
