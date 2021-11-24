@@ -18,7 +18,7 @@ export default function Home() {
   const hasStarted = tick > start
 
   return (
-    <div className="flex flex-col justify-center">
+    <div className="flex flex-col justify-center flex-1">
       <div className="text-4xl mb-2 flex justify-between items-baseline">
         <h1>
           <strong>Balázs</strong> Orbán
