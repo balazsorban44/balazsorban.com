@@ -85,3 +85,63 @@ html {
   margin-top: 1.25em !important;
   margin-bottom: 1.25em !important;
 }
+
+.prose pre {
+  @apply bg-gray-900 bg-opacity-60;
+}
+
+.prose code {
+  @apply text-main bg-gray-900 p-[0.1rem] mx-1;
+}
+
+.token.comment,
+.token.prolog,
+.token.doctype,
+.token.cdata,
+.token.punctuation {
+  @apply text-gray-400;
+}
+
+.token.property,
+.token.tag,
+.token.boolean,
+.token.number,
+.token.constant,
+.token.symbol,
+.token.deleted {
+  @apply text-green-500;
+}
+
+.token.selector,
+.token.attr-name,
+.token.string,
+.token.char,
+.token.builtin,
+.token.inserted {
+  @apply text-yellow-600;
+}
+
+.token.operator,
+.token.entity,
+.token.url,
+.language-css .token.string,
+.style .token.string {
+  @apply text-yellow-500;
+}
+
+.token.atrule,
+.token.attr-value,
+.token.keyword {
+  @apply text-yellow-500;
+}
+
+.token.function,
+.token.class-name {
+  @apply text-main;
+}
+
+.token.regex,
+.token.important,
+.token.variable {
+  @apply text-yellow-500;
+}
