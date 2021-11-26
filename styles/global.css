@@ -86,8 +86,21 @@ html {
   margin-bottom: 1.25em !important;
 }
 
+pre::-webkit-scrollbar {
+  display: none;
+}
+
+pre {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
+.rehype-code-title {
+  @apply bg-gray-800 rounded-t-md px-2;
+}
 .prose pre {
-  @apply bg-gray-900 bg-opacity-60;
+  @apply bg-gray-900 bg-opacity-60 m-0 border rounded-t-none border-t-0 border-gray-800;
+  max-width: 95vw;
 }
 
 .prose code {

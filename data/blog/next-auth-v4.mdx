@@ -93,7 +93,7 @@ The core functionality of `next-auth` is now independent of Next.js API routes. 
 
 The Next.js documentation explains that you should not use fetch calls to communicate with your own API routes, just import the logic directly. To keep the library simple, this rule has been broken by `next-auth`, which sacrificed performance. It is better explained in [this issue](https://github.com/nextauthjs/next-auth/issues/1535). In short, a new API is coming, that will improve the performance on serverless platforms like Vercel.
 
-```ts
+```ts:pages/ssr-protexted.tsx
 // import { getSession } from 'next-auth/react' // current way
 import { getServerSession } from 'next-auth/next'
 import { options } from "pages/api/auth/[...nextauth]"
