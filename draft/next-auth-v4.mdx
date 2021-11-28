@@ -5,38 +5,6 @@ summary: "What has happened since v3, and what does the fututre hold?"
 image: "/images/kabelvag-2.png"
 ---
 
-_Special thanks to [@iaincollins (Iain)](https://github.com/iaincollins), [@lluia (Lluis)](https://github.com/lluia), [@ndom91 (Nico)](https://ndo.dev/) and all the individual contributors making this project possible!_
-
-<Image
-  src="/images/kabelvag-2.png"
-  alt="Sea in the foreground, red houses in the middle, and slightly snowy mountains in the background, taken on a sunny day in Kabelvåg from the molo."
-  width={1588}
-  height={737}
-  priority
-/>
-
-## What is NextAuth.js?
-
-_I would like to grab the opportunity to say a few words to those are new to Next.js and/or authentication. If you are familiar and just want to read about the new stuff, feel free to [skip](#how-i-ended-up-maintaining-nextauthjs) this section._
-
-A short summary if you are not familiar with NextAuth.js: It is a an authentication library, originally created by Iain Collins for [Next.js](https://nextjs.org). It is allows you to easily add authentication to your Next.js applications, integrating with the most popular OAuth authentication providers, such as [Google, Facebook, GitHub, Twitter etc.](https://next-auth.js.org/configuration/providers/oauth#built-in-providers). (Think of the "Sign in with X" buttons on pages you have visited before.) It also supports the [passwordless authentication](https://next-auth.js.org/configuration/providers/email) method, which allows you to authenticate users without having to enter a password, sending a one-time-use token to user's email address. For a more traditional method, there is also the possibility to add a [Credentials provider](https://next-auth.js.org/configuration/providers/credentials), where the user is asked for their username and password.
-
-Let's talk about the first method, using OAuth providers. People have been using OAuth providers for a long time, probably without even knowing what that actually mean for them. Authentication is hard <Emoji label="hot face">🥵</Emoji>. Without a proper security team, it is probably best to delegate this task to a third party who has proven to deliver safety at scale. NextAuth.js is the bridge between you, the app developer, and these third party services. All you need is to configure the third-party service to give us access to their API, and we will take care of the rest. **EXPLAIN HERE**
-
-Using such a provider basically let's you "borrow" those big companies' infrastructure and security expertise for your own page to authenticate users. Doesn't that sound great? <Emoji label="star struck">🤩</Emoji>?
-
-But let's say you want your own database, with storing your own users. Guess what? You can still user these providers and the first time your user logs in, NextAuth.js can save the desired data to your own database. It will also safely and automatically link accounts (users of different providers) to the same user in the database, if they have the same email address. This allows you to create a robust system with offering users many different ways to authenticate.
-
-Passwordless authentication is failry new, but it has also gainded popularity because of its simplicity. People are generally horrible at remembering their passwords. Asking them to create a new one on every new app is a pain, but they might already have remembered their usual apps' passwords (like Google or Facebook). or they are using a Password Manager for those. With this method, the user only enters an e-mail address, and they receive an e-mail with a link, which if they click, it logs them into your app. Magic <Emoji label="rainbow">🌈</Emoji>! Again, you rely on a third party to deliver the authentication part (here we assume that the user is already logged into their e-mail account, where they used their e-mail provider's auth system).
-
-Finally the Credentials provider. If you are building a traditional app with a traditional login solution, we've got you, do note we only give the most basic tools, as implemening such an auth system required the most experience (if you haven't heard about cryptography, hashing, salting etc., it might be a good sign to check out the alternatives).
-
-## How I ended up maintaining NextAuth.js
-
-Since this is _my_ blog, I wanted to share my journey with NextAuth.js. It is important to note, that it is Iain who has created an amazing base for the project. But for **about a year now**, I have taken over the project.
-
-At work, we just started off with our first Next.js project, and in the frontend, we needed an auth solution. When I stumbled upon Iain's project, we had to look no further. Even though there were some small _quirks_, it solved our issues amazingly well. And the curious person I am, I wanted to know if I could help ironing out those _quirks_. Gaining the trust of Iain, I was made a co-maintainer in 2020 December. To understand the goals and motivation behind the project, I had to understand what its users were using it for, and what they were struggling with. In the first few weeks, I went through literally hundreds of issues, identifying the pain points. Most of them were simple, like missing documentation, or outdated TypeScript types (at DefinitelyTyped at the time, maintained by Lluis and other amazing community members). I love JavaScript and open-source, and looking through other popular/successful projects, I noticed one thing. Their source code is written by many people. Many people, who don't necessarily see the whole picture, but rely on each other and supportive tools that give confidence for refactoring and rapid iteration.
-
 ## NextAuth.js v3 and a half(?)
 
 Since I've started maintaining the project, I've also introdced changes to v3, which I never really talked about. But since some of it were essential for v4, I'll mention them briefly as well.
