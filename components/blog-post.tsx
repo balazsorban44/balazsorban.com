@@ -10,7 +10,7 @@ export default function BlogPost({
 }: Pick<Blog, "title" | "summary" | "slug">) {
   return (
     <Link href={`/blog/${slug}`} passHref>
-      <StyledLink className="ml-0 mr-0 w-full font-sans font-normal border-white border-2 pb-2">
+      <StyledLink className="ml-0 mr-0 w-full font-sans font-normal border-white border-2 pb-2 mb-4">
         <h4 className="w-full text-lg font-medium md:text-xl pb-2">{title}</h4>
         <p>{summary}</p>
       </StyledLink>
