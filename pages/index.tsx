@@ -6,18 +6,7 @@ import { Link as StyledLink } from "components/link"
 import { NowPlaying } from "components/now-playing"
 import Container from "components/container"
 
-const start = new Date("2021-11-29")
-
 export default function Home() {
-  const [tick, tock] = React.useState(new Date())
-  React.useEffect(() => {
-    const interval = setInterval(() => {
-      tock(new Date())
-    }, 1000)
-    return () => clearInterval(interval)
-  }, [])
-
-  const hasStarted = tick > start
 
   return (
     <Container skipHeader>
@@ -31,12 +20,9 @@ export default function Home() {
           </Link>
         </div>
         <p className="opacity-90 sm:max-w-md">
-          {hasStarted ? null : <Countdown time={tick} />}
           <a href="https://twitter.com/balazsorban44/status/1432769186938380291">
-            <span className={hasStarted ? undefined : "line-through"}>
               Software Engineer at ▲Vercel, working on{" "}
               <span className="font-mono">Next.js</span>.
-            </span>
           </a>
           {" Maintains"}&nbsp;
           <StyledLink
