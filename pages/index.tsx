@@ -81,17 +81,3 @@ function Me() {
     </div>
   )
 }
-
-function Countdown(props: { time: Date }) {
-  const { time } = props
-
-  const days = Math.round(start.valueOf() - time.valueOf()) / 1000
-  return (
-    <span className="font-mono block text-sm">{`${days.toLocaleString(
-      undefined,
-      {
-        maximumFractionDigits: 0,
-      }
-    )} seconds until: `}</span>
-  )
-}
