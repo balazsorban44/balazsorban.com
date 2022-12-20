@@ -21,16 +21,16 @@ export default function Home() {
         </div>
         <p className="opacity-90 sm:max-w-md">
           <a href="https://twitter.com/balazsorban44/status/1432769186938380291">
-              Software Engineer at ▲Vercel, working on{" "}
+              Software Engineer at ▲Vercel, maintaining{" "}
               <span className="font-mono">Next.js</span>.
           </a>
-          {" Maintains"}&nbsp;
+          {"Lead maintainer of"}&nbsp;
           <StyledLink
             target="_blank"
             rel="noopener noreferrer"
-            href="https://next-auth.js.org"
+            href="https://authjs.dev"
           >
-            NextAuth.js
+            Auth.js
           </StyledLink>
           <Emoji label="locked padlock">🔒</Emoji>
           {". A Hungarian "}
