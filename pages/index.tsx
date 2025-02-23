@@ -32,14 +32,14 @@ export default function Home() {
           >
             Auth.js
           </StyledLink>
-          {" in free time."}
+          {" in free time "}
           <Emoji label="locked padlock">🔒</Emoji>
           {". A Hungarian "}
           <Emoji label="Hungarian flag">🇭🇺</Emoji>
-          {" living in Norway "}
+          {" and Norwegian citizen living in Norway "}
           <Emoji label="Norwegian flag">🇳🇴</Emoji>
           {". Likes bouldering"} <Emoji label="climbing">🧗</Emoji>
-          {", riding my e-bike"} <Emoji label="bicycling">🚴</Emoji>
+          {", sauna"} <Emoji label="sauna">🧖</Emoji>
           {"and photography"} <Emoji label="camera with flash">📸</Emoji>. But
           mostly enjoys coding <Emoji label="smiley with glasses">🤓</Emoji>.
         </p>
