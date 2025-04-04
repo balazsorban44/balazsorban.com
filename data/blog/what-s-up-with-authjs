@@ -1,0 +1,33 @@
+---
+title: "What's up with Auth.js?"
+publishedAt: "2025-04-04"
+summary: "The project's future"
+---
+
+You might have noticed that Auth.js/NextAuth.js progress has slowed down significantly lately. Let me try to explain a bit more.
+
+When I took over the original project's maintenance, I was still a university student, had no financial obligations to pay down an apartment, sleeping was a second thought, and I got enough socializing through school and my early job next to the university.
+I was young(er), and filled with the "vibe founder mode" energy that was needed by the project. My days and nights were filled thinking about shipping. I cooked code even in my dreams. I had extremely big expectations for myself and for the project, growing out of the Next.js ecosystem and become the de-facto auth solution
+for every major JS framework. (Hence the name, Auth.js. Read on the naming story [here](https://authjs.dev/contributors)).
+
+Now a lot has changed since then. I joined [my dream company](/blog/hello-world), I went through [depression](/blog/depression-and-oss), and I slowly realized that working late into the night after a full day of work took an increasingly big toll on my personal life. Coming out of a depression,
+I felt that I was going into another one. My therapy sessions started revolving around mean comments by faceless Internet characters and delivering unreachable expectations that I set for myself.
+
+As I developed new relationships, got new friends, and found new hobbies, those things naturally started to bring me more joy than Auth.js ever could.
+
+I say with confidence though, that I am very proud of what I achieved. Everyone who ever reached out to say so, I thank you! I've overlooked this project grow from a few thousand monthly downloads to 6.000.000+. It has been [downloaded](https://npm-stat.com/charts.html?package=next-auth&from=2020-01-01) more than 100.000.000 times. Only considering our most popular integration (NextAuth.js), - if you trust NPM downloads - it is installed in ~15% of all Next.js apps.
+
+Over the past years, I have [helped the Twitter (X) team](https://devcommunity.x.com/t/announcing-oauth-2-0-general-availability/163555) build out their OAuth 2.0 support by giving early feedback, helping LinkedIn and other big companies fix their spec compliance, and most importantly provided a free, open-source library to millions of users.
+
+I have never really compiled a list of companies that used Auth.js, but I can assure you that there are many, and most likely, you have used at least one of them ([ChatGPT](https://x.com/balazsorban44/status/1721632174279897132)).
+
+So believe me when I say this, it is with a heavy heart that I came to announce, **my contributions to the Auth.js project is halted indefinitely**.
+
+If you or your company heavily relies on the project and wrote me an email, tagged me on GitHub - or planned to do so - I would like to apologize for not answering.
+
+There is a new kid in town though! I have gotten countless messages about one particular library that is doing Auth Better. Go, [check it out](https://www.better-auth.com).
+From my conversations with the [author](https://x.com/imbereket), I know for sure that you won't be let down. They are shipping features I have been planning for years, and I think that their goal really aligns with the original goal of Auth.js. If you want to learn about auth in general, [The Copenhagen Book](https://thecopenhagenbook.com) by [pilcrow](https://x.com/pilcrowonpaper) is a phenomenal resource!
+
+I would like to thank every single company and individual who has ever contributed financially, or otherwise to make this project possible!
+
+Final note: The project is not going anywhere, the other maintainers will continue contributing, but I personally have no capacity to do so in my current life situation.
