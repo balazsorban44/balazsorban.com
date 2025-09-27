@@ -20,11 +20,7 @@ export default function Home() {
           </Link>
         </div>
         <p className="opacity-90 sm:max-w-md">
-          <a href="https://twitter.com/balazsorban44/status/1432769186938380291">
-              Software Engineer at ▲Vercel, helped maintaining{" "}
-              <span className="font-mono">Next.js</span> in the past, now working with IAM.
-          </a>
-          {" Maintains "}
+          {" Created "}
           <StyledLink
             target="_blank"
             rel="noopener noreferrer"
@@ -32,8 +28,12 @@ export default function Home() {
           >
             Auth.js
           </StyledLink>
-          {" in free time "}
           <Emoji label="locked padlock">🔒</Emoji>
+          {"."}
+          <a href="https://twitter.com/balazsorban44/status/1432769186938380291">
+              Software Engineer at ▲Vercel, helped maintaining{" "}
+              <span className="font-mono">Next.js</span> in the past, now working with IAM.
+          </a>
           {". A Hungarian "}
           <Emoji label="Hungarian flag">🇭🇺</Emoji>
           {" and Norwegian citizen living in Norway "}
