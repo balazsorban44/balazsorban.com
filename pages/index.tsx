@@ -29,10 +29,10 @@ export default function Home() {
             Auth.js
           </StyledLink>
           <Emoji label="locked padlock">🔒</Emoji>
-          {"."}
+          {". "}
           <a href="https://twitter.com/balazsorban44/status/1432769186938380291">
               Software Engineer at ▲Vercel, helped maintaining{" "}
-              <span className="font-mono">Next.js</span> in the past, now working with IAM.
+              <span className="font-mono">Next.js</span> in the past, now working with IAM
           </a>
           {". A Hungarian "}
           <Emoji label="Hungarian flag">🇭🇺</Emoji>
@@ -40,8 +40,7 @@ export default function Home() {
           <Emoji label="Norwegian flag">🇳🇴</Emoji>
           {". Likes bouldering"} <Emoji label="climbing">🧗</Emoji>
           {", sauna"} <Emoji label="sauna">🧖</Emoji>
-          {"and photography"} <Emoji label="camera with flash">📸</Emoji>. But
-          mostly enjoys coding <Emoji label="smiley with glasses">🤓</Emoji>.
+          {"and photography"} <Emoji label="camera with flash">📸</Emoji>. I am a work in progress.
         </p>
         <Me />
         <NowPlaying />
