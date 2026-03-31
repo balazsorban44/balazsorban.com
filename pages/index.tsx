@@ -32,7 +32,7 @@ export default function Home() {
           {". "}
           <a href="https://twitter.com/balazsorban44/status/1432769186938380291">
               Previously, Software Engineer at ▲Vercel, helped maintaining{" "}
-              <span className="font-mono">Next.js</span> in the past, and was working with auth and security
+              <span className="font-mono">Next.js</span> and was working with auth and security
           </a>
           {". A Hungarian "}
           <Emoji label="Hungarian flag">🇭🇺</Emoji>
