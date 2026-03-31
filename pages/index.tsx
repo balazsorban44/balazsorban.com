@@ -31,8 +31,8 @@ export default function Home() {
           <Emoji label="locked padlock">🔒</Emoji>
           {". "}
           <a href="https://twitter.com/balazsorban44/status/1432769186938380291">
-              Software Engineer at ▲Vercel, helped maintaining{" "}
-              <span className="font-mono">Next.js</span> in the past, now working with IAM
+              Previously, Software Engineer at ▲Vercel, helped maintaining{" "}
+              <span className="font-mono">Next.js</span> in the past, and was working with auth and security
           </a>
           {". A Hungarian "}
           <Emoji label="Hungarian flag">🇭🇺</Emoji>
