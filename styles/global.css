@@ -1,6 +1,8 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
+@config "../tailwind.config.js";
+
+/* Restore v3 hover behavior so taps on touch devices trigger :hover */
+@custom-variant hover (&:hover);
 
 :root {
   --primary-color: hsl(16.2, 100%, 50%);
@@ -21,7 +23,7 @@
 @supports not (backdrop-filter: none) {
   .sticky-nav {
     backdrop-filter: none;
-    @apply bg-opacity-100;
+    background-color: rgb(0 0 0 / 1);
   }
 }
 
@@ -99,7 +101,7 @@ pre {
   @apply bg-gray-800 rounded-t-md px-2;
 }
 .prose pre {
-  @apply bg-gray-900 bg-opacity-60 m-0 border rounded-t-none border-t-0 border-gray-800;
+  @apply bg-gray-900/60 m-0 border rounded-t-none border-t-0 border-gray-800;
   max-width: 95vw;
 }
 

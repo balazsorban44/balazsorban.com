@@ -2,7 +2,7 @@ import * as React from "react"
 import Image from "next/image"
 import Link from "next/link"
 import { Emoji } from "components/emoji"
-import { Link as StyledLink } from "components/link"
+import { Link as StyledLink, linkClassName } from "components/link"
 import { NowPlaying } from "components/now-playing"
 import Container from "components/container"
 
@@ -15,8 +15,8 @@ export default function Home() {
           <h1>
             <strong>Balázs</strong> Orbán
           </h1>
-          <Link href="/blog" passHref>
-            <StyledLink className="text-sm">Blog</StyledLink>
+          <Link href="/blog" className={`${linkClassName} text-sm`}>
+            Blog
           </Link>
         </div>
         <p className="opacity-90 sm:max-w-md">

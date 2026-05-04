@@ -1,7 +1,7 @@
 import cn from "classnames"
 import Link from "next/link"
 import useDelayedRender from "use-delayed-render"
-import { useState, useEffect } from "react"
+import React, { useState, useEffect } from "react"
 import styles from "styles/mobile-menu.module.css"
 
 export default function MobileMenu() {
@@ -53,16 +53,16 @@ export default function MobileMenu() {
             className="border-b border-gray-300 text-sm font-semibold"
             style={{ transitionDelay: "150ms" }}
           >
-            <Link href="/">
-              <a className="flex w-auto pb-4">Home</a>
+            <Link href="/" className="flex w-auto pb-4">
+              Home
             </Link>
           </li>
           <li
             className="border-b border-gray-300 text-sm font-semibold"
             style={{ transitionDelay: "250ms" }}
           >
-            <Link href="/blog">
-              <a className="flex w-auto pb-4">Blog</a>
+            <Link href="/blog" className="flex w-auto pb-4">
+              Blog
             </Link>
           </li>
         </ul>
@@ -71,7 +71,7 @@ export default function MobileMenu() {
   )
 }
 
-function MenuIcon(props: JSX.IntrinsicElements["svg"]) {
+function MenuIcon(props: React.JSX.IntrinsicElements["svg"]) {
   return (
     <svg
       className="h-5 w-5 absolute "
@@ -99,7 +99,7 @@ function MenuIcon(props: JSX.IntrinsicElements["svg"]) {
   )
 }
 
-function CrossIcon(props: JSX.IntrinsicElements["svg"]) {
+function CrossIcon(props: React.JSX.IntrinsicElements["svg"]) {
   return (
     <svg
       className="h-5 w-5 absolute"
