@@ -2,17 +2,18 @@ import Head from "next/head"
 import { useRouter } from "next/router"
 import { useState, useEffect } from "react"
 import NextLink from "next/link"
-import { Link as StyledLink } from "components/link"
+import { linkClassName } from "components/link"
 
 function NavItem({ href, text }) {
   const router = useRouter()
   const isActive = href !== "/" && router.asPath.startsWith(href)
 
   return (
-    <NextLink href={href} passHref>
-      <StyledLink className={isActive ? "bg-main" : undefined}>
-        {text}
-      </StyledLink>
+    <NextLink
+      href={href}
+      className={`${linkClassName} ${isActive ? "bg-main" : ""}`}
+    >
+      {text}
     </NextLink>
   )
 }

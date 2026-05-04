@@ -4,7 +4,7 @@ import Container from "components/container"
 // import ViewCounter from "components/view-counter"
 
 import type { PropsWithChildren } from "react"
-import type { Blog } from ".contentlayer/types"
+import type { Blog } from "contentlayer2/generated"
 
 export default function BlogLayout(props: PropsWithChildren<{ post: Blog }>) {
   const { children, post } = props

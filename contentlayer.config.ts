@@ -2,7 +2,7 @@ import {
   ComputedFields,
   defineDocumentType,
   makeSource,
-} from "contentlayer/source-files"
+} from "contentlayer2/source-files"
 
 import readingTime from "reading-time"
 import remarkGfm from "remark-gfm"
@@ -26,7 +26,7 @@ const computedFields: ComputedFields = {
 const Blog = defineDocumentType(() => ({
   name: "Blog",
   filePathPattern: "blog/*.mdx",
-  bodyType: "mdx",
+  contentType: "mdx",
   fields: {
     title: { type: "string", required: true },
     publishedAt: { type: "string", required: true },
@@ -40,13 +40,13 @@ const contentLayerConfig = makeSource({
   contentDirPath: "data",
   documentTypes: [Blog],
   mdx: {
-    remarkPlugins: [remarkGfm],
+    remarkPlugins: [remarkGfm as any],
     rehypePlugins: [
-      rehypeSlug,
-      rehypeCodeTitles,
-      rehypePrism,
+      rehypeSlug as any,
+      rehypeCodeTitles as any,
+      rehypePrism as any,
       [
-        rehypeAutolinkHeadings,
+        rehypeAutolinkHeadings as any,
         {
           properties: {
             className: ["anchor"],
