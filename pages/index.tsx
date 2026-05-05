@@ -29,6 +29,14 @@ export default function Home() {
             Auth.js
           </StyledLink>
           <Emoji label="locked padlock">🔒</Emoji>
+          {". Tech Lead at "}
+          <StyledLink
+            target="_blank"
+            rel="noopener noreferrer"
+            href="https://www.unite.as"
+          >
+            Unite AS
+          </StyledLink>
           {". "}
           <a href="https://twitter.com/balazsorban44/status/1432769186938380291">
               Previously, Software Engineer at ▲Vercel, helped maintaining{" "}
