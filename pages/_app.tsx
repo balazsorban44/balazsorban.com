@@ -1,6 +1,8 @@
 import { Divider } from "components/dividier"
 import { Emoji } from "components/emoji"
 import { Link } from "components/link"
+import { ThemeToggle } from "components/theme-toggle"
+import { MusicToggle } from "components/music-toggle"
 import "styles/global.css"
 import Head from "next/head"
 import { useRouter } from "next/router"
@@ -37,13 +39,19 @@ export default function App({ Component, pageProps }) {
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:site" content="@balazsorban44" />
         <meta name="twitter:title" content={meta.title} />
-        <meta name="twitter:description" content={meta.description} />
+        <meta name="theme-color" content="#0a0c0a" />
       </Head>
+
+      <div className="fixed top-4 right-4 z-40 flex items-center gap-2">
+        <MusicToggle />
+        <ThemeToggle />
+      </div>
 
       <main className="p-4 flex items-center flex-col flex-1">
         <Component {...pageProps} />
       </main>
-      <footer className="flex items-center flex-wrap space-x-4 justify-center sm:mx-auto mb-8">
+
+      <footer className="relative z-10 mb-8 flex flex-wrap items-center justify-center gap-x-4 gap-y-2 sm:mx-auto">
         <Link
           target="_blank"
           rel="noopener noreferrer"

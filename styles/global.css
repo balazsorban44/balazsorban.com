@@ -4,16 +4,70 @@
 /* Restore v3 hover behavior so taps on touch devices trigger :hover */
 @custom-variant hover (&:hover);
 
-:root {
-  --primary-color: hsl(16.2, 100%, 50%);
+/* ----- Norse / forest palette --------------------------------------------
+   Dark theme (default): black sky, deep moss, bark, fire ember orange.
+   Light theme: pale mist, fjord green, warm parchment, smoldering ember.
+--------------------------------------------------------------------------- */
+
+:root,
+[data-theme="dark"] {
+  --bg: 8 12 10;             /* near-black with green undertone */
+  --surface: 17 26 22;       /* deep forest floor */
+  --ink: 232 224 206;        /* warm parchment text */
+  --muted: 148 154 138;      /* lichen */
+  --accent: 214 110 38;      /* fire ember */
+  --ember: 240 145 60;       /* glowing ember */
+  --moss: 56 92 70;          /* darker moss green */
+  --bark: 84 58 36;           /* warm bark brown */
+  --rune: 220 190 140;       /* rune-stone glow */
+  --primary-color: rgb(var(--accent));
+  color-scheme: dark;
+}
+
+[data-theme="light"] {
+  --bg: 240 234 220;         /* misty parchment sky */
+  --surface: 224 218 204;    /* fog */
+  --ink: 32 36 28;           /* deep pine ink */
+  --muted: 95 102 86;        /* lichen, deeper */
+  --accent: 168 70 24;       /* smolder, deeper for contrast */
+  --ember: 200 92 32;        /* darker ember */
+  --moss: 76 110 86;         /* fjord moss */
+  --bark: 110 74 44;
+  --rune: 70 60 40;
+  color-scheme: light;
 }
 
 ::selection {
-  background-color: var(--primary-color);
+  background-color: rgb(var(--accent));
+  color: rgb(var(--bg));
+}
+
+html {
+  scroll-behavior: smooth;
+  background: rgb(var(--bg));
+  color: rgb(var(--ink));
+  font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto,
+    "Helvetica Neue", Arial, sans-serif;
+  transition: background-color 600ms ease, color 600ms ease;
+}
+
+body {
+  background: rgb(var(--bg));
+  color: rgb(var(--ink));
+}
+
+#__next {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  position: relative;
+  z-index: 1;
 }
 
 .skip-nav {
   @apply absolute px-4 py-3 transition-transform duration-200 transform -translate-y-12 -left-1/4 focus:top-4 focus:translate-y-3 -top-8;
+  background: rgb(var(--surface));
+  color: rgb(var(--ink));
 }
 
 #skip {
@@ -23,30 +77,98 @@
 @supports not (backdrop-filter: none) {
   .sticky-nav {
     backdrop-filter: none;
-    background-color: rgb(0 0 0 / 1);
+    background-color: rgb(var(--bg));
   }
 }
 
-html {
-  scroll-behavior: smooth;
-  background: #000;
-  color: #fff !important;
-  font-family: sans-serif;
+/* ----- Runic typography --------------------------------------------------- */
+
+.rune {
+  font-family: "Noto Sans Runic", "Segoe UI Historic", "Apple Symbols",
+    "Cambria Math", serif;
+  font-feature-settings: "calt" off;
+  line-height: 1;
 }
 
-#__next {
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
+/* ----- Hero ornaments ----------------------------------------------------- */
+
+.hero-rune-ring::before,
+.hero-rune-ring::after {
+  content: "";
+  position: absolute;
+  inset: -10%;
+  border-radius: 50%;
+  border: 1px dashed rgb(var(--rune) / 0.25);
+  pointer-events: none;
+  animation: drift 60s linear infinite;
 }
+.hero-rune-ring::after {
+  inset: -22%;
+  border-color: rgb(var(--rune) / 0.12);
+  animation-direction: reverse;
+  animation-duration: 90s;
+}
+@keyframes drift {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* ----- Fade-in for hydration content -------------------------------------- */
+
+.fade-in {
+  animation: fade-in 1.4s ease-out both;
+}
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* ----- Tooltip ------------------------------------------------------------ */
+
+[data-tooltip] {
+  position: relative;
+}
+[data-tooltip]::after {
+  content: attr(data-tooltip);
+  position: absolute;
+  top: calc(100% + 8px);
+  left: 50%;
+  transform: translateX(-50%) translateY(-4px);
+  background: rgb(var(--surface));
+  color: rgb(var(--ink));
+  padding: 4px 8px;
+  border-radius: 4px;
+  border: 1px solid rgb(var(--rune) / 0.3);
+  font-size: 11px;
+  font-weight: 500;
+  white-space: nowrap;
+  letter-spacing: 0.04em;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 180ms ease, transform 180ms ease;
+  z-index: 50;
+}
+[data-tooltip]:hover::after,
+[data-tooltip]:focus-visible::after {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+
+/* ----- Prose (blog) ------------------------------------------------------- */
 
 .prose {
-  @apply text-white;
+  color: rgb(var(--ink));
 }
 
 .prose .anchor {
   @apply absolute invisible hover:bg-transparent border-0;
-
   margin-left: -1em;
   padding-right: 0.5em;
   width: 80%;
@@ -59,7 +181,12 @@ html {
 }
 
 .prose a {
-  @apply transition-all no-underline text-white;
+  @apply transition-all no-underline;
+  color: rgb(var(--ink));
+  border-bottom: 1px dashed rgb(var(--accent));
+}
+.prose a:hover {
+  background: rgb(var(--accent) / 0.15);
 }
 
 .prose h3,
@@ -78,12 +205,10 @@ html {
 }
 
 .prose img {
-  /* Don't apply styles to next/image */
   @apply m-0;
 }
 
 .prose > :first-child {
-  /* Override removing top margin, causing layout shift */
   margin-top: 1.25em !important;
   margin-bottom: 1.25em !important;
 }
@@ -91,22 +216,32 @@ html {
 pre::-webkit-scrollbar {
   display: none;
 }
-
 pre {
-  -ms-overflow-style: none; /* IE and Edge */
-  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }
 
 .rehype-code-title {
-  @apply bg-gray-800 rounded-t-md px-2;
+  background: rgb(var(--surface));
+  color: rgb(var(--ink));
+  border-radius: 6px 6px 0 0;
+  padding: 4px 10px;
 }
 .prose pre {
-  @apply bg-gray-900/60 m-0 border rounded-t-none border-t-0 border-gray-800;
+  background: rgb(var(--surface) / 0.7);
+  border: 1px solid rgb(var(--rune) / 0.2);
+  border-top: 0;
+  border-radius: 0 0 6px 6px;
+  margin: 0;
   max-width: 95vw;
 }
 
 .prose code {
-  @apply text-main bg-gray-900 p-[0.1rem] mx-1;
+  color: rgb(var(--accent));
+  background: rgb(var(--surface));
+  padding: 0.05rem 0.25rem;
+  margin: 0 0.15rem;
+  border-radius: 3px;
 }
 
 .token.comment,
@@ -114,9 +249,8 @@ pre {
 .token.doctype,
 .token.cdata,
 .token.punctuation {
-  @apply text-gray-400;
+  color: rgb(var(--muted));
 }
-
 .token.property,
 .token.tag,
 .token.boolean,
@@ -124,39 +258,47 @@ pre {
 .token.constant,
 .token.symbol,
 .token.deleted {
-  @apply text-green-500;
+  color: rgb(var(--moss));
 }
-
 .token.selector,
 .token.attr-name,
 .token.string,
 .token.char,
 .token.builtin,
 .token.inserted {
-  @apply text-yellow-600;
+  color: rgb(var(--ember));
 }
-
 .token.operator,
 .token.entity,
 .token.url,
 .language-css .token.string,
 .style .token.string {
-  @apply text-yellow-500;
+  color: rgb(var(--ember));
 }
-
 .token.atrule,
 .token.attr-value,
 .token.keyword {
-  @apply text-yellow-500;
+  color: rgb(var(--ember));
 }
-
 .token.function,
 .token.class-name {
-  @apply text-main;
+  color: rgb(var(--accent));
 }
-
 .token.regex,
 .token.important,
 .token.variable {
-  @apply text-yellow-500;
+  color: rgb(var(--ember));
+}
+
+/* ----- Reduced motion ----------------------------------------------------- */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
 }

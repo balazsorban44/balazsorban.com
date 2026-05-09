@@ -1,17 +1,17 @@
 import Head from "next/head"
 import { useRouter } from "next/router"
-import { useState, useEffect } from "react"
 import NextLink from "next/link"
 import { linkClassName } from "components/link"
 
 function NavItem({ href, text }) {
   const router = useRouter()
-  const isActive = href !== "/" && router.asPath.startsWith(href)
+  const isActive =
+    href === "/" ? router.asPath === "/" : router.asPath.startsWith(href)
 
   return (
     <NextLink
       href={href}
-      className={`${linkClassName} ${isActive ? "bg-main" : ""}`}
+      className={`${linkClassName} ${isActive ? "bg-accent text-bg" : ""}`}
     >
       {text}
     </NextLink>
@@ -19,16 +19,11 @@ function NavItem({ href, text }) {
 }
 
 export default function Container(props) {
-  const [, setMounted] = useState(false)
-
-  // After mounting, we have access to the theme
-  useEffect(() => setMounted(true), [])
-
   const { children, skipHeader, ...customMeta } = props
   const router = useRouter()
   const meta = {
-    title: "Balázs Orbán - Software Engineer, OSS maintainer.",
-    description: `Maintains Next.js, NextAuth.js and React.js Hungarian docs.`,
+    title: "Balázs Orbán — Software Engineer, OSS maintainer.",
+    description: `Maintains Auth.js, helped maintain Next.js, currently Tech Lead at Unite AS.`,
     image: "https://balazsorban.com/images/banner.jpg",
     type: "website",
     ...customMeta,

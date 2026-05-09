@@ -1,3 +1,10 @@
 export function Divider() {
-  return <span className="mx-2 text-gray-400  hidden sm:block">{" • "}</span>
+  return (
+    <span
+      className="rune mx-2 hidden text-rune/50 sm:inline"
+      aria-hidden="true"
+    >
+      ᛬
+    </span>
+  )
 }
