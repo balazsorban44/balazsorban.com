@@ -1,12 +1,11 @@
 import Image from "next/image"
-import { Vegvisir } from "components/vegvisir"
 
 /**
- * The "OB" monogram, layered:
+ * The "OB" monogram:
  *
- *   ─── vegvísir wayfinder stave (centered, behind)
- *   ─── B = the Vercel triangle
- *   ─── O = the circular profile photo
+ *   ─── B = the Vercel triangle (a wink at having worked there)
+ *   ─── O = the circular profile photo (sitting in the wider lower
+ *           half of the triangle, with its apex jutting up like a hat)
  */
 export function Monogram() {
   const frame = 280
@@ -16,26 +15,14 @@ export function Monogram() {
       className="group relative shrink-0 select-none"
       style={{ width: frame, height: frame }}
     >
-      {/* Vegvisir, centered behind everything. */}
-      <span
-        aria-hidden="true"
-        className="vegvisir-spin pointer-events-none absolute inset-0 grid place-items-center text-rune"
-        style={{
-          opacity: 0.7,
-          filter: "drop-shadow(0 0 16px rgb(var(--ember) / 0.25))",
-        }}
-      >
-        <Vegvisir size={frame} />
-      </span>
-
       {/* Vercel triangle = B */}
       <span
         className="absolute inset-0 flex items-center justify-center"
         aria-hidden="true"
       >
         <svg
-          width={frame * 0.82}
-          height={frame * 0.82}
+          width={frame * 0.92}
+          height={frame * 0.92}
           viewBox="0 0 280 280"
           className="opacity-95 transition-opacity duration-500 group-hover:opacity-100"
         >
@@ -74,7 +61,7 @@ export function Monogram() {
 
       {/* Profile photo = O — sits inside the wider lower half of the triangle. */}
       <span
-        className="absolute left-1/2 top-[56%] -translate-x-1/2 -translate-y-1/2"
+        className="absolute left-1/2 top-[58%] -translate-x-1/2 -translate-y-1/2"
         style={{ filter: "drop-shadow(0 4px 24px rgb(0 0 0 / 0.55))" }}
       >
         <Image

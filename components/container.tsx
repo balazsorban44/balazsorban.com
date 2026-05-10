@@ -1,22 +1,5 @@
 import Head from "next/head"
 import { useRouter } from "next/router"
-import NextLink from "next/link"
-import { linkClassName } from "components/link"
-
-function NavItem({ href, text }) {
-  const router = useRouter()
-  const isActive =
-    href === "/" ? router.asPath === "/" : router.asPath.startsWith(href)
-
-  return (
-    <NextLink
-      href={href}
-      className={`${linkClassName} ${isActive ? "bg-accent text-bg" : ""}`}
-    >
-      {text}
-    </NextLink>
-  )
-}
 
 export default function Container(props) {
   const { children, skipHeader, ...customMeta } = props
@@ -60,18 +43,9 @@ export default function Container(props) {
       {skipHeader ? (
         children
       ) : (
-        <>
-          <nav className="flex justify-center w-full pt-8 pb-8 sm:pb-16 gap-8">
-            <a href="#skip" className="skip-nav">
-              Skip to content
-            </a>
-            <NavItem href="/" text="Home" />
-            <NavItem href="/blog" text="Blog" />
-          </nav>
-          <div id="skip" className="flex flex-col justify-center px-8">
-            {children}
-          </div>
-        </>
+        <div className="flex flex-col justify-center px-8 pt-12">
+          {children}
+        </div>
       )}
     </>
   )

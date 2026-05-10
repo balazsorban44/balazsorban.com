@@ -205,6 +205,18 @@ h3,
   transform: translateX(0) translateY(0);
 }
 
+[data-tooltip][data-tooltip-place="top-end"]::after {
+  top: auto;
+  bottom: calc(100% + 8px);
+  left: auto;
+  right: 0;
+  transform: translateX(0) translateY(4px);
+}
+[data-tooltip][data-tooltip-place="top-end"]:hover::after,
+[data-tooltip][data-tooltip-place="top-end"]:focus-visible::after {
+  transform: translateX(0) translateY(0);
+}
+
 [data-tooltip][data-tooltip-place="start"]::after {
   left: 0;
   right: auto;

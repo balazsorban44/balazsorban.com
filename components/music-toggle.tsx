@@ -274,7 +274,7 @@ export function MusicToggle() {
       type="button"
       onClick={toggle}
       data-tooltip={tip}
-      data-tooltip-place="end"
+      data-tooltip-place="top-end"
       aria-label={tip}
       aria-pressed={state === "on"}
       className="rune relative grid h-10 w-10 place-items-center rounded-full border border-rune/30 bg-surface/40 text-lg text-rune backdrop-blur transition hover:border-ember hover:text-ember focus:outline-none focus-visible:ring-2 focus-visible:ring-ember/60"
