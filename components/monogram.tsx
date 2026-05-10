@@ -5,23 +5,30 @@ import Image from "next/image"
  *   O = the circular profile photo
  *   B = the Vercel triangle (a wink at having worked there)
  *
- * Kept and refined — same two primitives, now with a glowing
- * ember halo and a runic ring drifting around the photo.
+ * Kept and refined — same two primitives, now with a glowing ember halo
+ * and a runic ring drifting around the photo.
  */
 export function Monogram() {
+  const size = 220
   return (
-    <div className="relative shrink-0 select-none transform scale-90 sm:scale-100">
-      <div className="hero-rune-ring relative h-[280px] w-[280px]">
+    <div
+      className="group relative shrink-0 select-none"
+      style={{ width: size, height: size }}
+    >
+      <div
+        className="hero-rune-ring relative"
+        style={{ width: size, height: size }}
+      >
         {/* Vercel triangle = B */}
         <span
           className="absolute inset-0 flex items-center justify-center"
           aria-hidden="true"
         >
           <svg
-            width="280"
-            height="280"
+            width={size}
+            height={size}
             viewBox="0 0 280 280"
-            className="opacity-70 transition-opacity duration-500 group-hover:opacity-100"
+            className="opacity-75 transition-opacity duration-500 group-hover:opacity-100"
           >
             <defs>
               <linearGradient id="ob-tri" x1="0" x2="0" y1="0" y2="1">
@@ -58,14 +65,14 @@ export function Monogram() {
 
         {/* Profile photo = O */}
         <span
-          className="group absolute left-1/2 top-[58%] -translate-x-1/2 -translate-y-1/2"
+          className="absolute left-1/2 top-[58%] -translate-x-1/2 -translate-y-1/2"
           style={{ filter: "drop-shadow(0 4px 24px rgb(0 0 0 / 0.45))" }}
         >
           <Image
             className="rounded-full ring-2 ring-rune/40 transition duration-500 hover:scale-95 hover:ring-ember"
             src="/images/me.jpg"
-            width={150}
-            height={150}
+            width={120}
+            height={120}
             alt="Balázs Orbán"
             priority
           />
@@ -73,8 +80,8 @@ export function Monogram() {
 
         {/* small rune at apex */}
         <span
-          className="rune absolute left-1/2 top-2 -translate-x-1/2 text-rune/70"
-          style={{ fontSize: 18 }}
+          className="rune absolute left-1/2 top-1 -translate-x-1/2 text-rune/70"
+          style={{ fontSize: 16 }}
           aria-hidden="true"
         >
           ᛟ

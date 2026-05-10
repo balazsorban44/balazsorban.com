@@ -46,14 +46,26 @@ html {
   scroll-behavior: smooth;
   background: rgb(var(--bg));
   color: rgb(var(--ink));
-  font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto,
-    "Helvetica Neue", Arial, sans-serif;
+  font-family: "EB Garamond", "Iowan Old Style", Georgia, "Times New Roman",
+    serif;
+  font-feature-settings: "liga" 1, "calt" 1, "onum" 1;
+  font-size: 17px;
+  line-height: 1.55;
   transition: background-color 600ms ease, color 600ms ease;
 }
 
 body {
   background: rgb(var(--bg));
   color: rgb(var(--ink));
+}
+
+h1,
+h2,
+h3,
+.font-display {
+  font-family: "Cinzel", "Trajan Pro", Georgia, serif;
+  font-weight: 600;
+  letter-spacing: 0.04em;
 }
 
 #__next {
@@ -130,7 +142,11 @@ body {
   }
 }
 
-/* ----- Tooltip ------------------------------------------------------------ */
+/* ----- Tooltip ------------------------------------------------------------
+   Default placement: below, centered. data-tooltip-place lets a caller
+   anchor to the right (so a button in the top-right corner doesn't push
+   the tooltip off-screen).
+--------------------------------------------------------------------------- */
 
 [data-tooltip] {
   position: relative;
@@ -146,19 +162,45 @@ body {
   padding: 4px 8px;
   border-radius: 4px;
   border: 1px solid rgb(var(--rune) / 0.3);
+  font-family: "Cinzel", "Trajan Pro", Georgia, serif;
   font-size: 11px;
   font-weight: 500;
   white-space: nowrap;
-  letter-spacing: 0.04em;
+  letter-spacing: 0.06em;
+  max-width: min(80vw, 320px);
+  text-overflow: ellipsis;
+  overflow: hidden;
   opacity: 0;
   pointer-events: none;
   transition: opacity 180ms ease, transform 180ms ease;
   z-index: 50;
+  box-shadow: 0 4px 16px rgb(0 0 0 / 0.35);
 }
+
 [data-tooltip]:hover::after,
 [data-tooltip]:focus-visible::after {
   opacity: 1;
   transform: translateX(-50%) translateY(0);
+}
+
+[data-tooltip][data-tooltip-place="end"]::after {
+  left: auto;
+  right: 0;
+  transform: translateX(0) translateY(-4px);
+}
+[data-tooltip][data-tooltip-place="end"]:hover::after,
+[data-tooltip][data-tooltip-place="end"]:focus-visible::after {
+  transform: translateX(0) translateY(0);
+}
+
+[data-tooltip][data-tooltip-place="start"]::after {
+  left: 0;
+  right: auto;
+  transform: translateX(0) translateY(-4px);
+}
+[data-tooltip][data-tooltip-place="start"]:hover::after,
+[data-tooltip][data-tooltip-place="start"]:focus-visible::after {
+  transform: translateX(0) translateY(0);
 }
 
 /* ----- Prose (blog) ------------------------------------------------------- */

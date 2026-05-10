@@ -17,6 +17,8 @@ module.exports = {
       },
       fontFamily: {
         rune: ['"Noto Sans Runic"', '"Segoe UI Historic"', "serif"],
+        display: ['"Cinzel"', '"Trajan Pro"', "Georgia", "serif"],
+        body: ['"EB Garamond"', '"Iowan Old Style"', "Georgia", "serif"],
       },
       boxShadow: {
         ring: "0 0 0 2px rgb(var(--bg)), 0 0 0 6px rgb(var(--accent) / 0.6)",

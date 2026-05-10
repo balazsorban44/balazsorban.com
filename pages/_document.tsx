@@ -12,7 +12,7 @@ export default function Document() {
           crossOrigin="anonymous"
         />
         <link
-          href="https://fonts.googleapis.com/css2?family=Noto+Sans+Runic&display=swap"
+          href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Noto+Sans+Runic&display=swap"
           rel="stylesheet"
         />
         <script dangerouslySetInnerHTML={{ __html: themeBootScript }} />

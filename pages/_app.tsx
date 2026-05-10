@@ -47,11 +47,11 @@ export default function App({ Component, pageProps }) {
         <ThemeToggle />
       </div>
 
-      <main className="p-4 flex items-center flex-col flex-1">
+      <main className="px-4 pt-4 pb-2 flex items-stretch justify-center flex-col flex-1 min-h-0">
         <Component {...pageProps} />
       </main>
 
-      <footer className="relative z-10 mb-8 flex flex-wrap items-center justify-center gap-x-4 gap-y-2 sm:mx-auto">
+      <footer className="relative z-10 mb-4 mt-2 flex flex-wrap items-center justify-center gap-x-4 gap-y-1 text-sm sm:mx-auto">
         <Link
           target="_blank"
           rel="noopener noreferrer"

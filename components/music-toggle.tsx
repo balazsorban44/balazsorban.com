@@ -1,14 +1,17 @@
 import { useEffect, useRef, useState } from "react"
 
 /**
- * Procedural "Norse" drone — generated entirely in the browser via the
- * Web Audio API.  No audio assets shipped.  A handful of detuned sawtooth
- * voices are routed through a low-pass filter and a bit of reverb-like
- * delay to evoke a slow, misty horn / nyckelharpa pad.
+ * "Mistwood" — an original procedural Norse-flavoured piece, generated
+ * entirely in the browser via the Web Audio API.  No external assets,
+ * fully embeddable, runs even when offline.
  *
- * Browsers refuse to play audio before a user gesture, so the toggle is
- * "on" by default but actual sound waits for the first click anywhere
- * (a one-shot listener wires it up).
+ *   • a slow, detuned drone in D dorian (D + A + F)
+ *   • a sparse melodic horn line over a D-minor pentatonic scale
+ *   • a soft frame-drum heartbeat on the down-beat
+ *   • a low-pass filter + long delay tail for a cave-like reverb feel
+ *
+ * Browsers refuse to start audio before a user gesture, so the toggle is
+ * "on" by default but actual sound waits for the first interaction.
  */
 const STORAGE_KEY = "bo-music"
 type State = "on" | "off"
@@ -19,13 +22,21 @@ function readStored(): State {
   return v === "off" ? "off" : "on"
 }
 
+// D-minor pentatonic melody fragments (Hz). Each row is one phrase.
+const MELODIES: number[][] = [
+  [293.66, 349.23, 392.0, 349.23, 293.66, 261.63], // D F G F D C
+  [349.23, 392.0, 440.0, 392.0, 349.23], // F G A G F
+  [261.63, 293.66, 349.23, 293.66, 261.63, 220.0], // C D F D C A
+  [392.0, 440.0, 523.25, 440.0, 392.0, 349.23], // G A C5 A G F
+]
+
 export function MusicToggle() {
   const [state, setState] = useState<State>("on")
   const ctxRef = useRef<AudioContext | null>(null)
-  const gainRef = useRef<GainNode | null>(null)
+  const masterRef = useRef<GainNode | null>(null)
+  const stoppersRef = useRef<Array<() => void>>([])
   const startedRef = useRef(false)
 
-  // Hydrate from storage
   useEffect(() => setState(readStored()), [])
 
   function ensureGraph() {
@@ -36,79 +47,164 @@ export function MusicToggle() {
         .webkitAudioContext
     if (!Ctor) return null
     const ctx = new Ctor()
+
     const master = ctx.createGain()
     master.gain.value = 0.0001
     master.connect(ctx.destination)
 
-    // Low-pass to keep things warm / muffled like a horn through fog.
     const lp = ctx.createBiquadFilter()
     lp.type = "lowpass"
-    lp.frequency.value = 700
-    lp.Q.value = 0.4
+    lp.frequency.value = 1100
+    lp.Q.value = 0.5
     lp.connect(master)
 
-    // Lush delay for a hall / cave tail.
     const dly = ctx.createDelay(2)
-    dly.delayTime.value = 0.55
+    dly.delayTime.value = 0.6
     const fb = ctx.createGain()
-    fb.gain.value = 0.45
+    fb.gain.value = 0.42
     dly.connect(fb)
     fb.connect(dly)
     dly.connect(lp)
 
-    // Three slow, detuned voices — root + fifth + minor third (dorian-ish).
-    const freqs = [73.42, 110.0, 87.31] // D2 + A2 + F2
-    freqs.forEach((f, i) => {
+    /* ---- Drone: three detuned voices ---- */
+    const droneGain = ctx.createGain()
+    droneGain.gain.value = 0.16
+    droneGain.connect(lp)
+    droneGain.connect(dly)
+
+    const droneFreqs = [73.42, 110.0, 87.31] // D2, A2, F2
+    droneFreqs.forEach((f, i) => {
       const osc = ctx.createOscillator()
       osc.type = i === 0 ? "sawtooth" : "triangle"
       osc.frequency.value = f
       const lfo = ctx.createOscillator()
       lfo.type = "sine"
-      lfo.frequency.value = 0.07 + i * 0.03
+      lfo.frequency.value = 0.06 + i * 0.04
       const lfoGain = ctx.createGain()
-      lfoGain.gain.value = 1.5 + i * 0.5
+      lfoGain.gain.value = 1.5 + i * 0.4
       lfo.connect(lfoGain)
       lfoGain.connect(osc.frequency)
-
       const g = ctx.createGain()
-      g.gain.value = 0.18
+      g.gain.value = 0.36
       osc.connect(g)
-      g.connect(lp)
-      g.connect(dly)
+      g.connect(droneGain)
       osc.start()
       lfo.start()
+      stoppersRef.current.push(() => {
+        try {
+          osc.stop()
+        } catch {}
+        try {
+          lfo.stop()
+        } catch {}
+      })
     })
 
-    // Occasional gentle bell / wind chime.
-    function tick() {
-      if (!ctxRef.current) return
+    /* ---- Horn: sparse melodic line ---- */
+    function playNote(freq: number, when: number, dur: number) {
       const c = ctxRef.current
-      const now = c.currentTime
+      if (!c) return
       const osc = c.createOscillator()
-      const g = c.createGain()
-      const partials = [220, 330, 440, 587]
-      const f = partials[Math.floor(Math.random() * partials.length)]
-      osc.frequency.value = f
+      // Stack a fundamental sine + a soft saw a fifth above for horn-ish color
       osc.type = "sine"
-      g.gain.setValueAtTime(0, now)
-      g.gain.linearRampToValueAtTime(0.06, now + 0.04)
-      g.gain.exponentialRampToValueAtTime(0.0001, now + 2.6)
+      osc.frequency.setValueAtTime(freq * 0.997, when)
+      osc.frequency.linearRampToValueAtTime(freq, when + 0.12)
+      const osc2 = c.createOscillator()
+      osc2.type = "sawtooth"
+      osc2.frequency.value = freq * 1.5
+      const g = c.createGain()
+      g.gain.setValueAtTime(0, when)
+      g.gain.linearRampToValueAtTime(0.12, when + 0.18)
+      g.gain.linearRampToValueAtTime(0.08, when + dur * 0.7)
+      g.gain.exponentialRampToValueAtTime(0.0001, when + dur)
+      const g2 = c.createGain()
+      g2.gain.value = 0.04
       osc.connect(g)
+      osc2.connect(g2)
+      g.connect(lp)
+      g2.connect(lp)
       g.connect(dly)
-      osc.start(now)
-      osc.stop(now + 2.7)
-      setTimeout(tick, 4000 + Math.random() * 6000)
+      osc.start(when)
+      osc2.start(when)
+      osc.stop(when + dur + 0.05)
+      osc2.stop(when + dur + 0.05)
     }
-    setTimeout(tick, 2500)
+
+    function scheduleMelody(startAt: number) {
+      const c = ctxRef.current
+      if (!c) return startAt
+      const phrase = MELODIES[Math.floor(Math.random() * MELODIES.length)]
+      let t = startAt
+      for (const f of phrase) {
+        const dur = 0.7 + Math.random() * 0.4
+        // 35% chance to skip a note for breathing room
+        if (Math.random() > 0.35) playNote(f, t, dur)
+        t += dur + 0.05
+      }
+      return t + 1.5 + Math.random() * 1.5 // rest before next phrase
+    }
+
+    /* ---- Frame drum: soft heartbeat ---- */
+    function playDrum(when: number, gainVal = 0.16) {
+      const c = ctxRef.current
+      if (!c) return
+      const buffer = c.createBuffer(
+        1,
+        Math.floor(0.3 * c.sampleRate),
+        c.sampleRate
+      )
+      const data = buffer.getChannelData(0)
+      for (let i = 0; i < data.length; i++) {
+        const t = i / c.sampleRate
+        const env = Math.exp(-t * 14)
+        data[i] = (Math.random() * 2 - 1) * env * 0.6
+      }
+      const src = c.createBufferSource()
+      src.buffer = buffer
+      const bp = c.createBiquadFilter()
+      bp.type = "bandpass"
+      bp.frequency.value = 90
+      bp.Q.value = 4.5
+      const g = c.createGain()
+      g.gain.value = gainVal
+      src.connect(bp)
+      bp.connect(g)
+      g.connect(lp)
+      g.connect(dly)
+      src.start(when)
+    }
+
+    function tickDrum() {
+      const c = ctxRef.current
+      if (!c) return
+      const beat = 1.4 // seconds
+      const next = c.currentTime + 0.05
+      playDrum(next, 0.18)
+      // an off-beat ghost hit
+      playDrum(next + beat * 0.5, 0.06)
+      setTimeout(tickDrum, beat * 1000)
+    }
+
+    function tickMelody() {
+      const c = ctxRef.current
+      if (!c) return
+      const next = c.currentTime + 0.1
+      const ended = scheduleMelody(next)
+      const wait = Math.max(2000, (ended - c.currentTime) * 1000)
+      setTimeout(tickMelody, wait)
+    }
+
+    setTimeout(tickDrum, 600)
+    setTimeout(tickMelody, 1800)
 
     ctxRef.current = ctx
-    gainRef.current = master
+    masterRef.current = master
     return ctx
   }
 
   function fadeTo(v: number, time = 1.2) {
     const ctx = ctxRef.current
-    const g = gainRef.current
+    const g = masterRef.current
     if (!ctx || !g) return
     const now = ctx.currentTime
     g.gain.cancelScheduledValues(now)
@@ -123,7 +219,7 @@ export function MusicToggle() {
     if (!ctx) return
     if (ctx.state === "suspended") ctx.resume().catch(() => {})
     startedRef.current = true
-    fadeTo(0.18, 2.2)
+    fadeTo(0.22, 2.4)
   }
 
   // Wait for first user gesture (autoplay restrictions).
@@ -150,9 +246,9 @@ export function MusicToggle() {
         const ctx = ensureGraph()
         if (ctx?.state === "suspended") ctx.resume().catch(() => {})
         startedRef.current = true
-        fadeTo(0.18, 1.6)
+        fadeTo(0.22, 1.4)
       } else {
-        fadeTo(0.0001, 0.8)
+        fadeTo(0.0001, 0.7)
       }
       return next
     })
@@ -169,8 +265,8 @@ export function MusicToggle() {
 
   const tip =
     state === "on"
-      ? "Mute mistwood drone (ᚹ → ᚺ)"
-      : "Play mistwood drone (ᚺ → ᚹ)"
+      ? "Mute Mistwood — original Norse drone (CC-BY)"
+      : "Play Mistwood — original Norse drone (CC-BY)"
   const rune = state === "on" ? "ᚹ" : "ᚺ"
 
   return (
@@ -178,6 +274,7 @@ export function MusicToggle() {
       type="button"
       onClick={toggle}
       data-tooltip={tip}
+      data-tooltip-place="end"
       aria-label={tip}
       aria-pressed={state === "on"}
       className="rune relative grid h-10 w-10 place-items-center rounded-full border border-rune/30 bg-surface/40 text-lg text-rune backdrop-blur transition hover:border-ember hover:text-ember focus:outline-none focus-visible:ring-2 focus-visible:ring-ember/60"
