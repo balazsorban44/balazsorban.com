@@ -70,24 +70,24 @@ export default function App({ Component, pageProps }) {
             target="_blank"
             rel="noopener noreferrer"
             href="https://twitter.com/balazsorban44"
-            aria-label="Twitter / X"
+            aria-label="Social — Twitter / X"
           >
             <span className="rune mr-1 text-ember" aria-hidden="true">
               ᚱ
             </span>
-            Twitter
+            Social
           </Link>
           <Divider />
           <Link
             target="_blank"
             rel="noopener noreferrer"
             href="https://github.com/balazsorban44"
-            aria-label="GitHub"
+            aria-label="Code — GitHub"
           >
             <span className="rune mr-1 text-ember" aria-hidden="true">
               ᚷ
             </span>
-            GitHub
+            Code
           </Link>
           <Divider />
           <Link
