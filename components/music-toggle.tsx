@@ -277,11 +277,11 @@ export function MusicToggle() {
       data-tooltip-place="top-end"
       aria-label={tip}
       aria-pressed={state === "on"}
-      className="rune relative grid h-10 w-10 place-items-center rounded-full border border-rune/30 bg-surface/40 text-lg text-rune backdrop-blur transition hover:border-ember hover:text-ember focus:outline-none focus-visible:ring-2 focus-visible:ring-ember/60"
+      className="rune relative grid h-10 w-10 place-items-center rounded-full text-lg text-rune transition hover:text-ember focus:outline-none focus-visible:ring-2 focus-visible:ring-ember/60"
     >
       <span aria-hidden="true">{rune}</span>
       {state === "on" && (
-        <span className="pointer-events-none absolute inset-0 rounded-full ring-2 ring-ember/50 animate-pulse" />
+        <span className="pointer-events-none absolute inset-2 rounded-full ring-1 ring-ember/40 animate-pulse" />
       )}
     </button>
   )

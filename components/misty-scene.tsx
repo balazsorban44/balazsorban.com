@@ -92,9 +92,16 @@ export function MistyScene() {
       char: string
       size: number
     }
+    type Bolt = {
+      t: number
+      duration: number
+      main: Array<[number, number]>
+      branches: Array<Array<[number, number]>>
+    }
     let rain: Drop[] = []
     let embers: Ember[] = []
     let runes: Rune[] = []
+    let bolts: Bolt[] = []
 
     const RUNE_CHARS = "ᚠᚢᚦᚨᚱᚲᚷᚹᚺᚾᛁᛃᛇᛈᛉᛊᛏᛒᛖᛗᛚᛜᛞᛟ".split("")
 
@@ -123,6 +130,54 @@ export function MistyScene() {
         size: 1 + Math.random() * 1.8,
       })
     }
+    function spawnBolt(toX: number, toY: number) {
+      // Generate a jagged bolt from somewhere off the top of the viewport
+      // down to (toX, toY), plus a couple of forking branches.
+      const startX = toX + (Math.random() - 0.5) * width * 0.35
+      const startY = -10
+      const main: Array<[number, number]> = [[startX, startY]]
+      const steps = 12 + Math.floor(Math.random() * 8)
+      for (let i = 1; i <= steps; i++) {
+        const t = i / steps
+        const tx = startX + (toX - startX) * t
+        const ty = startY + (toY - startY) * t
+        const jitterX = (Math.random() - 0.5) * Math.max(20, width * 0.04)
+        const jitterY = (Math.random() - 0.5) * 14
+        main.push([tx + jitterX, ty + jitterY])
+      }
+      // Always end on the click point exactly.
+      main[main.length - 1] = [toX, toY]
+
+      const branches: Array<Array<[number, number]>> = []
+      const branchCount = 1 + Math.floor(Math.random() * 3)
+      for (let b = 0; b < branchCount; b++) {
+        const idx = 3 + Math.floor(Math.random() * (main.length - 5))
+        const [bx, by] = main[idx]
+        const seg: Array<[number, number]> = [[bx, by]]
+        const dirX = (Math.random() - 0.5) * 1.4
+        const dirY = 0.4 + Math.random() * 0.7
+        const segs = 4 + Math.floor(Math.random() * 4)
+        const len = 70 + Math.random() * 110
+        let cx = bx,
+          cy = by
+        for (let s = 1; s <= segs; s++) {
+          cx += (dirX * len) / segs + (Math.random() - 0.5) * 18
+          cy += (dirY * len) / segs + (Math.random() - 0.5) * 18
+          seg.push([cx, cy])
+        }
+        branches.push(seg)
+      }
+
+      bolts.push({
+        t: performance.now(),
+        duration: 0.55,
+        main,
+        branches,
+      })
+      // Cap to a few simultaneous bolts to keep things sane.
+      if (bolts.length > 4) bolts.shift()
+    }
+
     function spawnRune() {
       runes.push({
         x: Math.random() * width,
@@ -293,6 +348,53 @@ export function MistyScene() {
       }
     }
 
+    function drawBolts(now: number) {
+      if (bolts.length === 0) return
+      const ember = readVar("--ember", "240 145 60")
+
+      // Drop expired
+      bolts = bolts.filter((b) => (now - b.t) / 1000 < b.duration + 0.05)
+
+      for (const b of bolts) {
+        const elapsed = (now - b.t) / 1000
+        const u = Math.min(1, elapsed / b.duration)
+
+        // ── full-screen flash: very fast attack, fast decay (~250 ms)
+        const flashA = Math.max(0, 1 - u * 4) * 0.55
+        if (flashA > 0) {
+          ctx.fillStyle = `rgba(255, 240, 215, ${flashA})`
+          ctx.fillRect(0, 0, width, height)
+        }
+
+        // ── bolt itself: slower decay
+        const boltA = Math.max(0, 1 - u * 1.4)
+        if (boltA <= 0) continue
+
+        // outer glow stroke
+        ctx.save()
+        ctx.lineCap = "round"
+        ctx.lineJoin = "round"
+        ctx.strokeStyle = `rgba(${ember
+          .replace(/\s+/g, ",")},${boltA * 0.55})`
+        ctx.lineWidth = 7
+        ctx.shadowColor = `rgba(${ember.replace(/\s+/g, ",")},${boltA})`
+        ctx.shadowBlur = 18
+        strokePolyline(ctx, b.main)
+        for (const seg of b.branches) strokePolyline(ctx, seg)
+
+        // inner bright core
+        ctx.shadowBlur = 8
+        ctx.strokeStyle = `rgba(255, 245, 220, ${boltA})`
+        ctx.lineWidth = 2.2
+        strokePolyline(ctx, b.main)
+        for (const seg of b.branches) {
+          ctx.lineWidth = 1.4
+          strokePolyline(ctx, seg)
+        }
+        ctx.restore()
+      }
+    }
+
     function drawRunes(dt: number) {
       const rune = readVar("--rune", "220 190 140")
       if (Math.random() < dt * 0.7) spawnRune()
@@ -322,12 +424,21 @@ export function MistyScene() {
       drawRain(reduced ? 0 : dt)
       drawEmbers(reduced ? 0 : dt)
       drawRunes(reduced ? 0 : dt)
+      drawBolts(now)
 
       raf = requestAnimationFrame(frame)
     }
 
+    function onPointerDown(e: PointerEvent) {
+      if (reduced) return
+      // Ignore clicks we synthesized (e.g. ones that were dispatched by
+      // a previous bolt itself — defensive belt-and-braces).
+      spawnBolt(e.clientX, e.clientY)
+    }
+
     resize()
     window.addEventListener("resize", resize)
+    window.addEventListener("pointerdown", onPointerDown, { passive: true })
     raf = requestAnimationFrame(frame)
 
     // Re-render on visibility / theme change
@@ -343,6 +454,7 @@ export function MistyScene() {
     return () => {
       cancelAnimationFrame(raf)
       window.removeEventListener("resize", resize)
+      window.removeEventListener("pointerdown", onPointerDown)
       obs.disconnect()
     }
   }, [])
@@ -354,6 +466,17 @@ export function MistyScene() {
       className="misty-canvas"
     />
   )
+}
+
+function strokePolyline(
+  ctx: CanvasRenderingContext2D,
+  pts: Array<[number, number]>
+) {
+  if (pts.length < 2) return
+  ctx.beginPath()
+  ctx.moveTo(pts[0][0], pts[0][1])
+  for (let i = 1; i < pts.length; i++) ctx.lineTo(pts[i][0], pts[i][1])
+  ctx.stroke()
 }
 
 /* small deterministic PRNG */
