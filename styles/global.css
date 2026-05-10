@@ -37,6 +37,7 @@ html {
   font-feature-settings: "liga" 1, "calt" 1, "onum" 1;
   font-size: 17px;
   line-height: 1.55;
+  text-decoration-skip-ink: auto;
   transition: background-color 600ms ease, color 600ms ease;
 }
 
