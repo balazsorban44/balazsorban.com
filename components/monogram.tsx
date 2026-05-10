@@ -1,92 +1,91 @@
 import Image from "next/image"
+import { Vegvisir } from "components/vegvisir"
 
 /**
- * The "OB" monogram:
- *   O = the circular profile photo
- *   B = the Vercel triangle (a wink at having worked there)
+ * The "OB" monogram, layered:
  *
- * Kept and refined — same two primitives, now with a glowing ember halo
- * and a runic ring drifting around the photo.
+ *   ─── vegvísir wayfinder stave (centered, behind)
+ *   ─── B = the Vercel triangle
+ *   ─── O = the circular profile photo
  */
 export function Monogram() {
-  const size = 220
+  const frame = 280
+  const photo = 130
   return (
     <div
       className="group relative shrink-0 select-none"
-      style={{ width: size, height: size }}
+      style={{ width: frame, height: frame }}
     >
-      <div
-        className="hero-rune-ring relative"
-        style={{ width: size, height: size }}
+      {/* Vegvisir, centered behind everything. */}
+      <span
+        aria-hidden="true"
+        className="vegvisir-spin pointer-events-none absolute inset-0 grid place-items-center text-rune"
+        style={{
+          opacity: 0.7,
+          filter: "drop-shadow(0 0 16px rgb(var(--ember) / 0.25))",
+        }}
       >
-        {/* Vercel triangle = B */}
-        <span
-          className="absolute inset-0 flex items-center justify-center"
-          aria-hidden="true"
-        >
-          <svg
-            width={size}
-            height={size}
-            viewBox="0 0 280 280"
-            className="opacity-75 transition-opacity duration-500 group-hover:opacity-100"
-          >
-            <defs>
-              <linearGradient id="ob-tri" x1="0" x2="0" y1="0" y2="1">
-                <stop
-                  offset="0%"
-                  stopColor="rgb(var(--ember))"
-                  stopOpacity="0.95"
-                />
-                <stop
-                  offset="100%"
-                  stopColor="rgb(var(--accent))"
-                  stopOpacity="0.85"
-                />
-              </linearGradient>
-              <filter id="ob-glow" x="-30%" y="-30%" width="160%" height="160%">
-                <feGaussianBlur stdDeviation="6" />
-              </filter>
-            </defs>
-            <polygon
-              points="40,220 240,220 140,46"
-              fill="url(#ob-tri)"
-              filter="url(#ob-glow)"
-              opacity="0.55"
-            />
-            <polygon
-              points="40,220 240,220 140,46"
-              fill="none"
-              stroke="rgb(var(--ember))"
-              strokeWidth="1.25"
-              strokeLinejoin="round"
-            />
-          </svg>
-        </span>
+        <Vegvisir size={frame} />
+      </span>
 
-        {/* Profile photo = O */}
-        <span
-          className="absolute left-1/2 top-[58%] -translate-x-1/2 -translate-y-1/2"
-          style={{ filter: "drop-shadow(0 4px 24px rgb(0 0 0 / 0.45))" }}
+      {/* Vercel triangle = B */}
+      <span
+        className="absolute inset-0 flex items-center justify-center"
+        aria-hidden="true"
+      >
+        <svg
+          width={frame * 0.82}
+          height={frame * 0.82}
+          viewBox="0 0 280 280"
+          className="opacity-95 transition-opacity duration-500 group-hover:opacity-100"
         >
-          <Image
-            className="rounded-full ring-2 ring-rune/40 transition duration-500 hover:scale-95 hover:ring-ember"
-            src="/images/me.jpg"
-            width={120}
-            height={120}
-            alt="Balázs Orbán"
-            priority
+          <defs>
+            <linearGradient id="ob-tri" x1="0" x2="0" y1="0" y2="1">
+              <stop
+                offset="0%"
+                stopColor="rgb(var(--ember))"
+                stopOpacity="0.95"
+              />
+              <stop
+                offset="100%"
+                stopColor="rgb(var(--accent))"
+                stopOpacity="0.95"
+              />
+            </linearGradient>
+            <filter id="ob-glow" x="-30%" y="-30%" width="160%" height="160%">
+              <feGaussianBlur stdDeviation="6" />
+            </filter>
+          </defs>
+          <polygon
+            points="40,220 240,220 140,46"
+            fill="url(#ob-tri)"
+            filter="url(#ob-glow)"
+            opacity="0.7"
           />
-        </span>
+          <polygon
+            points="40,220 240,220 140,46"
+            fill="none"
+            stroke="rgb(var(--ember))"
+            strokeWidth="1.4"
+            strokeLinejoin="round"
+          />
+        </svg>
+      </span>
 
-        {/* small rune at apex */}
-        <span
-          className="rune absolute left-1/2 top-1 -translate-x-1/2 text-rune/70"
-          style={{ fontSize: 16 }}
-          aria-hidden="true"
-        >
-          ᛟ
-        </span>
-      </div>
+      {/* Profile photo = O — sits inside the wider lower half of the triangle. */}
+      <span
+        className="absolute left-1/2 top-[56%] -translate-x-1/2 -translate-y-1/2"
+        style={{ filter: "drop-shadow(0 4px 24px rgb(0 0 0 / 0.55))" }}
+      >
+        <Image
+          className="rounded-full ring-2 ring-rune/50 transition duration-500 hover:scale-95 hover:ring-ember"
+          src="/images/me.jpg"
+          width={photo}
+          height={photo}
+          alt="Balázs Orbán"
+          priority
+        />
+      </span>
     </div>
   )
 }

@@ -150,6 +150,11 @@ export function MistyScene() {
     function resize() {
       dpr = Math.max(1, Math.min(window.devicePixelRatio || 1, 2))
       const rect = canvas.getBoundingClientRect()
+      // Bail if nothing actually changed (mobile URL-bar transitions
+      // fire resize events even though our css uses 100lvh/100vw).
+      if (Math.abs(rect.width - width) < 1 && Math.abs(rect.height - height) < 1) {
+        return
+      }
       width = rect.width
       height = rect.height
       canvas.width = Math.floor(width * dpr)
@@ -346,7 +351,7 @@ export function MistyScene() {
     <canvas
       ref={canvasRef}
       aria-hidden="true"
-      className="pointer-events-none fixed inset-0 -z-10 h-full w-full"
+      className="misty-canvas"
     />
   )
 }

@@ -2,7 +2,6 @@ import * as React from "react"
 import dynamic from "next/dynamic"
 import Link from "next/link"
 import { Link as StyledLink, linkClassName } from "components/link"
-import { NowPlaying } from "components/now-playing"
 import Container from "components/container"
 import { Monogram } from "components/monogram"
 
@@ -83,8 +82,6 @@ export default function Home() {
           <R char="ᛜ" label="photography — frame rune" />. I am a work in
           progress.
         </p>
-
-        <NowPlaying />
       </div>
     </Container>
   )

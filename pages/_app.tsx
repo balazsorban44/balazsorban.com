@@ -1,7 +1,5 @@
 import { Divider } from "components/dividier"
-import { Emoji } from "components/emoji"
 import { Link } from "components/link"
-import { ThemeToggle } from "components/theme-toggle"
 import { MusicToggle } from "components/music-toggle"
 import "styles/global.css"
 import Head from "next/head"
@@ -39,41 +37,52 @@ export default function App({ Component, pageProps }) {
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:site" content="@balazsorban44" />
         <meta name="twitter:title" content={meta.title} />
-        <meta name="theme-color" content="#0a0c0a" />
+        <meta name="theme-color" content="#070a08" />
       </Head>
 
       <div className="fixed top-4 right-4 z-40 flex items-center gap-2">
         <MusicToggle />
-        <ThemeToggle />
       </div>
 
       <main className="px-4 pt-4 pb-2 flex items-stretch justify-center flex-col flex-1 min-h-0">
         <Component {...pageProps} />
       </main>
 
-      <footer className="relative z-10 mb-4 mt-2 flex flex-wrap items-center justify-center gap-x-4 gap-y-1 text-sm sm:mx-auto">
+      <footer className="relative z-10 mb-4 mt-2 flex flex-wrap items-center justify-center gap-x-3 gap-y-1 text-sm sm:mx-auto">
         <Link
           target="_blank"
           rel="noopener noreferrer"
           href="https://twitter.com/balazsorban44"
+          aria-label="Twitter / X"
         >
-          Twitter <Emoji label="Bird">🐦</Emoji>
+          <span className="rune mr-1 text-ember" aria-hidden="true">
+            ᚱ
+          </span>
+          Twitter
         </Link>
         <Divider />
         <Link
           target="_blank"
           rel="noopener noreferrer"
           href="https://github.com/balazsorban44"
+          aria-label="GitHub"
         >
-          GitHub <Emoji label="Man with computer">👨‍💻</Emoji>
+          <span className="rune mr-1 text-ember" aria-hidden="true">
+            ᚷ
+          </span>
+          GitHub
         </Link>
         <Divider />
         <Link
           target="_blank"
           rel="noopener noreferrer"
           href="mailto:info@balazsorban.com"
+          aria-label="Email"
         >
-          Mail me <Emoji label="Mailbox">📫</Emoji>
+          <span className="rune mr-1 text-ember" aria-hidden="true">
+            ᛗ
+          </span>
+          Mail
         </Link>
       </footer>
     </>

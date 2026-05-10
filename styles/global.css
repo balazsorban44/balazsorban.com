@@ -5,36 +5,22 @@
 @custom-variant hover (&:hover);
 
 /* ----- Norse / forest palette --------------------------------------------
-   Dark theme (default): black sky, deep moss, bark, fire ember orange.
-   Light theme: pale mist, fjord green, warm parchment, smoldering ember.
+   Single, high-contrast dark theme: deep black sky, blackened forest
+   floor, near-white parchment text, and fire-bright ember accents.
 --------------------------------------------------------------------------- */
 
-:root,
-[data-theme="dark"] {
-  --bg: 8 12 10;             /* near-black with green undertone */
-  --surface: 17 26 22;       /* deep forest floor */
-  --ink: 232 224 206;        /* warm parchment text */
-  --muted: 148 154 138;      /* lichen */
-  --accent: 214 110 38;      /* fire ember */
-  --ember: 240 145 60;       /* glowing ember */
-  --moss: 56 92 70;          /* darker moss green */
-  --bark: 84 58 36;           /* warm bark brown */
-  --rune: 220 190 140;       /* rune-stone glow */
+:root {
+  --bg: 4 6 5;               /* near-pitch black with a hint of green */
+  --surface: 18 28 22;       /* deep forest floor */
+  --ink: 248 240 220;        /* bright parchment, near-white */
+  --muted: 188 192 168;      /* lichen, brighter for legibility */
+  --accent: 240 122 32;      /* fire ember, more saturated */
+  --ember: 255 175 80;       /* glowing ember highlight */
+  --moss: 70 120 88;         /* brighter forest green */
+  --bark: 120 80 46;         /* warm bark brown */
+  --rune: 240 210 160;       /* rune-stone glow, brighter */
   --primary-color: rgb(var(--accent));
   color-scheme: dark;
-}
-
-[data-theme="light"] {
-  --bg: 240 234 220;         /* misty parchment sky */
-  --surface: 224 218 204;    /* fog */
-  --ink: 32 36 28;           /* deep pine ink */
-  --muted: 95 102 86;        /* lichen, deeper */
-  --accent: 168 70 24;       /* smolder, deeper for contrast */
-  --ember: 200 92 32;        /* darker ember */
-  --moss: 76 110 86;         /* fjord moss */
-  --bark: 110 74 44;
-  --rune: 70 60 40;
-  color-scheme: light;
 }
 
 ::selection {
@@ -68,12 +54,38 @@ h3,
   letter-spacing: 0.04em;
 }
 
+/* Use the *small* viewport unit so the layout doesn't grow when the
+   mobile address bar collapses (which is what made the background
+   appear to "jump").  Falls back to vh on browsers without svh. */
 #__next {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
+  min-height: 100svh;
   position: relative;
   z-index: 1;
+}
+
+/* The misty-scene canvas covers the *largest* possible viewport at all
+   times, so the address-bar transition never resizes the artwork. */
+.misty-canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  height: 100lvh;
+  z-index: -10;
+  pointer-events: none;
+}
+
+@keyframes vegvisir-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+.vegvisir-spin > * {
+  animation: vegvisir-spin 240s linear infinite;
 }
 
 .skip-nav {
