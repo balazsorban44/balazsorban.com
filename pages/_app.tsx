@@ -1,5 +1,6 @@
 import { Divider } from "components/dividier"
 import { Link } from "components/link"
+import { HowlingWolf } from "components/howling-wolf"
 import { MusicToggle } from "components/music-toggle"
 import "styles/global.css"
 import Head from "next/head"
@@ -56,6 +57,11 @@ export default function App({ Component, pageProps }) {
           {onArticles ? "Home" : "Articles"}
         </NextLink>
       </div>
+
+      <HowlingWolf
+        className="pointer-events-none fixed bottom-9 left-2 z-10 text-black drop-shadow-[0_0_18px_rgb(var(--ember)/0.18)]"
+        size={140}
+      />
 
       <main
         id="skip"

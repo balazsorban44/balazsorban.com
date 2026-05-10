@@ -98,10 +98,22 @@ export function MistyScene() {
       main: Array<[number, number]>
       branches: Array<Array<[number, number]>>
     }
+    type Crow = {
+      x: number
+      y: number
+      vx: number
+      ampY: number
+      freq: number
+      phase: number
+      size: number
+      flap: number
+    }
     let rain: Drop[] = []
     let embers: Ember[] = []
     let runes: Rune[] = []
     let bolts: Bolt[] = []
+    let crows: Crow[] = []
+    let nextCrowAt = 4000 + Math.random() * 6000 // first crow appears after a few seconds
 
     const RUNE_CHARS = "ᚠᚢᚦᚨᚱᚲᚷᚹᚺᚾᛁᛃᛇᛈᛉᛊᛏᛒᛖᛗᛚᛜᛞᛟ".split("")
 
@@ -176,6 +188,77 @@ export function MistyScene() {
       })
       // Cap to a few simultaneous bolts to keep things sane.
       if (bolts.length > 4) bolts.shift()
+    }
+
+    function spawnCrow(fromLeft?: boolean) {
+      const left = fromLeft ?? Math.random() > 0.5
+      const size = 14 + Math.random() * 10
+      crows.push({
+        x: left ? -50 : width + 50,
+        y: height * (0.12 + Math.random() * 0.4),
+        vx: (left ? 1 : -1) * (55 + Math.random() * 50),
+        ampY: 6 + Math.random() * 14,
+        freq: 0.18 + Math.random() * 0.35,
+        phase: Math.random() * Math.PI * 2,
+        size,
+        flap: Math.random() * Math.PI * 2,
+      })
+    }
+
+    function drawCrow(
+      x: number,
+      y: number,
+      size: number,
+      wingPhase: number
+    ) {
+      const flap = Math.sin(wingPhase) // -1..1
+      const w = size
+      const wingTipY = y - flap * w * 0.45
+
+      // body — small dark spindle
+      ctx.beginPath()
+      ctx.ellipse(x, y, w * 0.22, w * 0.1, 0, 0, Math.PI * 2)
+      ctx.fill()
+
+      // wings — one continuous "M" stroke
+      ctx.beginPath()
+      ctx.lineCap = "round"
+      ctx.lineJoin = "round"
+      ctx.lineWidth = Math.max(1.2, w * 0.07)
+      ctx.moveTo(x - w, y + w * 0.05)
+      ctx.quadraticCurveTo(x - w * 0.55, wingTipY, x, y)
+      ctx.quadraticCurveTo(x + w * 0.55, wingTipY, x + w, y + w * 0.05)
+      ctx.stroke()
+    }
+
+    function drawCrows(dt: number, now: number, time: number) {
+      // Spawn timing — usually a single bird, occasionally a small flock.
+      if (now >= nextCrowAt) {
+        const fromLeft = Math.random() > 0.5
+        spawnCrow(fromLeft)
+        if (Math.random() < 0.35) {
+          // schedule a second/third bird in formation
+          setTimeout(() => spawnCrow(fromLeft), 350)
+          if (Math.random() < 0.5) setTimeout(() => spawnCrow(fromLeft), 750)
+        }
+        nextCrowAt = now + (10 + Math.random() * 18) * 1000
+      }
+
+      // Cull birds that have crossed the screen.
+      crows = crows.filter((c) => c.x > -80 && c.x < width + 80)
+      if (crows.length === 0) return
+
+      ctx.save()
+      ctx.fillStyle = "rgba(0, 0, 0, 0.88)"
+      ctx.strokeStyle = "rgba(0, 0, 0, 0.88)"
+      for (const c of crows) {
+        c.x += c.vx * dt
+        c.flap += dt * 9 // ~1.4 flaps per second
+        const yWave =
+          Math.sin((time / 1000) * c.freq * Math.PI * 2 + c.phase) * c.ampY
+        drawCrow(c.x, c.y + yWave, c.size, c.flap)
+      }
+      ctx.restore()
     }
 
     function spawnRune() {
@@ -359,8 +442,14 @@ export function MistyScene() {
         const elapsed = (now - b.t) / 1000
         const u = Math.min(1, elapsed / b.duration)
 
-        // ── full-screen flash: very fast attack, fast decay (~250 ms)
-        const flashA = Math.max(0, 1 - u * 4) * 0.55
+        // ── full-screen flash: gentler attack/decay so we don't get a
+        // sharp flare-up.  Eased curve peaks at ~30% of the bolt's
+        // lifetime then fades smoothly.
+        const flashCurve =
+          u < 0.18
+            ? u / 0.18 // ramp up over ~100 ms
+            : Math.max(0, 1 - (u - 0.18) / 0.6) // gentle ~330 ms tail
+        const flashA = flashCurve * 0.42
         if (flashA > 0) {
           ctx.fillStyle = `rgba(255, 240, 215, ${flashA})`
           ctx.fillRect(0, 0, width, height)
@@ -420,6 +509,7 @@ export function MistyScene() {
       drawSky()
       drawMountains(t)
       drawFog(t)
+      drawCrows(reduced ? 0 : dt, now, t)
       drawPines()
       drawRain(reduced ? 0 : dt)
       drawEmbers(reduced ? 0 : dt)
