@@ -15,6 +15,31 @@ const meta = {
   type: "website",
 }
 
+/**
+ * A thin runestone band across the very top of the viewport: the Elder
+ * Futhark alphabet repeated in tiny ember letters, sitting on a 1-px
+ * line of the same colour.
+ */
+const FUTHARK = "ᚠᚢᚦᚨᚱᚲᚷᚹᚺᚾᛁᛃᛇᛈᛉᛊᛏᛒᛖᛗᛚᛜᛞᛟ"
+function RuneStrip() {
+  // Plenty of repeats to span any reasonable viewport width.
+  const text = (FUTHARK + " ").repeat(16)
+  return (
+    <div
+      aria-hidden="true"
+      className="pointer-events-none fixed inset-x-0 top-0 z-30 select-none"
+    >
+      <div
+        className="rune overflow-hidden whitespace-nowrap px-2 pt-[2px] text-ember"
+        style={{ fontSize: 9, letterSpacing: "0.35em", lineHeight: "12px" }}
+      >
+        {text}
+      </div>
+      <div className="h-px w-full bg-ember" />
+    </div>
+  )
+}
+
 export default function App({ Component, pageProps }) {
   useAnalytics()
 
@@ -48,6 +73,8 @@ export default function App({ Component, pageProps }) {
       <a href="#skip" className="skip-nav">
         Skip to content
       </a>
+
+      <RuneStrip />
 
       <div className="fixed top-4 right-4 z-40 flex items-center gap-3">
         <NextLink
