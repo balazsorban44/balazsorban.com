@@ -114,38 +114,6 @@ h3,
   line-height: 1;
 }
 
-/* ----- Rune underline -----------------------------------------------------
-   Replaces a normal text-decoration with a tiny stripe of the Elder
-   Futhark alphabet rendered in ember orange.  The runes are clipped to
-   the link's box so each link gets its own slice of the alphabet.
---------------------------------------------------------------------------- */
-
-.rune-link {
-  position: relative;
-  display: inline-block;
-  padding-bottom: 0.55em;
-  text-decoration: none;
-  vertical-align: baseline;
-}
-.rune-link::after {
-  content: "ᚠᚢᚦᚨᚱᚲᚷᚹᚺᚾᛁᛃᛇᛈᛉᛊᛏᛒᛖᛗᛚᛜᛞᛟᚠᚢᚦᚨᚱᚲᚷᚹᚺᚾᛁᛃᛇᛈᛉᛊᛏᛒᛖᛗᛚᛜᛞᛟᚠᚢᚦᚨᚱᚲᚷᚹᚺᚾᛁᛃᛇᛈᛉᛊᛏᛒᛖᛗᛚᛜᛞᛟᚠᚢᚦᚨᚱᚲᚷᚹᚺᚾᛁᛃᛇᛈᛉᛊᛏᛒᛖᛗᛚᛜᛞᛟ";
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  height: 0.5em;
-  font-family: "Noto Sans Runic", "Segoe UI Historic", "Apple Symbols",
-    "Cambria Math", serif;
-  font-size: 0.4em;
-  line-height: 0.5em;
-  color: rgb(var(--ember));
-  letter-spacing: 0.05em;
-  white-space: nowrap;
-  overflow: hidden;
-  pointer-events: none;
-  text-align: left;
-}
-
 /* ----- Hero ornaments ----------------------------------------------------- */
 
 .hero-rune-ring::before,
