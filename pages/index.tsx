@@ -64,14 +64,13 @@ export default function Home() {
               Unite AS
             </StyledLink>
 . Previously, Software Engineer at{" "}
-            <a
-              className="underline decoration-ember/60 underline-offset-4 hover:text-ember"
+            <StyledLink
               href="https://twitter.com/balazsorban44/status/1432769186938380291"
               target="_blank"
               rel="noopener noreferrer"
             >
               ▲Vercel
-            </a>
+            </StyledLink>
             , helped maintain <span className="font-mono">Next.js</span>,
             working on auth and security. A Hungarian and Norwegian citizen
             living in Norway. Likes

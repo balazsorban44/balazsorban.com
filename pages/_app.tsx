@@ -1,6 +1,5 @@
 import { Divider } from "components/dividier"
 import { Link } from "components/link"
-import { HowlingWolf } from "components/howling-wolf"
 import { MusicToggle } from "components/music-toggle"
 import "styles/global.css"
 import Head from "next/head"
@@ -13,31 +12,6 @@ const meta = {
   title: "Balázs Orbán",
   description: `JavaScript open sourcerer • hobby photographer.`,
   type: "website",
-}
-
-/**
- * A thin runestone band across the very top of the viewport: the Elder
- * Futhark alphabet repeated in tiny ember letters, sitting on a 1-px
- * line of the same colour.
- */
-const FUTHARK = "ᚠᚢᚦᚨᚱᚲᚷᚹᚺᚾᛁᛃᛇᛈᛉᛊᛏᛒᛖᛗᛚᛜᛞᛟ"
-function RuneStrip() {
-  // Plenty of repeats to span any reasonable viewport width.
-  const text = (FUTHARK + " ").repeat(16)
-  return (
-    <div
-      aria-hidden="true"
-      className="pointer-events-none fixed inset-x-0 top-0 z-30 select-none"
-    >
-      <div
-        className="rune overflow-hidden whitespace-nowrap px-2 pt-[2px] text-ember"
-        style={{ fontSize: 9, letterSpacing: "0.35em", lineHeight: "12px" }}
-      >
-        {text}
-      </div>
-      <div className="h-px w-full bg-ember" />
-    </div>
-  )
 }
 
 export default function App({ Component, pageProps }) {
@@ -74,8 +48,6 @@ export default function App({ Component, pageProps }) {
         Skip to content
       </a>
 
-      <RuneStrip />
-
       <div className="fixed top-4 right-4 z-40 flex items-center gap-3">
         <NextLink
           href={onArticles ? "/" : "/blog"}
@@ -84,11 +56,6 @@ export default function App({ Component, pageProps }) {
           {onArticles ? "Home" : "Articles"}
         </NextLink>
       </div>
-
-      <HowlingWolf
-        className="pointer-events-none fixed bottom-9 left-2 z-10 text-black drop-shadow-[0_0_18px_rgb(var(--ember)/0.18)]"
-        size={140}
-      />
 
       <main
         id="skip"
