@@ -1,34 +1,12 @@
 import Head from "next/head"
 import { useRouter } from "next/router"
-import { useState, useEffect } from "react"
-import NextLink from "next/link"
-import { linkClassName } from "components/link"
-
-function NavItem({ href, text }) {
-  const router = useRouter()
-  const isActive = href !== "/" && router.asPath.startsWith(href)
-
-  return (
-    <NextLink
-      href={href}
-      className={`${linkClassName} ${isActive ? "bg-main" : ""}`}
-    >
-      {text}
-    </NextLink>
-  )
-}
 
 export default function Container(props) {
-  const [, setMounted] = useState(false)
-
-  // After mounting, we have access to the theme
-  useEffect(() => setMounted(true), [])
-
   const { children, skipHeader, ...customMeta } = props
   const router = useRouter()
   const meta = {
-    title: "Balázs Orbán - Software Engineer, OSS maintainer.",
-    description: `Maintains Next.js, NextAuth.js and React.js Hungarian docs.`,
+    title: "Balázs Orbán — Software Engineer, OSS maintainer.",
+    description: `Maintains Auth.js, helped maintain Next.js, currently Tech Lead at Unite AS.`,
     image: "https://balazsorban.com/images/banner.jpg",
     type: "website",
     ...customMeta,
@@ -65,18 +43,9 @@ export default function Container(props) {
       {skipHeader ? (
         children
       ) : (
-        <>
-          <nav className="flex justify-center w-full pt-8 pb-8 sm:pb-16 gap-8">
-            <a href="#skip" className="skip-nav">
-              Skip to content
-            </a>
-            <NavItem href="/" text="Home" />
-            <NavItem href="/blog" text="Blog" />
-          </nav>
-          <div id="skip" className="flex flex-col justify-center px-8">
-            {children}
-          </div>
-        </>
+        <div className="flex flex-col justify-center px-8 pt-12">
+          {children}
+        </div>
       )}
     </>
   )

@@ -34,10 +34,10 @@ export default function Blog({
             type="text"
             onChange={(e) => setSearchValue(e.target.value)}
             placeholder="Search articles"
-            className="block w-full px-4 py-2 rounded-md"
+            className="block w-full rounded-md border border-rune/30 bg-surface/60 px-4 py-2 text-ink placeholder:text-muted focus:border-ember focus:outline-none focus:ring-2 focus:ring-ember/40"
           />
           <svg
-            className="absolute w-5 h-5 text-black right-3 top-3"
+            className="absolute w-5 h-5 text-muted right-3 top-3"
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
             viewBox="0 0 24 24"

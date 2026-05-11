@@ -4,16 +4,95 @@
 /* Restore v3 hover behavior so taps on touch devices trigger :hover */
 @custom-variant hover (&:hover);
 
+/* ----- Norse / forest palette --------------------------------------------
+   Single, high-contrast dark theme: deep black sky, blackened forest
+   floor, near-white parchment text, and fire-bright ember accents.
+--------------------------------------------------------------------------- */
+
 :root {
-  --primary-color: hsl(16.2, 100%, 50%);
+  --bg: 4 6 5;               /* near-pitch black with a hint of green */
+  --surface: 18 28 22;       /* deep forest floor */
+  --ink: 248 240 220;        /* bright parchment, near-white */
+  --muted: 188 192 168;      /* lichen, brighter for legibility */
+  --accent: 240 122 32;      /* fire ember, more saturated */
+  --ember: 255 175 80;       /* glowing ember highlight */
+  --moss: 70 120 88;         /* brighter forest green */
+  --bark: 120 80 46;         /* warm bark brown */
+  --rune: 240 210 160;       /* rune-stone glow, brighter */
+  --primary-color: rgb(var(--accent));
+  color-scheme: dark;
 }
 
 ::selection {
-  background-color: var(--primary-color);
+  background-color: rgb(var(--accent));
+  color: rgb(var(--bg));
+}
+
+html {
+  scroll-behavior: smooth;
+  background: rgb(var(--bg));
+  color: rgb(var(--ink));
+  font-family: "EB Garamond", "Iowan Old Style", Georgia, "Times New Roman",
+    serif;
+  font-feature-settings: "liga" 1, "calt" 1, "onum" 1;
+  font-size: 17px;
+  line-height: 1.55;
+  text-decoration-skip-ink: auto;
+  transition: background-color 600ms ease, color 600ms ease;
+}
+
+body {
+  background: rgb(var(--bg));
+  color: rgb(var(--ink));
+}
+
+h1,
+h2,
+h3,
+.font-display {
+  font-family: "Cinzel", "Trajan Pro", Georgia, serif;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+}
+
+/* Use the *small* viewport unit so the layout doesn't grow when the
+   mobile address bar collapses (which is what made the background
+   appear to "jump").  Falls back to vh on browsers without svh. */
+#__next {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  min-height: 100svh;
+  position: relative;
+  z-index: 1;
+}
+
+/* The misty-scene canvas covers the *largest* possible viewport at all
+   times, so the address-bar transition never resizes the artwork. */
+.misty-canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  height: 100lvh;
+  z-index: -10;
+  pointer-events: none;
+}
+
+@keyframes vegvisir-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+.vegvisir-spin > * {
+  animation: vegvisir-spin 240s linear infinite;
 }
 
 .skip-nav {
   @apply absolute px-4 py-3 transition-transform duration-200 transform -translate-y-12 -left-1/4 focus:top-4 focus:translate-y-3 -top-8;
+  background: rgb(var(--surface));
+  color: rgb(var(--ink));
 }
 
 #skip {
@@ -23,30 +102,140 @@
 @supports not (backdrop-filter: none) {
   .sticky-nav {
     backdrop-filter: none;
-    background-color: rgb(0 0 0 / 1);
+    background-color: rgb(var(--bg));
   }
 }
 
-html {
-  scroll-behavior: smooth;
-  background: #000;
-  color: #fff !important;
-  font-family: sans-serif;
+/* ----- Runic typography --------------------------------------------------- */
+
+.rune {
+  font-family: "Noto Sans Runic", "Segoe UI Historic", "Apple Symbols",
+    "Cambria Math", serif;
+  font-feature-settings: "calt" off;
+  line-height: 1;
 }
 
-#__next {
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
+/* ----- Hero ornaments ----------------------------------------------------- */
+
+.hero-rune-ring::before,
+.hero-rune-ring::after {
+  content: "";
+  position: absolute;
+  inset: -10%;
+  border-radius: 50%;
+  border: 1px dashed rgb(var(--rune) / 0.25);
+  pointer-events: none;
+  animation: drift 60s linear infinite;
 }
+.hero-rune-ring::after {
+  inset: -22%;
+  border-color: rgb(var(--rune) / 0.12);
+  animation-direction: reverse;
+  animation-duration: 90s;
+}
+@keyframes drift {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* ----- Fade-in for hydration content -------------------------------------- */
+
+.fade-in {
+  animation: fade-in 1.4s ease-out both;
+}
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* ----- Tooltip ------------------------------------------------------------
+   Default placement: below, centered. data-tooltip-place lets a caller
+   anchor to the right (so a button in the top-right corner doesn't push
+   the tooltip off-screen).
+--------------------------------------------------------------------------- */
+
+[data-tooltip] {
+  position: relative;
+}
+[data-tooltip]::after {
+  content: attr(data-tooltip);
+  position: absolute;
+  top: calc(100% + 8px);
+  left: 50%;
+  transform: translateX(-50%) translateY(-4px);
+  background: rgb(var(--surface));
+  color: rgb(var(--ink));
+  padding: 4px 8px;
+  border-radius: 4px;
+  border: 1px solid rgb(var(--rune) / 0.3);
+  font-family: "Cinzel", "Trajan Pro", Georgia, serif;
+  font-size: 11px;
+  font-weight: 500;
+  white-space: nowrap;
+  letter-spacing: 0.06em;
+  max-width: min(80vw, 320px);
+  text-overflow: ellipsis;
+  overflow: hidden;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 180ms ease, transform 180ms ease;
+  z-index: 50;
+  box-shadow: 0 4px 16px rgb(0 0 0 / 0.35);
+}
+
+[data-tooltip]:hover::after,
+[data-tooltip]:focus-visible::after {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+
+[data-tooltip][data-tooltip-place="end"]::after {
+  left: auto;
+  right: 0;
+  transform: translateX(0) translateY(-4px);
+}
+[data-tooltip][data-tooltip-place="end"]:hover::after,
+[data-tooltip][data-tooltip-place="end"]:focus-visible::after {
+  transform: translateX(0) translateY(0);
+}
+
+[data-tooltip][data-tooltip-place="top-end"]::after {
+  top: auto;
+  bottom: calc(100% + 8px);
+  left: auto;
+  right: 0;
+  transform: translateX(0) translateY(4px);
+}
+[data-tooltip][data-tooltip-place="top-end"]:hover::after,
+[data-tooltip][data-tooltip-place="top-end"]:focus-visible::after {
+  transform: translateX(0) translateY(0);
+}
+
+[data-tooltip][data-tooltip-place="start"]::after {
+  left: 0;
+  right: auto;
+  transform: translateX(0) translateY(-4px);
+}
+[data-tooltip][data-tooltip-place="start"]:hover::after,
+[data-tooltip][data-tooltip-place="start"]:focus-visible::after {
+  transform: translateX(0) translateY(0);
+}
+
+/* ----- Prose (blog) ------------------------------------------------------- */
 
 .prose {
-  @apply text-white;
+  color: rgb(var(--ink));
 }
 
 .prose .anchor {
   @apply absolute invisible hover:bg-transparent border-0;
-
   margin-left: -1em;
   padding-right: 0.5em;
   width: 80%;
@@ -59,7 +248,12 @@ html {
 }
 
 .prose a {
-  @apply transition-all no-underline text-white;
+  @apply transition-all no-underline;
+  color: rgb(var(--ink));
+  border-bottom: 1px dashed rgb(var(--accent));
+}
+.prose a:hover {
+  background: rgb(var(--accent) / 0.15);
 }
 
 .prose h3,
@@ -78,12 +272,10 @@ html {
 }
 
 .prose img {
-  /* Don't apply styles to next/image */
   @apply m-0;
 }
 
 .prose > :first-child {
-  /* Override removing top margin, causing layout shift */
   margin-top: 1.25em !important;
   margin-bottom: 1.25em !important;
 }
@@ -91,22 +283,32 @@ html {
 pre::-webkit-scrollbar {
   display: none;
 }
-
 pre {
-  -ms-overflow-style: none; /* IE and Edge */
-  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }
 
 .rehype-code-title {
-  @apply bg-gray-800 rounded-t-md px-2;
+  background: rgb(var(--surface));
+  color: rgb(var(--ink));
+  border-radius: 6px 6px 0 0;
+  padding: 4px 10px;
 }
 .prose pre {
-  @apply bg-gray-900/60 m-0 border rounded-t-none border-t-0 border-gray-800;
+  background: rgb(var(--surface) / 0.7);
+  border: 1px solid rgb(var(--rune) / 0.2);
+  border-top: 0;
+  border-radius: 0 0 6px 6px;
+  margin: 0;
   max-width: 95vw;
 }
 
 .prose code {
-  @apply text-main bg-gray-900 p-[0.1rem] mx-1;
+  color: rgb(var(--accent));
+  background: rgb(var(--surface));
+  padding: 0.05rem 0.25rem;
+  margin: 0 0.15rem;
+  border-radius: 3px;
 }
 
 .token.comment,
@@ -114,9 +316,8 @@ pre {
 .token.doctype,
 .token.cdata,
 .token.punctuation {
-  @apply text-gray-400;
+  color: rgb(var(--muted));
 }
-
 .token.property,
 .token.tag,
 .token.boolean,
@@ -124,39 +325,47 @@ pre {
 .token.constant,
 .token.symbol,
 .token.deleted {
-  @apply text-green-500;
+  color: rgb(var(--moss));
 }
-
 .token.selector,
 .token.attr-name,
 .token.string,
 .token.char,
 .token.builtin,
 .token.inserted {
-  @apply text-yellow-600;
+  color: rgb(var(--ember));
 }
-
 .token.operator,
 .token.entity,
 .token.url,
 .language-css .token.string,
 .style .token.string {
-  @apply text-yellow-500;
+  color: rgb(var(--ember));
 }
-
 .token.atrule,
 .token.attr-value,
 .token.keyword {
-  @apply text-yellow-500;
+  color: rgb(var(--ember));
 }
-
 .token.function,
 .token.class-name {
-  @apply text-main;
+  color: rgb(var(--accent));
 }
-
 .token.regex,
 .token.important,
 .token.variable {
-  @apply text-yellow-500;
+  color: rgb(var(--ember));
+}
+
+/* ----- Reduced motion ----------------------------------------------------- */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
 }
